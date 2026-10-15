@@ -1,0 +1,184 @@
+/* ===== DB NEW · Asystent DEMO (T2) — skryptowe demo, bez API/backendu =====
+   Paleta i font = tokeny strony (ciemne tło, złoty akcent, DM Sans).
+   Prefiks .dba- aby nie kolidować z silnikiem (.pe-). */
+#db-asystent{
+  --dba-ink:#1A1A1E; --dba-ink2:#131316; --dba-gold:#C8A96A;
+  --dba-gold-soft:rgba(200,169,106,.14); --dba-cream:#E8ECF3;
+  --dba-cream-rgb:232,236,243; --dba-line:rgba(200,169,106,.22);
+  font-family:var(--sans,"DM Sans",system-ui,sans-serif);
+}
+#db-asystent *{box-sizing:border-box}
+
+/* ---------- Launcher (pigułka prawy dół) ---------- */
+.dba-launcher{
+  position:fixed;right:24px;bottom:24px;z-index:2147483000;
+  display:inline-flex;align-items:center;gap:10px;
+  min-height:48px;padding:0 20px;border-radius:999px;
+  background:var(--dba-ink);color:var(--dba-cream);
+  border:1px solid var(--dba-line);cursor:pointer;
+  font-size:14px;letter-spacing:.02em;
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
+  transform:translateY(140%);opacity:0;
+  transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .5s,width .3s,padding .3s;
+}
+.dba-launcher.in{transform:translateY(0);opacity:1}
+.dba-launcher:hover{border-color:var(--dba-gold)}
+.dba-dot{
+  width:10px;height:10px;border-radius:50%;background:var(--dba-gold);flex:0 0 auto;
+  box-shadow:0 0 0 0 var(--dba-gold-soft);
+}
+.dba-launcher.in .dba-dot{animation:dbaPulse 6s ease-in-out infinite}
+@keyframes dbaPulse{
+  0%,88%,100%{box-shadow:0 0 0 0 rgba(200,169,106,.5)}
+  94%{box-shadow:0 0 0 7px rgba(200,169,106,0)}
+}
+.dba-label{white-space:nowrap}
+.dba-launcher.mini{width:52px;height:52px;min-height:52px;padding:0;justify-content:center;border-radius:50%}
+.dba-launcher.mini .dba-label{display:none}
+.dba-launcher.mini .dba-dot{width:13px;height:13px}
+
+/* ---------- Dymek powitalny ---------- */
+.dba-bubble{
+  position:fixed;right:24px;bottom:84px;z-index:2147483000;
+  max-width:250px;padding:12px 15px;border-radius:14px 14px 4px 14px;
+  background:var(--dba-ink2);color:var(--dba-cream);
+  border:1px solid var(--dba-line);font-size:13.5px;line-height:1.5;
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
+  opacity:0;transform:translateY(8px);pointer-events:none;
+  transition:opacity .4s,transform .4s;
+}
+.dba-bubble.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.dba-bubble b{color:var(--dba-gold);cursor:pointer}
+
+/* ---------- Okno czatu ---------- */
+.dba-panel{
+  position:fixed;right:24px;bottom:24px;z-index:2147483001;
+  width:400px;height:640px;max-height:calc(100vh - 48px);
+  display:none;flex-direction:column;overflow:hidden;
+  background:var(--dba-ink);color:var(--dba-cream);
+  border:1px solid var(--dba-line);border-radius:16px;
+  box-shadow:0 24px 60px rgba(0,0,0,.6);
+}
+#db-asystent[data-state="open"] .dba-panel{display:flex}
+#db-asystent[data-state="open"] .dba-launcher,
+#db-asystent[data-state="min"] .dba-launcher{display:none}
+
+.dba-head{
+  display:flex;align-items:center;gap:12px;padding:14px 16px;
+  background:var(--dba-ink2);border-bottom:1px solid var(--dba-line);flex:0 0 auto;
+}
+.dba-ava{
+  width:38px;height:38px;border-radius:50%;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--dba-gold);color:var(--dba-ink);font-weight:700;font-size:14px;letter-spacing:.04em;
+}
+.dba-htxt{flex:1;min-width:0}
+.dba-ttl{font-size:14px;font-weight:600}
+.dba-sub{font-size:11.5px;color:rgba(var(--dba-cream-rgb),.65)}
+.dba-head button{
+  width:44px;height:44px;flex:0 0 auto;background:none;border:0;cursor:pointer;
+  color:rgba(var(--dba-cream-rgb),.8);font-size:22px;line-height:1;border-radius:8px;
+}
+.dba-head button:hover{background:var(--dba-gold-soft);color:var(--dba-gold)}
+
+.dba-body{
+  flex:1;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:12px;
+  scrollbar-width:thin;scrollbar-color:var(--dba-line) transparent;
+}
+.dba-body::-webkit-scrollbar{width:8px}
+.dba-body::-webkit-scrollbar-thumb{background:var(--dba-line);border-radius:8px}
+/* w kolumnie flex dzieci NIE mogą się kurczyć — inaczej .dba-mail (overflow:hidden → min-height:0) zapada się do 2px */
+.dba-body>*{flex:0 0 auto}
+
+.dba-msg{max-width:84%;padding:11px 14px;border-radius:14px;font-size:13.5px;line-height:1.5;animation:dbaIn .3s ease}
+@keyframes dbaIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.dba-msg.bot{align-self:flex-start;background:var(--dba-ink2);border:1px solid var(--dba-line);border-bottom-left-radius:4px}
+.dba-msg.user{align-self:flex-end;background:var(--dba-gold);color:var(--dba-ink);border-bottom-right-radius:4px}
+
+.dba-chips{display:flex;flex-wrap:wrap;gap:8px;align-self:flex-start;max-width:100%}
+.dba-chip{
+  min-height:44px;padding:0 16px;border-radius:999px;cursor:pointer;
+  background:none;border:1px solid var(--dba-gold);color:var(--dba-gold);
+  font-size:13px;transition:.2s;
+}
+.dba-chip:hover{background:var(--dba-gold-soft)}
+
+.dba-cards{display:flex;flex-direction:column;gap:10px;align-self:flex-start;width:100%}
+.dba-card{
+  display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;
+  background:var(--dba-ink2);border:1px solid var(--dba-line);text-decoration:none;color:inherit;
+  transition:.2s;
+}
+.dba-card:hover{border-color:var(--dba-gold)}
+.dba-card img{width:64px;height:64px;flex:0 0 auto;object-fit:contain;border-radius:8px;background:#F3F1EC}
+.dba-cname{flex:1;font-size:13.5px;line-height:1.35}
+.dba-clink{color:var(--dba-gold);font-size:13px;white-space:nowrap}
+
+.dba-field{display:flex;gap:8px;align-self:stretch}
+.dba-field input{
+  flex:1;min-height:44px;padding:0 14px;border-radius:10px;
+  background:var(--dba-ink2);border:1px solid var(--dba-line);color:var(--dba-cream);font-size:14px;
+}
+.dba-field input:focus{outline:none;border-color:var(--dba-gold)}
+.dba-send{
+  min-width:44px;min-height:44px;padding:0 16px;border-radius:10px;cursor:pointer;
+  background:var(--dba-gold);color:var(--dba-ink);border:0;font-size:14px;font-weight:600;
+}
+
+.dba-mail{align-self:stretch;background:var(--dba-ink2);border:1px solid var(--dba-line);border-radius:12px;overflow:hidden}
+.dba-mail-row{padding:10px 14px;border-bottom:1px solid var(--dba-line);font-size:13px;line-height:1.5}
+.dba-mail-row:last-child{border-bottom:0}
+.dba-mail-k{color:rgba(var(--dba-cream-rgb),.55);font-size:11px;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:3px}
+.dba-mail-actions{display:flex;gap:8px;align-self:stretch;margin-top:2px}
+.dba-mail-actions button{flex:1;min-height:44px;border-radius:10px;cursor:pointer;font-size:13.5px;border:1px solid var(--dba-gold)}
+.dba-mail-actions .dba-primary{background:var(--dba-gold);color:var(--dba-ink);font-weight:600}
+.dba-mail-actions .dba-ghost{background:none;color:var(--dba-gold)}
+.dba-mail-actions .dba-ghost:hover{background:var(--dba-gold-soft)}
+
+.dba-foot{
+  flex:0 0 auto;padding:10px 16px;font-size:11px;line-height:1.4;
+  color:rgba(var(--dba-cream-rgb),.5);border-top:1px solid var(--dba-line);background:var(--dba-ink2);
+}
+
+/* ---------- Pasek zminimalizowany ---------- */
+.dba-minbar{
+  position:fixed;right:24px;bottom:24px;z-index:2147483001;display:none;
+  align-items:center;gap:10px;min-height:48px;padding:0 18px;border-radius:999px;cursor:pointer;
+  background:var(--dba-ink);color:var(--dba-cream);border:1px solid var(--dba-gold);
+  font-size:13.5px;box-shadow:0 10px 30px rgba(0,0,0,.45);
+}
+#db-asystent[data-state="min"] .dba-minbar{display:inline-flex}
+.dba-minbar .dba-dot{animation:dbaPulse 6s ease-in-out infinite}
+
+/* ---------- Pasek mobilny (≤768px) ---------- */
+.dba-mobilebar{
+  position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:none;
+  grid-template-columns:1fr 1fr 1fr;
+  background:var(--dba-ink);border-top:1px solid var(--dba-line);
+}
+.dba-mobilebar a,.dba-mobilebar button{
+  min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  background:none;border:0;cursor:pointer;color:var(--dba-cream);
+  font-size:12px;text-decoration:none;
+}
+.dba-mobilebar a:active,.dba-mobilebar button:active{background:var(--dba-gold-soft)}
+.dba-mobilebar .dba-ic{font-size:19px;color:var(--dba-gold)}
+
+@media(max-width:768px){
+  .dba-launcher,.dba-bubble{display:none!important}
+  #db-asystent .dba-mobilebar{display:grid}
+  #db-asystent[data-state="open"] .dba-mobilebar{display:none}
+  .dba-panel{right:0;bottom:0;width:100vw;height:100dvh;max-height:100dvh;border-radius:0;border:0}
+  #db-asystent[data-state="min"] .dba-minbar{bottom:60px;right:12px}
+}
+
+/* ---------- Dostępność / reduced-motion ---------- */
+@media(prefers-reduced-motion:reduce){
+  .dba-launcher{transition:none;transform:translateY(0);opacity:1}
+  .dba-launcher .dba-dot,.dba-minbar .dba-dot{animation:none!important}
+  .dba-bubble{transition:none}
+  .dba-msg{animation:none}
+}
+#db-asystent a:focus-visible,#db-asystent button:focus-visible,#db-asystent input:focus-visible{
+  outline:2px solid var(--dba-gold);outline-offset:2px;
+}
