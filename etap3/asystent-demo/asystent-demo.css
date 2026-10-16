@@ -162,7 +162,9 @@
   font-size:12px;text-decoration:none;
 }
 .dba-mobilebar a:active,.dba-mobilebar button:active{background:var(--dba-gold-soft)}
-.dba-mobilebar .dba-ic{font-size:19px;color:var(--dba-gold)}
+.dba-mobilebar .dba-ic{font-size:19px;line-height:1;color:var(--dba-gold)}
+.dba-mobilebar .dba-ic-wa{display:flex;align-items:center;justify-content:center}
+.dba-mobilebar .dba-ic svg{display:block}
 
 @media(max-width:768px){
   .dba-launcher,.dba-bubble{display:none!important}
