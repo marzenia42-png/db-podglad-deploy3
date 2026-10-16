@@ -63,7 +63,7 @@
     var grid = list.map(function (p) {
       var badges = p.segmentyLabel.map(function (s) { return '<span class="kl-badge">' + esc(s) + "</span>"; }).join("");
       return '<a class="kl-card" href="' + esc(BASE + p.url.replace(/^\//, "")) + '">' +
-        '<div class="kl-thumb">' + (p.thumb ? '<img loading="lazy" src="' + IMG + esc(p.thumb) + '" alt="' + esc(p.kolekcja) + '">' : "") + "</div>" +
+        '<div class="kl-thumb">' + (p.thumb ? '<img loading="lazy" src="' + (/^(https?:|\/)/.test(p.thumb) ? esc(p.thumb) : IMG + esc(p.thumb)) + '" alt="' + esc(p.kolekcja) + '">' : "") + "</div>" +
         '<div class="kl-body"><div class="kl-arch">' + esc(p.archetypLabel) + (badges ? " " + badges : "") + "</div>" +
         '<div class="kl-title">' + esc(p.kolekcja) + "</div>" +
         (p.opis ? '<div class="kl-desc">' + esc(p.opis) + "</div>" : "") +
