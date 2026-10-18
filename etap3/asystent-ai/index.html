@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Asystent AI DB Concept Space — podgląd etap (a) | DB Meble</title>
+<style>
+  :root{
+    --bg:#15120f; --bg2:#1A1714; --soft:#211d19; --line:#3a332c;
+    --gold:#C9A96E; --gold-d:#a98643; --cream:#F0E6D3; --mut:#a89a82;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--cream);
+    font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+  .wrap{max-width:980px;margin:0 auto;padding:30px 18px 140px}
+  header.top{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:22px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .logo{width:44px;height:44px;border-radius:11px;flex:none;
+    background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--bg2);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}
+  .brand h1{font-size:19px;margin:0;font-weight:700}
+  .brand .sub{color:var(--mut);font-size:13px;margin-top:2px}
+  .lead{color:var(--cream);font-size:14.5px;margin:18px 0 10px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+  .chip{font-size:12px;padding:6px 11px;border-radius:999px;border:1px solid rgba(201,169,110,.35);
+    background:rgba(201,169,110,.08);color:var(--cream)}
+  .chip b{color:var(--gold)}
+  .banner{border:1px dashed var(--line);border-radius:12px;padding:13px 15px;margin:16px 0 26px;
+    background:var(--bg2);color:var(--mut);font-size:13px}
+  .banner b{color:var(--gold)}
+  h2.sec{font-size:15px;color:var(--gold);margin:30px 0 4px;letter-spacing:.2px}
+  .sec-note{color:var(--mut);font-size:12.5px;margin:0 0 14px}
+  /* karty rozmów */
+  .conv{background:var(--soft);border:1px solid var(--line);border-radius:16px;
+    padding:14px 14px 16px;margin:0 0 18px;overflow:hidden}
+  .conv .ch{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+  .conv .ch .tag{font-size:11px;font-weight:700;color:var(--bg2);background:var(--gold);
+    border-radius:999px;padding:3px 10px}
+  .conv .ch .ttl{font-size:13.5px;font-weight:600}
+  .conv .ch .meta{color:var(--mut);font-size:11.5px;margin-left:auto}
+  .msg{max-width:84%;padding:9px 12px;border-radius:14px;font-size:13.5px;line-height:1.5;
+    white-space:pre-wrap;margin:7px 0;word-wrap:break-word}
+  .bot{background:#2c2723;color:var(--cream);border-bottom-left-radius:4px;margin-right:auto}
+  .usr{background:var(--gold);color:var(--bg2);border-bottom-right-radius:4px;margin-left:auto;font-weight:500}
+  .sys{background:transparent;color:var(--mut);font-size:11px;text-align:center;border:1px dashed var(--line);
+    border-radius:10px;padding:6px 10px;max-width:96%;margin:4px auto}
+  .msg a{color:var(--gold)}
+  .flag{display:inline-block;font-size:10.5px;color:var(--gold);border:1px solid rgba(201,169,110,.4);
+    border-radius:6px;padding:1px 6px;margin:4px 0 0}
+  footer.foot{color:var(--mut);font-size:12px;border-top:1px solid var(--line);margin-top:30px;padding-top:16px}
+  footer.foot b{color:var(--cream)}
+</style>
+</head>
+<body>
+<div style="position:sticky;top:0;z-index:50;background:#C9A96E;color:#1A1714;font:600 13px/1.4 -apple-system,Segoe UI,Roboto,Arial,sans-serif;text-align:center;padding:9px 14px">⚠ TRYB DEMONSTRACYJNY — odpowiedzi „na żywo" ruszą po podłączeniu proxy (klucz API). Teraz: powitanie + ujawnienie AI&nbsp;Act + 3 przykładowe rozmowy wg gotowej persony.</div>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="logo">DB</div>
+      <div>
+        <h1>Asystent AI — DB Concept Space</h1>
+        <div class="sub">Podgląd etap (a) · doradca-czat · <b style="color:#C9A96E">TRYB DEMONSTRACYJNY</b> · dbmeble.pl</div>
+      </div>
+    </div>
+    <div class="chips">
+      <span class="chip">Baza wiedzy: <b>170 READY</b></span>
+      <span class="chip"><b>0</b> cen · <b>0</b> wycofanych (Aloox)</span>
+      <span class="chip">Model: <b>Haiku 4.5</b></span>
+      <span class="chip">Ton: <b>adaptacyjny</b> (Państwo / ty)</span>
+      <span class="chip">Firewall: <b>ceny + terminy</b></span>
+      <span class="chip">AI Act art. 50: <b>ujawnienie</b></span>
+    </div>
+  </header>
+
+  <p class="lead">Tak wygląda asystent na stronie: złoty przycisk w rogu (💬 czat + ☎ telefon),
+  a po kliknięciu — okno rozmowy w stylu DB. Proszę kliknąć przycisk w prawym dolnym rogu.</p>
+
+  <div class="banner">
+    <b>Tryb demonstracyjny.</b> Pełne odpowiedzi „na żywo" ruszą, gdy podłączymy klucz API do środowiska testowego
+    (proxy staging). Do tego czasu przycisk otwiera okno z powitaniem i ujawnieniem AI Act, a poniżej
+    pokazujemy <b>3 przykładowe rozmowy</b> wygenerowane wg gotowej persony — żeby było widać ton,
+    blokadę cen/terminów, dobór tylko z oferty i wezwanie do kontaktu (CTA).
+  </div>
+
+  <h2 class="sec">Przykładowe rozmowy (demonstracja persony)</h2>
+  <p class="sec-note">Produkty i linki są prawdziwe — z kart READY na dbmeble.pl. Ceny i terminy nigdy nie padają (firewall).</p>
+  <div id="convs"></div>
+
+  <footer class="foot">
+    <b>DB MEBLE Beata Barut</b> · marka DB Concept Space · ul. Słowackiego 90A, 32-400 Myślenice<br>
+    tel. 506 147 435 (Dariusz) / 504 120 777 (Beata) · WhatsApp 48506147435 · dbmeble@dbmeble.pl · dbmeble.pl<br>
+    Podgląd wewnętrzny (noindex). Endpoint docelowy: środowisko testowe <code>gdfhgcfafxxghsqjvyof</code>.
+  </footer>
+</div>
+
+<script>
+/* ===== Dane 3 rozmów (persona: ton adaptacyjny, firewall cen+terminów, READY-only, CTA, AI Act) ===== */
+var CONVS = [
+  {
+    tag: "Formalna", ttl: "Firma — gabinet menedżerski", meta: "forma „Państwo”",
+    msgs: [
+      {r:"sys", t:"Rozmowa z asystentem AI (nie z człowiekiem)."},
+      {r:"bot", t:"Dzień dobry! To asystent AI marki DB Concept Space. Pomożemy dobrać meble biurowe albo przygotować koncepcję aranżacji. W czym możemy pomóc?"},
+      {r:"usr", t:"Dzień dobry. Urządzamy gabinet dla członka zarządu — potrzebujemy reprezentacyjnego fotela obrotowego."},
+      {r:"bot", t:"Z przyjemnością pomożemy. Czy fotel ma służyć do wielogodzinnej pracy, czy głównie reprezentacyjnie — do krótszych spotkań? To pomoże nam dobrać mechanizm i oparcie.", f:"1 pytanie na turę"},
+      {r:"usr", t:"Do pracy, osoba spędza przy biurku 8–9 godzin."},
+      {r:"bot", t:"W takim razie polecamy Państwu trzy modele menedżerskie:\n• Profim AccisPro — rozbudowana regulacja i podparcie lędźwi, do całodziennej pracy.\n• Profim MyTurn — elegancka linia, miękkie tapicerowane oparcie, bardzo reprezentacyjny.\n• Profim Veris Net — oparcie siatkowe (przewiewne), lżejszy wizualnie.\nGłówna różnica to oparcie: siatka (Veris) kontra tapicerka (MyTurn) oraz zakres regulacji (najwięcej w AccisPro). Czy mają Państwo preferencję co do oparcia?"},
+      {r:"usr", t:"Ile kosztuje AccisPro?"},
+      {r:"bot", t:"Wycena jest u nas indywidualna i bezpłatna — zależy od konfiguracji, tkaniny i ilości. Przygotuje ją doradca. Mogę od razu dodać AccisPro i MyTurn do zapytania, żeby wrócił do Państwa z ceną — czy tak zrobić?", f:"firewall cen → CTA koszyk"},
+      {r:"usr", t:"Tak, proszę. Jan Kowalski, zakupy@firma.pl"},
+      {r:"bot", t:"Dziękujemy. Zapytanie z modelami AccisPro i MyTurn przyjęte — doradca DB Concept Space odezwie się w ciągu jednego dnia roboczego. W pilnej sprawie: 506 147 435."}
+    ]
+  },
+  {
+    tag: "Swobodna", ttl: "Klient pisze przez „ty” — fotel do pracy", meta: "ton dostrojony",
+    msgs: [
+      {r:"sys", t:"Rozmowa z asystentem AI (nie z człowiekiem)."},
+      {r:"bot", t:"Dzień dobry! To asystent AI marki DB Concept Space. W czym możemy pomóc?"},
+      {r:"usr", t:"hej, szukam wygodnego fotela do pracy, siedzę przy kompie cały dzień"},
+      {r:"bot", t:"Cześć! Jasne, pomogę. Skoro siedzisz cały dzień, najważniejsze są regulacje i podparcie pleców. Wolisz oparcie siatkowe (lżejsze, przewiewne) czy tapicerowane (cieplejsze w odbiorze)?", f:"mirror „ty” + 1 pytanie"},
+      {r:"usr", t:"siatka chyba lepsza"},
+      {r:"bot", t:"Dobry wybór na cały dzień. Zerknij na trzy:\n• Profim TrilloPro — solidny fotel zadaniowy z siatką, dużo regulacji w rozsądnym pakiecie.\n• Profim Raya — nowoczesna siatka, lekka forma.\n• Bejot Momo — wygodne podparcie, ładnie wygląda w domowym biurze.\nRóżnią się głównie zakresem regulacji i stylistyką. Mogę wrzucić któryś do zapytania — doradca policzy wycenę za darmo."},
+      {r:"usr", t:"a na kiedy byłby taki fotel?"},
+      {r:"bot", t:"Termin potwierdzi doradca przy wycenie — zależy od wersji i dostępności u producenta, więc nie chcę rzucać datą na wyrost. Zostawisz kontakt, to wrócimy i z terminem, i z ceną?", f:"firewall terminów → CTA"},
+      {r:"usr", t:"spoko, Marek, 600 100 200"},
+      {r:"bot", t:"Dzięki, Marek! Zapytanie przyjęte — doradca odezwie się w ciągu jednego dnia roboczego. Gdyby coś pilnego: 506 147 435."}
+    ]
+  },
+  {
+    tag: "Przychodnia", ttl: "Poczekalnia medyczna + rejestracja", meta: "wizualizacja + off-topic",
+    msgs: [
+      {r:"sys", t:"Rozmowa z asystentem AI (nie z człowiekiem)."},
+      {r:"bot", t:"Dzień dobry! To asystent AI marki DB Concept Space. W czym możemy pomóc?"},
+      {r:"usr", t:"Dzień dobry. Prowadzę przychodnię i urządzam poczekalnię — szukam wygodnych, łatwych do czyszczenia siedzisk."},
+      {r:"bot", t:"Dzień dobry. Do poczekalni medycznej sprawdzą się siedziska w tkaninach łatwych w dezynfekcji. Ile orientacyjnie miejsc siedzących ma pomieścić poczekalnia?", f:"1 pytanie na turę"},
+      {r:"usr", t:"Jakieś 12 miejsc, plus lada rejestracji."},
+      {r:"bot", t:"Proponujemy Państwu:\n• Bejot Booi oraz Bejot Fora Care — soft seating, można zamówić w tkaninach odpornych na dezynfekcję, wygodne przy dłuższym oczekiwaniu.\n• MDD Lada Wave — lada recepcyjna do rejestracji.\nJeśli zechcą Państwo przesłać rzut poczekalni, przygotujemy wizualizację aranżacji wraz z wyceną — zobaczą Państwo efekt przed decyzją.", f:"wizualizacja (opisuje przestrzeń)"},
+      {r:"usr", t:"A macie też defibrylatory i sprzęt medyczny?"},
+      {r:"bot", t:"To już nie nasza dziedzina — sprzęt medyczny proszę szukać u wyspecjalizowanych dostawców. Chętnie natomiast umeblujemy całą poczekalnię i rejestrację. Czy dodać Booi i ladę Wave do zapytania?", f:"off-topic → pivot + CTA"},
+      {r:"usr", t:"Tak, proszę. Przychodnia Zdrowie, rejestracja@zdrowie.pl"},
+      {r:"bot", t:"Dziękujemy. Zapytanie (Booi + lada Wave) przyjęte — doradca odezwie się w ciągu jednego dnia roboczego i zaproponuje wizualizację poczekalni. W pilnej sprawie: 506 147 435."}
+    ]
+  }
+];
+
+/* render statycznych kart rozmów */
+(function(){
+  var root = document.getElementById('convs');
+  CONVS.forEach(function(c){
+    var box = document.createElement('div'); box.className = 'conv';
+    var ch = document.createElement('div'); ch.className = 'ch';
+    var tag = document.createElement('span'); tag.className='tag'; tag.textContent=c.tag; ch.appendChild(tag);
+    var ttl = document.createElement('span'); ttl.className='ttl'; ttl.textContent=c.ttl; ch.appendChild(ttl);
+    var meta = document.createElement('span'); meta.className='meta'; meta.textContent=c.meta; ch.appendChild(meta);
+    box.appendChild(ch);
+    c.msgs.forEach(function(m){
+      var d = document.createElement('div'); d.className='msg '+(m.r==='usr'?'usr':m.r==='sys'?'sys':'bot');
+      d.textContent = m.t; box.appendChild(d);
+      if(m.f){ var fl=document.createElement('div'); fl.className='flag'; fl.textContent='✓ '+m.f; box.appendChild(fl); }
+    });
+    root.appendChild(box);
+  });
+})();
+</script>
+
+<!-- ===== WIDGET DEMO (złote ikony ☎/💬 wariant B · endpoint staging · fallback demo) ===== -->
+<script>
+(function () {
+  'use strict';
+  var ENDPOINT = 'https://gdfhgcfafxxghsqjvyof.supabase.co/functions/v1/dbmeble-agent'; // staging
+  var TEL = '506 147 435';
+  var WA = '48506147435';
+  var GOLD = '#C9A96E';
+  var CSS = [
+    '.dbw-launch{position:fixed;right:20px;bottom:20px;z-index:2147483000;display:flex;flex-direction:column;align-items:flex-end;gap:11px}',
+    '.dbw-phone{width:48px;height:48px;border-radius:50%;background:#1A1714;border:1.5px solid '+GOLD+';display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.3);text-decoration:none}',
+    '.dbw-phone svg{width:22px;height:22px}',
+    '.dbw-fab{display:flex;align-items:center;gap:9px;background:#1A1714;color:'+GOLD+';border:1.5px solid '+GOLD+';padding:12px 18px 12px 14px;border-radius:999px;cursor:pointer;box-shadow:0 10px 32px rgba(0,0,0,.32);font:600 15px/1 -apple-system,Segoe UI,Roboto,Arial,sans-serif}',
+    '.dbw-fab:hover,.dbw-phone:hover{transform:translateY(-2px)}.dbw-fab svg{width:22px;height:22px}',
+    '.dbw-fab .dbw-dot{width:8px;height:8px;border-radius:50%;background:#5fbf7a;box-shadow:0 0 0 3px rgba(95,191,122,.25)}',
+    '.dbw-panel{position:fixed;right:20px;bottom:20px;z-index:2147483001;width:380px;max-width:calc(100vw - 24px);height:600px;max-height:calc(100vh - 40px);background:#211d19;border:1px solid #3a332c;border-radius:18px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.45);font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}',
+    '.dbw-panel.dbw-open{display:flex}',
+    '.dbw-head{background:#1A1714;padding:15px 16px;display:flex;align-items:center;gap:11px;border-bottom:1px solid #3a332c}',
+    '.dbw-av{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#C9A96E,#a98643);display:flex;align-items:center;justify-content:center;color:#1A1714;font:700 14px/1 sans-serif;flex:none}',
+    '.dbw-head .dbw-t{color:#F0E6D3;font-weight:600;font-size:14.5px}.dbw-head .dbw-s{color:#a89a82;font-size:11.5px;margin-top:2px}',
+    '.dbw-x{margin-left:auto;background:none;border:none;color:#a89a82;font-size:22px;cursor:pointer;line-height:1;padding:4px}.dbw-x:hover{color:#F0E6D3}',
+    '.dbw-body{flex:1;overflow-y:auto;padding:15px;display:flex;flex-direction:column;gap:11px}',
+    '.dbw-body::-webkit-scrollbar{width:8px}.dbw-body::-webkit-scrollbar-thumb{background:#3a332c;border-radius:8px}',
+    '.dbw-m{max-width:85%;padding:10px 13px;border-radius:14px;font-size:14px;line-height:1.5;white-space:pre-wrap;word-wrap:break-word;overflow-wrap:anywhere}',
+    '.dbw-m.dbw-bot{background:#2c2723;color:#F0E6D3;border-bottom-left-radius:4px;align-self:flex-start}',
+    '.dbw-m.dbw-user{background:#C9A96E;color:#1A1714;border-bottom-right-radius:4px;align-self:flex-end;font-weight:500}',
+    '.dbw-m.dbw-sys{align-self:center;background:transparent;color:#a89a82;font-size:11.5px;text-align:center;border:1px dashed #3a332c;border-radius:10px;padding:7px 11px;max-width:95%}',
+    '.dbw-foot{padding:11px;border-top:1px solid #3a332c;background:#1A1714}',
+    '.dbw-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px}',
+    '.dbw-chip{background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.3);color:#F0E6D3;font-size:12px;padding:6px 10px;border-radius:999px;cursor:pointer}',
+    '.dbw-in{display:flex;gap:8px;align-items:flex-end}',
+    '.dbw-in textarea{flex:1;background:#211d19;border:1px solid #3a332c;color:#F0E6D3;border-radius:12px;padding:10px 12px;font:14px sans-serif;resize:none;max-height:90px;line-height:1.4}',
+    '.dbw-in textarea:focus{outline:none;border-color:#C9A96E}',
+    '.dbw-send{background:#C9A96E;border:none;width:40px;height:40px;border-radius:12px;cursor:pointer;flex:none;display:flex;align-items:center;justify-content:center}.dbw-send svg{width:18px;height:18px}',
+    '.dbw-legal{text-align:center;color:#8a7d68;font-size:10.5px;margin-top:8px}',
+    '@media(max-width:480px){.dbw-panel{right:0;bottom:0;width:100vw;height:100vh;max-height:100vh;border-radius:0}}'
+  ].join('');
+
+  var ICON_CHAT = '<svg viewBox="0 0 24 24" fill="none" stroke="'+GOLD+'" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>';
+  var ICON_PHONE = '<svg viewBox="0 0 24 24" fill="none" stroke="'+GOLD+'" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>';
+
+  var body, inp, chips, busy=false, greeted=false;
+  function el(c){var d=document.createElement('div');if(c)d.className=c;return d;}
+  function scroll(){body.scrollTop=body.scrollHeight;}
+  function addBot(t){var m=el('dbw-m dbw-bot');m.textContent=t;body.appendChild(m);scroll();return m;}
+  function addUser(t){var m=el('dbw-m dbw-user');m.textContent=t;body.appendChild(m);scroll();}
+  function addSys(t){var m=el('dbw-m dbw-sys');m.textContent=t;body.appendChild(m);scroll();}
+
+  function greet(){
+    if(greeted)return;greeted=true;
+    addSys('Rozmowa z asystentem AI (nie z człowiekiem).');           // AI Act art. 50
+    addBot('Dzień dobry! To asystent AI marki DB Concept Space. Pomożemy dobrać meble biurowe albo przygotować koncepcję aranżacji. W czym możemy pomóc?');
+    ['▶ Rozmowa: formalna','▶ Rozmowa: swobodna','▶ Rozmowa: przychodnia'].forEach(function(x,i){
+      var ch=el('dbw-chip');ch.textContent=x;ch.onclick=function(){playDemo(i);};chips.appendChild(ch);
+    });
+  }
+
+  // odtwarza scenariusz rozmowy (dane z CONVS na stronie) — demonstracja bez proxy
+  function playDemo(i){
+    if(busy)return;busy=true;chips.innerHTML='';
+    body.innerHTML='';greeted=false;
+    var c=(window.CONVS||[])[i]; if(!c){busy=false;return;}
+    var k=0;
+    (function step(){
+      if(k>=c.msgs.length){busy=false;
+        var r=el('dbw-chip');r.textContent='↺ inne rozmowy';r.onclick=function(){body.innerHTML='';greeted=false;chips.innerHTML='';greet();};chips.appendChild(r);
+        return;}
+      var m=c.msgs[k++];
+      if(m.r==='usr')addUser(m.t); else if(m.r==='sys')addSys(m.t); else addBot(m.t);
+      setTimeout(step, m.r==='sys'?250:650);
+    })();
+  }
+
+  function api(payload){
+    return fetch(ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){return r.json().catch(function(){return{};});});
+  }
+  function doSend(){
+    var v=inp.value.trim();if(!v||busy)return;inp.value='';addUser(v);busy=true;
+    var t=addBot('…');
+    api({mode:'chat',messages:[{role:'user',content:v}]}).then(function(j){
+      t.textContent = j.response || 'Tryb demo: pełne odpowiedzi ruszą po podłączeniu klucza API do środowiska testowego. Powyżej przyciski odtwarzają 3 przykładowe rozmowy, a pod oknem — ich pełne zapisy. Kontakt: '+TEL+'.';
+      busy=false;
+    }).catch(function(){
+      t.textContent='Tryb demo (środowisko testowe jeszcze bez klucza API). Proszę kliknąć przycisk „▶ Rozmowa…” powyżej, by zobaczyć przykład. Kontakt: '+TEL+'.';
+      busy=false;
+    });
+  }
+  function open(){document.getElementById('dbw-panel').classList.add('dbw-open');document.getElementById('dbw-launch').style.display='none';greet();if(inp)inp.focus();}
+  function close(){document.getElementById('dbw-panel').classList.remove('dbw-open');document.getElementById('dbw-launch').style.display='flex';}
+
+  function build(){
+    var st=document.createElement('style');st.textContent=CSS;document.head.appendChild(st);
+
+    var launch=el('dbw-launch');launch.id='dbw-launch';
+    var phone=document.createElement('a');phone.className='dbw-phone';phone.href='https://wa.me/'+WA;phone.target='_blank';phone.rel='noopener';
+    phone.title='Zadzwoń / WhatsApp';phone.innerHTML=ICON_PHONE;
+    var fab=el('dbw-fab');fab.id='dbw-fab';
+    fab.innerHTML='<span class="dbw-dot"></span>'+ICON_CHAT;fab.appendChild(document.createTextNode('Doradca AI'));fab.onclick=open;
+    launch.appendChild(phone);launch.appendChild(fab);
+
+    var panel=el('dbw-panel');panel.id='dbw-panel';
+    var head=el('dbw-head');
+    var av=el('dbw-av');av.textContent='DB';head.appendChild(av);
+    var ht=el();var t1=el('dbw-t');t1.textContent='Doradca DB Concept Space';var t2=el('dbw-s');t2.textContent='Asystent AI · tryb demonstracyjny';ht.appendChild(t1);ht.appendChild(t2);head.appendChild(ht);
+    var x=document.createElement('button');x.className='dbw-x';x.textContent='×';x.onclick=close;head.appendChild(x);
+
+    body=el('dbw-body');body.id='dbw-body';
+
+    var foot=el('dbw-foot');chips=el('dbw-chips');
+    var inrow=el('dbw-in');
+    inp=document.createElement('textarea');inp.rows=1;inp.placeholder='Wiadomość…';inp.maxLength=1000;
+    inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();doSend();}});
+    var sb=document.createElement('button');sb.className='dbw-send';sb.onclick=doSend;
+    sb.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="#1A1714" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+    inrow.appendChild(inp);inrow.appendChild(sb);
+    var legal=el('dbw-legal');legal.textContent='Rozmawiasz z asystentem AI. Kontakt z człowiekiem: '+TEL;
+    foot.appendChild(chips);foot.appendChild(inrow);foot.appendChild(legal);
+
+    panel.appendChild(head);panel.appendChild(body);panel.appendChild(foot);
+    document.body.appendChild(launch);document.body.appendChild(panel);
+
+    // auto (dla zrzutów): ?open=1 otwiera panel; ?play=N wgrywa rozmowę N natychmiast (bez animacji)
+    try{
+      var qs=new URLSearchParams(location.search);
+      if(qs.has('open')||qs.has('play')){
+        open();
+        if(qs.has('play')){
+          var i=parseInt(qs.get('play'),10)||0;var c=(window.CONVS||[])[i];
+          if(c){body.innerHTML='';greeted=true;chips.innerHTML='';
+            c.msgs.forEach(function(m){if(m.r==='usr')addUser(m.t);else if(m.r==='sys')addSys(m.t);else addBot(m.t);});}
+        }
+      }
+    }catch(e){}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
+})();
+</script>
+</body>
+</html>
