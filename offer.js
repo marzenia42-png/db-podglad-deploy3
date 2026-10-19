@@ -33,7 +33,8 @@
     sending:   'Wysyłamy zapytanie…',          // TEKST_BETI_7
     errFill:   'Proszę uzupełnić pola oznaczone gwiazdką i podać e-mail lub telefon.', // TEKST_BETI_8
     errSend:   'Nie udało się wysłać zapytania. Prosimy spróbować ponownie albo skontaktować się bezpośrednio: 506 147 435, dbmeble@dbmeble.pl.', // TEKST_BETI_9
-    notePh:    'Np. liczba stanowisk, metraż, termin, kolory', // TEKST_BETI_10 (placeholder uwag)
+    notePh:    'Np. liczba stanowisk, metraż, termin, kolory', // TEKST_BETI_10 (placeholder głównego pola „Uwagi")
+    itemNotePh: 'Np. kolor, wersja, wykończenie',            // BETI 19.10 — placeholder notatki PER POZYCJA
     clear:     'Wyczyść listę',                // TEKST_BETI_11
     // etykiety pól — słowa PLANu (BETI-approved), nie wymyślone:
     lFirma: 'Firma', lOsoba: 'Imię i nazwisko', lEmail: 'E-mail', lPhone: 'Telefon',
@@ -212,7 +213,7 @@
         + (i.img ? '<img src="' + esc(i.img) + '" alt="">' : '<div style="width:62px;height:62px;background:#000;border-radius:6px"></div>')
         + '<div><div class="nm">' + esc(i.name) + '</div>'
         + '<div class="pr">' + esc(i.prod) + (i.wariant ? (' · ' + esc(i.wariant)) : '') + '</div>'
-        + '<input class="note" type="text" value="' + esc(i.note || '') + '" placeholder="' + esc(T.notePh) + '" data-f="note">'
+        + '<input class="note" type="text" value="' + esc(i.note || '') + '" placeholder="' + esc(T.itemNotePh) + '" data-f="note">'
         + '<div class="dbm-op-qty"><button type="button" data-act="dec" aria-label="mniej">−</button><b>' + (i.qty || 1) + '</b><button type="button" data-act="inc" aria-label="więcej">+</button></div>'
         + '</div>'
         + '<button class="rm" type="button" aria-label="usuń">×</button></div>';

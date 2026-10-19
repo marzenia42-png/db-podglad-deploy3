@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<script>(function(){try{var t=localStorage.getItem('dbm_theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<!-- Consent Mode v2 + GA4/GTM przez wspólny cookie-consent.js (na końcu <head>) -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1A1714">
+<title>Moja Oferta — lista do wyceny · DB Meble</title>
+<meta name="description" content="Lista produktów do wyceny. Wyślij zapytanie ofertowe. Ceny ustalamy indywidualnie.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://dbmeble.pl/moja-oferta/">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1A1714;--gold:#C8A96A;--gold-2:#E0C58E;--cream:#FAFAF8;--line:rgba(200,169,106,.18);--serif:"Cormorant Garamond",serif;--sans:"DM Sans",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{background:var(--ink);color:var(--cream)}
+html[data-theme="light"]{background:var(--cream);color:var(--ink)}
+body{margin:0;font-family:var(--sans);min-height:100vh;line-height:1.5}
+a{color:inherit}
+.mo-hero{max-width:900px;margin:0 auto;padding:60px clamp(20px,4vw,56px) 20px}
+.mo-hero .eyebrow{font:600 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.mo-hero h1{font:500 clamp(30px,4.6vw,46px) var(--serif);margin:8px 0 10px}
+.mo-hero p{opacity:.78;max-width:640px;font-size:16px}
+.mo-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.mo-btn{font:600 15px var(--sans);border-radius:8px;padding:13px 26px;cursor:pointer;text-decoration:none;border:1px solid transparent;display:inline-flex;align-items:center;min-height:48px}
+.mo-btn.primary{background:var(--gold);color:#1A1714}.mo-btn.primary:hover{background:var(--gold-2)}
+.mo-btn.ghost{background:transparent;border-color:var(--line);color:inherit}.mo-btn.ghost:hover{border-color:var(--gold);color:var(--gold)}
+</style>
+<script src="../cookie-consent.js" data-policy="../polityka-prywatnosci.html"></script>
+</head>
+<body data-root="../">
+<script src="../header.js" data-root="../"></script>
+<noscript><nav style="padding:18px clamp(20px,4vw,56px);border-bottom:1px solid rgba(200,169,106,.18)">
+  <a href="../index.html"><img src="../images/logo-db-white.png?v=0a124bbb" alt="DB Concept Space" style="height:26px;width:auto;display:block"></a>
+</nav></noscript>
+
+<header class="mo-hero">
+  <p class="eyebrow">Zapytanie ofertowe</p>
+  <h1>Moja Oferta</h1>
+  <!-- TEKST_BETI_MO1: zdanie wyjaśniające, że lista otwiera się w panelu „Moja Oferta" (prawy panel / dolny pasek na telefonie). -->
+  <p id="moLead">Lista ofertowa jest dostępna na każdej stronie — przycisk „Moja Oferta" w prawym dolnym rogu ekranu, a na telefonie na dolnym pasku.</p>
+  <div class="mo-cta">
+    <button class="mo-btn primary" type="button" id="moOpen">Otwórz Moją Ofertę</button>
+    <a class="mo-btn ghost" href="../producenci/">Przeglądaj katalog →</a>
+  </div>
+</header>
+
+<!-- WYGASZENIE /moja-oferta/ (BETI 18.10): jeden koszyk = window.DBMOffer (offer.js wpinany globalnie przez footer.js).
+     offer.js przy starcie migruje stary klucz `db_oferta` → `dbm_offer_v1` (klient nie traci pozycji) i otwiera panel.
+     Ta strona nie renderuje już własnej listy ani mailto/PDF — to robi panel. -->
+<script>
+(function(){
+  function openWhenReady(auto){
+    var tries=0;
+    (function wait(){
+      if (window.DBMOffer && typeof window.DBMOffer.open==='function'){ window.DBMOffer.open(); return; }
+      if (tries++ < 60) setTimeout(wait,100);
+    })();
+  }
+  var btn=document.getElementById('moOpen');
+  if (btn) btn.addEventListener('click',function(){ openWhenReady(false); });
+  // auto-otwarcie panelu po wejściu na /moja-oferta/
+  if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ openWhenReady(true); });
+  else openWhenReady(true);
+})();
+</script>
+
+<script src="../theme.js" defer></script>
+<!-- footer.js (slim) wstrzykuje też offer.js globalnie (data-dbm-offer) -->
+<script src="../footer.js" data-mode="slim" data-root="../"></script>
+<noscript><footer style="background:#131316;color:rgba(240,230,211,.72);padding:26px clamp(20px,4vw,48px);border-top:1px solid rgba(200,169,106,.16);font:400 13px 'DM Sans',system-ui,sans-serif"><div style="max-width:1240px;margin:0 auto">© 2026 DB Meble · DB MEBLE Beata Barut · ul. Słowackiego 90A, 32-400 Myślenice · NIP 9451353320 · REGON 120427300 · <a href="../polityka-prywatnosci.html" style="color:#C8A96A">Polityka prywatności</a> · <a href="../regulamin.html" style="color:#C8A96A">Regulamin</a> · <a href="../cookies.html" style="color:#C8A96A">Cookies</a></div></footer></noscript>
+</body>
+</html>
