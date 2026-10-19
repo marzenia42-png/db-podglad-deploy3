@@ -109,6 +109,7 @@
       '#dbmOfferLauncher .cnt{background:#1A1714;color:' + g + ';border-radius:20px;min-width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;padding:0 6px}',
       '#dbmOfferBar{position:fixed;left:0;right:0;bottom:0;z-index:9000;display:none;align-items:center;justify-content:space-between;gap:12px;background:' + ink + ';border-top:1px solid ' + line + ';padding:12px 16px calc(12px + env(safe-area-inset-bottom));color:' + cream + '}',
       '#dbmOfferBar.show{display:flex}',
+      '@media(min-width:561px){#dbmOfferBar.show{display:none}}',   // pasek dolny = tylko mobile; desktop ma launcher
       '#dbmOfferBar .lbl{font:600 16px "DM Sans",system-ui,sans-serif}',
       '#dbmOfferBar .cnt{color:' + g + '}',
       '#dbmOfferBar button{background:' + g + ';color:#1A1714;border:0;border-radius:8px;padding:0 18px;min-height:44px;font:600 16px "DM Sans",system-ui,sans-serif;cursor:pointer}',
