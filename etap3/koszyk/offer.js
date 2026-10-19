@@ -31,7 +31,8 @@
     rodo:      'Wyrażam zgodę na przetwarzanie moich danych osobowych przez DB MEBLE Beata Barut w celu przygotowania oferty i kontaktu w tej sprawie. Szczegóły w Polityce prywatności.', // TEKST_BETI_5 (link = fraza „Polityce prywatności")
     success:   'Dziękujemy. Zapytanie zostało wysłane — skontaktujemy się z Państwem w ciągu 1 dnia roboczego.', // TEKST_BETI_6
     sending:   'Wysyłamy zapytanie…',          // TEKST_BETI_7
-    errFill:   'Proszę uzupełnić pola oznaczone gwiazdką i podać e-mail lub telefon.', // TEKST_BETI_8
+    errFill:   'Proszę uzupełnić pola oznaczone gwiazdką i podać poprawny e-mail.', // TEKST_BETI_8 (19.10: e-mail obowiązkowy, telefon opcjonalny)
+    errPhone:  'Prosimy podać poprawny numer telefonu albo zostawić pole puste.', // 19.10 — telefon opcjonalny, format tylko gdy wpisany
     errSend:   'Nie udało się wysłać zapytania. Prosimy spróbować ponownie albo skontaktować się bezpośrednio: 506 147 435, dbmeble@dbmeble.pl.', // TEKST_BETI_9
     notePh:    'Np. liczba stanowisk, metraż, termin, kolory', // TEKST_BETI_10 (placeholder głównego pola „Uwagi")
     itemNotePh: 'Np. kolor, wersja, wykończenie',            // BETI 19.10 — placeholder notatki PER POZYCJA
@@ -226,13 +227,14 @@
       el.querySelector('.note').oninput = function (e) { upd(id, 'note', e.target.value); };
     });
     // formularz (pola z PLANu; teksty UX = TEKST_BETI_x)
+    var ophone = (window.DBM_CONFIG && window.DBM_CONFIG.OFFER_PHONE) || CFG.OFFER_PHONE || ''; // render-time: config bywa ładowany po offer.js
     foot.innerHTML = '<p class="dbm-op-hint" style="text-align:left;margin:0 0 12px">' + esc(T.formSub) + '</p>'
       + '<form id="dbmOfferForm" novalidate>'
       + '<div class="dbm-of-field"><label>' + esc(T.lFirma) + ' *</label><input name="firma" type="text" autocomplete="organization"></div>'
       + '<div class="dbm-of-field"><label>' + esc(T.lOsoba) + ' *</label><input name="osoba" type="text" autocomplete="name"></div>'
       + '<div class="dbm-of-row">'
       + '<div class="dbm-of-field"><label>' + esc(T.lEmail) + ' *</label><input name="email" type="email" autocomplete="email"></div>'
-      + '<div class="dbm-of-field"><label>' + esc(T.lPhone) + ' *</label><input name="phone" type="tel" autocomplete="tel"></div>'
+      + '<div class="dbm-of-field"><label>' + esc(T.lPhone) + '</label><input name="phone" type="tel" autocomplete="tel"></div>'
       + '</div>'
       + '<div class="dbm-of-field"><label>' + esc(T.lZakres) + '</label><input name="size" type="text"></div>'
       + '<div class="dbm-of-field"><label>' + esc(T.lUwagi) + '</label><textarea name="message" rows="2" placeholder="' + esc(T.notePh) + '"></textarea></div>'
@@ -241,7 +243,7 @@
       + '<div id="dbmOfferMsg"></div>'
       + '<button class="dbm-op-send" type="submit">' + esc(T.send) + ' (' + n + ')</button>'
       + '<button class="dbm-op-clr" type="button">' + esc(T.clear) + '</button>'
-      + '<p class="dbm-op-hint">' + esc(T.priceHint) + ' · ' + esc(CFG.OFFER_PHONE || '') + '</p>'
+      + '<p class="dbm-op-hint">' + esc(T.priceHint) + (ophone ? ' · ' + esc(ophone) : '') + '</p>'
       + '</form>';
     foot.querySelector('.dbm-op-clr').onclick = function () { if (confirm(T.clear + '?')) clear(); };
     foot.querySelector('#dbmOfferForm').addEventListener('submit', onSubmit);
@@ -256,8 +258,10 @@
     var msg = document.getElementById('dbmOfferMsg');
     function show(cls, txt) { msg.className = 'dbm-op-msg ' + cls; msg.textContent = txt; }
     var email = (f.email.value || '').trim(), phone = (f.phone.value || '').trim();
-    var hasContact = (email && /.+@.+\..+/.test(email)) || (phone.replace(/\D/g, '').length >= 7);
-    if (!f.firma.value.trim() || !f.osoba.value.trim() || !hasContact || !f.rodo.checked) { show('err', T.errFill); return; }
+    var emailOk = email && /.+@.+\..+/.test(email);                    // e-mail OBOWIĄZKOWY (decyzja Dario 19.10)
+    var phoneOk = !phone || phone.replace(/\D/g, '').length >= 7;       // telefon OPCJONALNY: pusty OK, format tylko gdy wpisany
+    if (!f.firma.value.trim() || !f.osoba.value.trim() || !emailOk || !f.rodo.checked) { show('err', T.errFill); return; }
+    if (!phoneOk) { show('err', T.errPhone); return; }
 
     var items = load().map(function (i) {
       return { producent: i.prod, model: i.name, wariant: i.wariant || '', ilosc: i.qty || 1, uwagi: i.note || '', url: i.url };

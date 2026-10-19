@@ -91,6 +91,13 @@
   // root = prefiks do korzenia /new/ → offer.js używa go dla akcji POST kontakt.php.
   try {
     window.DBM_OFFER_ROOT = root;
+    // config.js (DBM_CONFIG) — offer.js potrzebuje OFFER_PHONE/OFFER_EMAIL także na stronach bez własnego config.js (np. /moja-oferta/).
+    if (!window.DBM_CONFIG && !document.querySelector('script[data-dbm-config]')) {
+      var cs = document.createElement('script');
+      cs.src = root + 'config.js';
+      cs.setAttribute('data-dbm-config', '1');
+      document.body.appendChild(cs);
+    }
     if (!document.querySelector('script[data-dbm-offer]')) {
       var os = document.createElement('script');
       os.src = root + 'offer.js';
