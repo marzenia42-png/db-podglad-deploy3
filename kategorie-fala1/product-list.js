@@ -10,7 +10,8 @@
   var BASE = IMG.replace(/images\/$/, ""); // prefix do /new/ root — linki kart MUSZA zostac wewnatrz /new/
   var IDX = root.getAttribute("data-index") || "/products-index.json";
   // T2 15.10 (BETI fala1): karty w kategorie[] ale 404 na live -> nie renderuj kafla (kategorie[] zostaje w repo). curl live 15.10; usun gdy wdrozone.
-  var NONLIVE = { "mdd-clip": 1, "mdd-mono": 1, "mdd-ramo": 1, "profim-lunea": 1 };
+  // T2 19.10 (BETI ZAD2): NET bez packshotu -> kafel pokazuje aranz mylacy kategorie (szafy=biurka s22, stoliki=regal s30, kontener=aranz s20). Decyzja 15.10: wylaczyc kafel render-time do czasu karty rodziny NET (T1, zrodlo mebelux.com.pl). PREVIEW-ONLY; przy deployu fala1 zapiec w worktree product-list.js.
+  var NONLIVE = { "mdd-clip": 1, "mdd-mono": 1, "mdd-ramo": 1, "profim-lunea": 1, "mebelux-net-regaly-szafy": 1, "mebelux-net-kontener": 1, "mebelux-net-stoliki": 1 };
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
   // humanizacja etykiety typu: slug ("szafka-skrytkowa") -> "Szafka skrytkowa". Nazwy juz ludzkie (wielka litera lub spacja) zostaja. Lustro ARCH_LABEL z _build_mirror (SSR), zeby JS == SSR.
   var human = function (s) { s = String(s == null ? "" : s); return /[A-ZŁŚŻŹĆŃÓĄĘ ]/.test(s) ? s : s.split("-").map(function (w, i) { return i === 0 ? w.charAt(0).toUpperCase() + w.slice(1) : w; }).join(" "); };
@@ -63,7 +64,7 @@
     var grid = list.map(function (p) {
       var badges = p.segmentyLabel.map(function (s) { return '<span class="kl-badge">' + esc(s) + "</span>"; }).join("");
       return '<a class="kl-card" href="' + esc(BASE + p.url.replace(/^\//, "")) + '">' +
-        '<div class="kl-thumb">' + (p.thumb ? '<img loading="lazy" src="' + (/^(https?:|\/)/.test(p.thumb) ? esc(p.thumb) : IMG + esc(p.thumb)) + '" alt="' + esc(p.kolekcja) + '">' : "") + "</div>" +
+        '<div class="kl-thumb">' + (p.thumb ? '<img loading="lazy" src="' + IMG + esc(p.thumb) + '" alt="' + esc(p.kolekcja) + '">' : "") + "</div>" +
         '<div class="kl-body"><div class="kl-arch">' + esc(p.archetypLabel) + (badges ? " " + badges : "") + "</div>" +
         '<div class="kl-title">' + esc(p.kolekcja) + "</div>" +
         (p.opis ? '<div class="kl-desc">' + esc(p.opis) + "</div>" : "") +
