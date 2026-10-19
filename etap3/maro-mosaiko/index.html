@@ -2192,4 +2192,8 @@ function done(s){return s.indexOf('data:')===0||s.indexOf('assets/')>=0;}
 function fix(root){(root.querySelectorAll?root.querySelectorAll('img'):[]).forEach(function(im){var s=im.getAttribute('src')||'';if(!done(s)){var b=bn(s);if(A[b]&&A[b]!==s)im.setAttribute('src',A[b]);}});
 (root.querySelectorAll?root.querySelectorAll('[style*=background]'):[]).forEach(function(el){var st=el.getAttribute('style')||'';if(done(st))return;var m=st.match(/url\((['"]?)([^'")]+)\1\)/);if(m){var b=bn(m[2]);if(A[b])el.style.backgroundImage="url('"+A[b]+"')";}});}
 var mo;try{mo=new MutationObserver(function(){fix(document);});mo.observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['src','style']});}catch(e){}
-document.addEventListener('DOMContentLoaded',function(){fix(document);});setTimeout(function(){fix(document);},60);setTimeout(function(){fix(document);},450);setTimeout(function(){fix(document);},2500);fix(document);})();</script></body></html>
+document.addEventListener('DOMContentLoaded',function(){fix(document);});setTimeout(function(){fix(document);},60);setTimeout(function(){fix(document);},450);setTimeout(function(){fix(document);},2500);fix(document);})();</script>
+<!-- KOSZYK ZAPYTAŃ (T4) — offer.js globalny; silnik kart inline bez data-dbm-wired → offer.js re-binduje .pe-dodaj -->
+<script>window.DBM_OFFER_ROOT="";</script>
+<script src="../../offer.js" data-dbm-offer></script>
+</body></html>

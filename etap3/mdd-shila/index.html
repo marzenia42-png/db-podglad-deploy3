@@ -2125,4 +2125,8 @@ document.querySelectorAll('[style*=background]').forEach(function(el){var st=el.
 try{new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['src','data-img','data-hi','data-src','style']});}catch(e){}
 document.addEventListener('DOMContentLoaded',fix);setInterval(fix,400);fix();})();
 </script>
+
+<!-- KOSZYK ZAPYTAŃ (T4) — offer.js globalny; silnik kart inline bez data-dbm-wired → offer.js re-binduje .pe-dodaj -->
+<script>window.DBM_OFFER_ROOT="";</script>
+<script src="../../offer.js" data-dbm-offer></script>
 </body></html>
