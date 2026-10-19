@@ -31,8 +31,8 @@
     rodo:      'Wyrażam zgodę na przetwarzanie moich danych osobowych przez DB MEBLE Beata Barut w celu przygotowania oferty i kontaktu w tej sprawie. Szczegóły w Polityce prywatności.', // TEKST_BETI_5 (link = fraza „Polityce prywatności")
     success:   'Dziękujemy. Zapytanie zostało wysłane — skontaktujemy się z Państwem w ciągu 1 dnia roboczego.', // TEKST_BETI_6
     sending:   'Wysyłamy zapytanie…',          // TEKST_BETI_7
-    errFill:   'Proszę uzupełnić pola oznaczone gwiazdką i podać poprawny e-mail.', // TEKST_BETI_8 (19.10: e-mail obowiązkowy, telefon opcjonalny)
-    errPhone:  'Prosimy podać poprawny numer telefonu albo zostawić pole puste.', // 19.10 — telefon opcjonalny, format tylko gdy wpisany
+    errFill:   'Prosimy uzupełnić pola oznaczone gwiazdką.', // TEKST_BETI_8 (BETI b4 19.10, dosłownie)
+    errPhone:  'Numer telefonu wygląda na niepełny. Prosimy go sprawdzić albo zostawić pole puste.', // BETI b4 19.10 (tylko gdy telefon wpisany i niepoprawny)
     errSend:   'Nie udało się wysłać zapytania. Prosimy spróbować ponownie albo skontaktować się bezpośrednio: 506 147 435, dbmeble@dbmeble.pl.', // TEKST_BETI_9
     notePh:    'Np. liczba stanowisk, metraż, termin, kolory', // TEKST_BETI_10 (placeholder głównego pola „Uwagi")
     itemNotePh: 'Np. kolor, wersja, wykończenie',            // BETI 19.10 — placeholder notatki PER POZYCJA
