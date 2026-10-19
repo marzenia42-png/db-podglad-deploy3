@@ -21,20 +21,20 @@
   function kontaktAction() { return root() + 'kontakt.php'; }
   function politykaHref() { return root() + 'polityka-prywatnosci.html'; }
 
-  // ——— PLACEHOLDERY TEKSTU (BETI wypełnia; legenda w KONTROLA/T4/koszyk) ———
+  // ——— TEKSTY UX (BETI 2026-10-19, wstawione DOSŁOWNIE; forma „Państwo", bez cen) ———
   var T = {
     title:     'Moja Oferta',                 // istniejąca nazwa (zachowana)
-    empty:     'TEKST_BETI_1',                 // komunikat pustej oferty
-    added:     'TEKST_BETI_2',                 // toast po dodaniu pozycji
-    dup:       'TEKST_BETI_3',                 // toast gdy ta sama pozycja → +ilość
-    formSub:   'TEKST_BETI_4',                 // zdanie wprowadzające pod listą (po co formularz)
-    rodo:      'TEKST_BETI_5',                 // PEŁNA treść zgody RODO (prawne — BETI/Dario; UWAGA nazwa podmiotu)
-    success:   'TEKST_BETI_6',                 // komunikat po udanej wysyłce
-    sending:   'TEKST_BETI_7',                 // komunikat w trakcie wysyłki
-    errFill:   'TEKST_BETI_8',                 // błąd: brak wymaganych pól
-    errSend:   'TEKST_BETI_9',                 // błąd: wysyłka nieudana
-    notePh:    'TEKST_BETI_10',                // placeholder pola uwag/konfiguracji pozycji
-    clear:     'TEKST_BETI_11',                // etykieta „wyczyść"
+    empty:     'Państwa lista jest pusta. Produkty dodają Państwo przyciskiem „+ Dodaj do oferty" na kartach.', // TEKST_BETI_1
+    added:     'Dodano do Państwa oferty: {nazwa}',          // TEKST_BETI_2 ({nazwa} = nazwa pozycji)
+    dup:       '{nazwa} jest już na liście — zwiększyliśmy ilość do {n} szt.', // TEKST_BETI_3 ({nazwa},{n})
+    formSub:   'Przygotujemy ofertę na wybrane meble. Odpowiadamy w ciągu 1 dnia roboczego.', // TEKST_BETI_4
+    rodo:      'Wyrażam zgodę na przetwarzanie moich danych osobowych przez DB MEBLE Beata Barut w celu przygotowania oferty i kontaktu w tej sprawie. Szczegóły w Polityce prywatności.', // TEKST_BETI_5 (link = fraza „Polityce prywatności")
+    success:   'Dziękujemy. Zapytanie zostało wysłane — skontaktujemy się z Państwem w ciągu 1 dnia roboczego.', // TEKST_BETI_6
+    sending:   'Wysyłamy zapytanie…',          // TEKST_BETI_7
+    errFill:   'Proszę uzupełnić pola oznaczone gwiazdką i podać e-mail lub telefon.', // TEKST_BETI_8
+    errSend:   'Nie udało się wysłać zapytania. Prosimy spróbować ponownie albo skontaktować się bezpośrednio: 506 147 435, dbmeble@dbmeble.pl.', // TEKST_BETI_9
+    notePh:    'Np. liczba stanowisk, metraż, termin, kolory', // TEKST_BETI_10 (placeholder uwag)
+    clear:     'Wyczyść listę',                // TEKST_BETI_11
     // etykiety pól — słowa PLANu (BETI-approved), nie wymyślone:
     lFirma: 'Firma', lOsoba: 'Imię i nazwisko', lEmail: 'E-mail', lPhone: 'Telefon',
     lZakres: 'Metraż / termin', lUwagi: 'Uwagi', send: 'Wyślij zapytanie',
@@ -76,11 +76,11 @@
     var prod = data.prod || data.producent || '';
     var items = load();
     var ex = items.filter(function (i) { return i.url === url && (i.wariant || '') === wariant; })[0];
-    if (ex) { ex.qty = (ex.qty || 1) + 1; save(items); toast(T.dup); openPanel(); }
+    if (ex) { ex.qty = (ex.qty || 1) + 1; save(items); toast(T.dup.replace('{nazwa}', ex.name || name).replace('{n}', ex.qty)); openPanel(); }
     else {
       items.push({ id: uid(), name: name, prod: prod, cat: data.cat || '', wariant: wariant,
         url: url, img: data.img || '', qty: 1, note: '' });
-      save(items); toast(T.added);
+      save(items); toast(T.added.replace('{nazwa}', name));
       ev('add_to_offer', { producent: prod, model: name, wariant: wariant });
     }
   }
@@ -234,8 +234,8 @@
       + '<div class="dbm-of-field"><label>' + esc(T.lPhone) + ' *</label><input name="phone" type="tel" autocomplete="tel"></div>'
       + '</div>'
       + '<div class="dbm-of-field"><label>' + esc(T.lZakres) + '</label><input name="size" type="text"></div>'
-      + '<div class="dbm-of-field"><label>' + esc(T.lUwagi) + '</label><textarea name="message" rows="2"></textarea></div>'
-      + '<label class="dbm-of-rodo"><input type="checkbox" name="rodo"><span>' + esc(T.rodo) + ' <a href="' + esc(politykaHref()) + '" target="_blank" rel="noopener">Polityka prywatności</a> *</span></label>'
+      + '<div class="dbm-of-field"><label>' + esc(T.lUwagi) + '</label><textarea name="message" rows="2" placeholder="' + esc(T.notePh) + '"></textarea></div>'
+      + '<label class="dbm-of-rodo"><input type="checkbox" name="rodo"><span>' + esc(T.rodo).replace('Polityce prywatności', '<a href="' + esc(politykaHref()) + '" target="_blank" rel="noopener">Polityce prywatności</a>') + ' *</span></label>'
       + '<div class="dbm-of-field dbm-of-hp" aria-hidden="true"><label>Website</label><input type="text" name="website" tabindex="-1" autocomplete="off"></div>'
       + '<div id="dbmOfferMsg"></div>'
       + '<button class="dbm-op-send" type="submit">' + esc(T.send) + ' (' + n + ')</button>'
