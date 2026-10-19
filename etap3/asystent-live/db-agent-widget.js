@@ -18,7 +18,7 @@
   var CSS = [
     '.dbw-fab{position:fixed;right:20px;bottom:20px;z-index:2147483000;display:flex;align-items:center;gap:9px;background:#1A1714;color:#F0E6D3;border:1px solid #C9A96E;padding:11px 17px 11px 13px;border-radius:999px;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.25);font:500 15px/1 -apple-system,Segoe UI,Roboto,Arial,sans-serif}',
     '.dbw-fab:hover{transform:translateY(-2px)}.dbw-fab svg{width:21px;height:21px}',
-    '.dbw-fab .dbw-dot{width:8px;height:8px;border-radius:50%;background:#5fbf7a;box-shadow:0 0 0 3px rgba(95,191,122,.25)}',
+    '.dbw-fab .dbw-dot{position:absolute;top:-2px;right:-2px;width:11px;height:11px;border-radius:50%;background:#5fbf7a;border:2px solid #1A1714;box-shadow:0 0 0 2px rgba(95,191,122,.35)}',
     '.dbw-panel{position:fixed;right:20px;bottom:20px;z-index:2147483001;width:380px;max-width:calc(100vw - 24px);height:600px;max-height:calc(100vh - 40px);background:#211d19;border:1px solid #3a332c;border-radius:18px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.45);font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}',
     '.dbw-panel.dbw-open{display:flex}',
     '.dbw-head{background:#1A1714;padding:15px 16px;display:flex;align-items:center;gap:11px;border-bottom:1px solid #3a332c}',
@@ -70,7 +70,11 @@
     '.dbw-note{color:#8a7d68;font-size:11px;line-height:1.45;margin-top:10px;font-style:italic}',
     '.dbw-upsell{color:#d8c9ad;font-size:12.5px;line-height:1.5;margin-top:9px;border-top:1px solid #3a332c;padding-top:9px}',
     '.dbw-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}',
-    '@media(max-width:480px){.dbw-panel{right:0;bottom:0;width:100vw;height:100vh;max-height:100vh;border-radius:0}}'
+    '@media(max-width:480px){.dbw-panel{right:0;bottom:0;width:100vw;height:100vh;max-height:100vh;border-radius:0}}',
+    '.dbw-m.dbw-bot a.dbw-link{color:#C9A96E;text-decoration:underline;word-break:break-all}',
+    '@media (prefers-reduced-motion: no-preference){.dbw-fab{animation:dbw-pulse 3.2s ease-in-out infinite}.dbw-fab .dbw-dot{animation:dbw-dotpulse 3.2s ease-in-out infinite}}',
+    '@keyframes dbw-pulse{0%,100%{box-shadow:0 8px 30px rgba(0,0,0,.25),0 0 0 0 rgba(201,169,110,.5)}50%{box-shadow:0 8px 30px rgba(0,0,0,.25),0 0 0 11px rgba(201,169,110,0)}}',
+    '@keyframes dbw-dotpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}'
   ].join('');
 
   var messages = [];       // historia rozmowy do API
@@ -83,7 +87,17 @@
 
   function el(cls) { var d = document.createElement('div'); if (cls) d.className = cls; return d; }
   function scroll() { body.scrollTop = body.scrollHeight; }
-  function addBot(text) { var m = el('dbw-m dbw-bot'); m.textContent = text; body.appendChild(m); scroll(); return m; }
+  function linkify(node, text) {
+    var re = /(https?:\/\/dbmeble\.pl\/[^\s<>"')]+)/g, last = 0, mm;
+    while ((mm = re.exec(text)) !== null) {
+      if (mm.index > last) node.appendChild(document.createTextNode(text.slice(last, mm.index)));
+      var a = document.createElement('a'); a.href = mm[0]; a.textContent = mm[0];
+      a.rel = 'noopener'; a.className = 'dbw-link';   // ta sama karta (bez target)
+      node.appendChild(a); last = re.lastIndex;
+    }
+    if (last < text.length) node.appendChild(document.createTextNode(text.slice(last)));
+  }
+  function addBot(text) { var m = el('dbw-m dbw-bot'); linkify(m, text); body.appendChild(m); scroll(); return m; }
   function addUser(text) { var m = el('dbw-m dbw-user'); m.textContent = text; body.appendChild(m); scroll(); }
   function addSys(text) { var m = el('dbw-m dbw-sys'); m.textContent = text; body.appendChild(m); scroll(); }
   function typing() { var m = el('dbw-m dbw-bot'); m.innerHTML = '<div class="dbw-typ"><span></span><span></span><span></span></div>'; body.appendChild(m); scroll(); return m; }
@@ -329,7 +343,7 @@
     var panel = el('dbw-panel'); panel.id = 'dbw-panel';
     var head = el('dbw-head');
     var av = el('dbw-av'); av.textContent = 'DB'; head.appendChild(av);
-    var ht = el(); var t1 = el('dbw-t'); t1.textContent = 'Doradca DB Concept Space'; var t2 = el('dbw-s'); t2.textContent = 'Asystent AI · odpowiada od razu'; ht.appendChild(t1); ht.appendChild(t2); head.appendChild(ht);
+    var ht = el(); var t1 = el('dbw-t'); t1.textContent = 'Doradca DB Concept Space'; var t2 = el('dbw-s'); t2.textContent = 'Rozmawiasz z asystentem AI · odpowiada od razu'; ht.appendChild(t1); ht.appendChild(t2); head.appendChild(ht);
     var x = document.createElement('button'); x.className = 'dbw-x'; x.textContent = '×'; x.onclick = close; head.appendChild(x);
 
     body = el('dbw-body'); body.id = 'dbw-body';
