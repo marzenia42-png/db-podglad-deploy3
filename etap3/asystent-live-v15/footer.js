@@ -89,11 +89,12 @@
 
   // === ASYSTENT AI — globalne wpięcie db-agent-widget.js (PODGLĄD etap3/asystent-live-v15, T2) ===
   // JEDNO źródło wpięcia (jak offer.js w koszyku / theme.js). Endpoint docelowy: dbmeble (NIE SOLA).
-  // Ścieżka WZGLĘDNA — ładuje LOKALNY widget v1.5.0 z tego katalogu (asystent-live-v15).
+  // URL ABSOLUTNY do v15 — strona ma <base href="dbmeble.pl/">, wiec wzgledne laduje sie z LIVE.
+  // Absolut github.io wskazuje LOKALNY widget v1.5.0 z katalogu asystent-live-v15 (omija base href).
   try {
     if (!document.querySelector('script[data-dbm-agent]')) {
       var ag = document.createElement('script');
-      ag.src = 'db-agent-widget.js';
+      ag.src = 'https://marzenia42-png.github.io/db-podglad-deploy3/etap3/asystent-live-v15/db-agent-widget.js';
       ag.setAttribute('data-dbm-agent', '1');
       ag.defer = true;
       document.body.appendChild(ag);
