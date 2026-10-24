@@ -3,10 +3,10 @@
  * Endpoint: Supabase Edge Function dbmeble-agent (chat + lead). Klucz API po stronie serwera.
  * Bezpieczeństwo: treść renderowana przez textContent (XSS-safe). AI Act art. 50 przy 1. interakcji.
  *   Formularz leada: honeypot (pole-pułapka) + min. czas wypełnienia 3 s -> cichy odrzut (log, bez wysyłki).
- * Pozycja: FAB przeciągalny (mysz+touch), pozycja zapamiętana w sesji (sessionStorage). Panel kotwiczony do dymka.
+ * Pozycja: FAB STAŁY (position:fixed z CSS, right:24px). Bez przeciągania, bez auto-ukrywania — zawsze widoczny. Panel kotwiczony do FAB.
  *   z-index PONAD treścią, ale POD lightboxem galerii (.pe-lb z-index:1000) -> otwarte zdjęcie zasłania widget.
- *   Mobile <=480px: dymek mniejszy + safe-area; panel = bottom-sheet ~68vh dokowany do dołu (strona widoczna nad).
- * Wersja: 1.4.0 (2026-08-26) — FAB zwiniety do kola 56px (rowny social) z "AI"+dymek+dot online (art.50 disclosure bez zmian) + auto-ukrycie stosu (FAB+Messenger+WhatsApp) przy scrollu w dol. Baza 1.3.0:  WOW (CSS-only, zero bibliotek): orb-avatar (oddech w spoczynku / fala przy generowaniu), złota obwódka gradient z flow, streaming odpowiedzi słowo-po-słowie, kropki myślenia shimmer, lekki glassmorphism, chipy znikają po 1. wiadomości. prefers-reduced-motion respektowane. NIE ruszane: banner AI Act art.50, logika rozmowy, lead-pipeline, formularz. Baza 1.2.1 (FAB nad social; drag; z-index pod lightboxem; bottom-sheet mobile; honeypot/timing).
+ *   Mobile <=480px: FAB = koło 56px z "AI"; panel = pełnoekranowy (strona widoczna dopiero po zamknięciu).
+ * Wersja: 1.5.0 (2026-10-24) — FAB przeprojektowany na WIDOCZNY "hero" czatu: desktop = złota PIGUŁKA (#C9A96E, ciemny tekst, dymek + "Zapytaj AI" + kropka online), mobile = koło 56px (dymek + "AI"). STAŁA pozycja right:24px (usunięto drag/restorePos/savePos/applyPos/clamp + sessionStorage pozycji ORAZ auto-ukrycie przy scrollu). Otwieranie = zwykły klik + Enter/Spacja. Dodane: dymek zaproszenia po ~8 s (raz na sesję, sessionStorage 'dbwInvite'). NIE ruszane: banner AI Act art.50, logika rozmowy, lead-pipeline, formularz, honeypot/timing, panel pełnoekranowy mobile + visualViewport, chowanie przy lightboxie .pe-lb. Baza 1.3.0: orb-avatar, złota obwódka gradient, streaming, kropki myślenia, glassmorphism, chipy znikają po 1. wiadomości, prefers-reduced-motion.
  */
 (function () {
   'use strict';
@@ -21,16 +21,26 @@
   })();
   var TEL = '506 147 435';
   var MIN_FILL_MS = 3000;   // submit szybszy niż 3 s od pokazania formularza = bot
-  var POS_KEY = 'dbwFabPos';
+  var INVITE_KEY = 'dbwInvite';   // v1.5.0: dymek zaproszenia raz na sesję
+  var INVITE_DELAY = 8000;        // ~8 s po załadowaniu
 
   var CSS = [
-    // v1.4.0: FAB zwiniety do kola 56px (rowny Messenger/WhatsApp). Ikona = dymek czatu + "AI" + kropka online -> czytelnie "czat AI" (art.50 disclosure przy 1. interakcji bez zmian).
-    '.dbw-fab{position:fixed;right:22px;bottom:150px;z-index:900;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;width:56px;height:56px;padding:0;background:#1A1714;color:#F0E6D3;border:1px solid #C9A96E;border-radius:50%;cursor:grab;box-shadow:0 8px 30px rgba(0,0,0,.28);touch-action:none;user-select:none;-webkit-user-select:none;will-change:left,top,transform;transition:transform .28s cubic-bezier(.2,.7,.2,1),opacity .24s}',
-    '.dbw-fab:hover{transform:translateY(-2px)}.dbw-fab svg{width:23px;height:23px;pointer-events:none}.dbw-fab.dbw-dragging{cursor:grabbing;transform:none;opacity:.92}',
-    '.dbw-fab .dbw-dot{position:absolute;top:8px;right:8px;width:9px;height:9px;border-radius:50%;background:#5fbf7a;box-shadow:0 0 0 2.5px #1A1714;pointer-events:none}',
-    '.dbw-fab .dbw-lbl{pointer-events:none;font:800 9.5px/1 -apple-system,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:.12em;color:#C9A96E}',
-    // v1.4.0: auto-ukrycie calego stosu pływajacego (FAB + Messenger + WhatsApp) przy scrollu w dol; powrot przy scrollu w gore.
-    '.dbw-autohide{transform:translateX(160%)!important;opacity:0!important;pointer-events:none!important}',
+    // v1.5.0: FAB = złota PIGUŁKA "hero" czatu (kolor CTA "Umów konsultację"). Desktop: dymek + "Zapytaj AI" (bold) + kropka online. STAŁA pozycja right:24px, bottom:150px (nad Messenger ~86px i WhatsApp ~22px). z-index 902 = najwyżej w stosie social.
+    '.dbw-fab{position:fixed;right:24px;bottom:150px;z-index:902;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;height:56px;padding:0 20px 0 16px;background:#C9A96E;color:#1A1714;border:none;border-radius:999px;cursor:pointer;box-shadow:0 8px 26px rgba(0,0,0,.26),0 2px 6px rgba(0,0,0,.18);user-select:none;-webkit-user-select:none;transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .24s}',
+    '.dbw-fab:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.32),0 3px 8px rgba(0,0,0,.2)}',
+    '.dbw-fab:focus-visible{outline:3px solid #1A1714;outline-offset:2px}',
+    '.dbw-fab svg{width:22px;height:22px;pointer-events:none;flex:none}',
+    '.dbw-fab .dbw-dot{width:9px;height:9px;border-radius:50%;background:#2e8b4f;box-shadow:0 0 0 2.5px #C9A96E;pointer-events:none;flex:none;margin-left:-2px}',
+    '.dbw-fab .dbw-txt{pointer-events:none;font:700 15px/1 -apple-system,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:.01em;color:#1A1714;white-space:nowrap}',
+    '.dbw-fab .dbw-lbl{display:none;pointer-events:none;font:800 10px/1 -apple-system,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:.1em;color:#1A1714}',
+    // v1.5.0: JEDNO krótkie pulsowanie przy pierwszym pokazaniu zaproszenia (nie w pętli).
+    '.dbw-fab.dbw-pulse{animation:dbwPulse 1.1s ease-out 1}',
+    '@keyframes dbwPulse{0%{box-shadow:0 8px 26px rgba(0,0,0,.26),0 0 0 0 rgba(201,169,110,.6)}70%{box-shadow:0 8px 26px rgba(0,0,0,.26),0 0 0 14px rgba(201,169,110,0)}100%{box-shadow:0 8px 26px rgba(0,0,0,.26),0 0 0 0 rgba(201,169,110,0)}}',
+    // v1.5.0: dymek zaproszenia — nieprzezroczysta karta, czytelny na ciemnym hero i w trybie jasnym.
+    '.dbw-invite{position:fixed;right:24px;bottom:214px;z-index:902;max-width:230px;background:#1A1714;color:#F0E6D3;border:1px solid #C9A96E;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.4);padding:11px 30px 11px 14px;font:500 13.5px/1.4 -apple-system,Segoe UI,Roboto,Arial,sans-serif;display:none}',
+    '.dbw-invite.dbw-show{display:block}',
+    '.dbw-invite::after{content:"";position:absolute;right:34px;bottom:-7px;width:12px;height:12px;background:#1A1714;border-right:1px solid #C9A96E;border-bottom:1px solid #C9A96E;transform:rotate(45deg)}',
+    '.dbw-invite .dbw-ix{position:absolute;top:4px;right:6px;background:none;border:none;color:#a89a82;font-size:17px;line-height:1;cursor:pointer;padding:2px 4px}.dbw-invite .dbw-ix:hover{color:#F0E6D3}',
     // WOW v1.3.0: lekki glassmorphism (przydymione szkło) + złota obwódka gradient z animacją flow (::before z maską)
     '.dbw-panel{position:fixed;right:20px;bottom:20px;z-index:901;width:380px;max-width:calc(100vw - 24px);height:600px;max-height:calc(100vh - 40px);background:rgba(28,24,20,.74);-webkit-backdrop-filter:blur(16px) saturate(1.15);backdrop-filter:blur(16px) saturate(1.15);border:1px solid transparent;border-radius:18px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.5);font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}',
     '.dbw-panel::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(125deg,#C9A96E,#f0d9a6,#9c7a3c,#C9A96E);background-size:300% 300%;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:dbwBorder 7s linear infinite;pointer-events:none;z-index:3}',
@@ -71,10 +81,15 @@
     '.dbw-typ span:nth-child(2){animation-delay:.18s}.dbw-typ span:nth-child(3){animation-delay:.36s}@keyframes dbwShim{0%,60%,100%{opacity:.3;box-shadow:0 0 4px 0 rgba(201,169,110,.3);transform:scale(.9)}30%{opacity:1;box-shadow:0 0 11px 3px rgba(201,169,110,.75);transform:scale(1.16)}}',
     // streaming: subtelny kursor podczas pisania odpowiedzi słowo-po-słowie
     '.dbw-m.dbw-streaming::after{content:"▍";color:#C9A96E;margin-left:1px;animation:dbwCaret 1s steps(2,jump-none) infinite}@keyframes dbwCaret{0%,100%{opacity:0}50%{opacity:1}}',
-    // MOBILE <=480: dymek mniejszy + safe-area; panel = PELNOEKRANOWY (prompt Dario 24.10: okno pelnoekranowe na mobile)
+    // MOBILE <=480: FAB = koło 56px (złote, dymek + "AI") — nie zasłania CTA; panel = PELNOEKRANOWY (prompt Dario 24.10).
     '@media(max-width:480px){',
-    '.dbw-fab{width:54px;height:54px;right:16px}',
+    '.dbw-fab{padding:0;width:56px;height:56px;right:24px;flex-direction:column;gap:1px;border-radius:50%}',
     '.dbw-fab svg{width:22px;height:22px}',
+    '.dbw-fab .dbw-txt{display:none}',          // ukryj "Zapytaj AI" na mobile
+    '.dbw-fab .dbw-lbl{display:block}',          // pokaż małe "AI"
+    '.dbw-fab .dbw-dot{position:absolute;top:8px;right:8px;margin-left:0;box-shadow:0 0 0 2.5px #C9A96E}',
+    '.dbw-invite{right:16px;bottom:214px;max-width:220px}',
+    '.dbw-invite::after{right:26px}',
     '.dbw-panel{left:0;right:0;top:0;bottom:0;width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none;border-radius:0}',
     '.dbw-x{font-size:27px;padding:6px 10px}',
     '.dbw-head{padding:13px 14px}',
@@ -83,8 +98,7 @@
 
   var messages = [];       // historia rozmowy do API
   var greeted = false, leadShown = false, busy = false, wizMentioned = false;
-  var body, inp, chips, fab, panel, av;
-  var curL = null, curT = null;   // aktualna pozycja FAB (px, lewy-górny róg)
+  var body, inp, chips, fab, panel, av, invite;
 
   function el(cls) { var d = document.createElement('div'); if (cls) d.className = cls; return d; }
   function scroll() { body.scrollTop = body.scrollHeight; }
@@ -180,48 +194,23 @@
 
   function doSend() { var v = inp.value; inp.value = ''; inp.style.height = 'auto'; if (v.trim().toLowerCase().indexOf('wycen') >= 0 || v.trim().toLowerCase().indexOf('kontakt') >= 0) { send(v); showLead(); } else { send(v); } }
 
-  // ---- pozycjonowanie / drag ----
-  function clamp(l, t) {
-    var w = fab.offsetWidth || 150, h = fab.offsetHeight || 46, M = 8;
-    l = Math.max(M, Math.min(l, window.innerWidth - w - M));
-    t = Math.max(M, Math.min(t, window.innerHeight - h - M));
-    return [l, t];
+  // ---- zaproszenie (v1.5.0) ----
+  // Po ~8 s jeden dymek obok FAB: "Pomogę dobrać meble do biura" z × do zamknięcia. Raz na sesję.
+  function closeInvite() { if (invite) invite.classList.remove('dbw-show'); if (fab) fab.classList.remove('dbw-pulse'); }
+  function showInvite() {
+    if (!invite || !fab) return;
+    if (panel.classList.contains('dbw-open')) return;   // czat już otwarty -> bez zaproszenia
+    var seen = false; try { seen = sessionStorage.getItem(INVITE_KEY) === '1'; } catch (_) {}
+    if (seen) return;
+    try { sessionStorage.setItem(INVITE_KEY, '1'); } catch (_) {}
+    invite.classList.add('dbw-show');
+    fab.classList.add('dbw-pulse');   // JEDNO pulsowanie (animacja ...1 iteracja)
+    setTimeout(function () { if (fab) fab.classList.remove('dbw-pulse'); }, 1200);
   }
-  function applyPos(l, t) {
-    var p = clamp(l, t); curL = p[0]; curT = p[1];
-    fab.style.left = curL + 'px'; fab.style.top = curT + 'px';
-    fab.style.right = 'auto'; fab.style.bottom = 'auto';
-  }
-  function restorePos() {
-    var w = fab.offsetWidth || 150, h = fab.offsetHeight || 46, M = 20;
-    // FAB startuje NAD stosem social (Messenger bottom:86 + WhatsApp bottom:22) — bottom:~150px (T2 2026-08-24 piksel karty Nubi)
-    var dl = window.innerWidth - w - M, dt = window.innerHeight - h - 150;
-    var saved = null; try { saved = JSON.parse(sessionStorage.getItem(POS_KEY)); } catch (_) {}
-    applyPos(saved && typeof saved.l === 'number' ? saved.l : dl, saved && typeof saved.t === 'number' ? saved.t : dt);
-  }
-  function savePos() { try { sessionStorage.setItem(POS_KEY, JSON.stringify({ l: curL, t: curT })); } catch (_) {} }
-
-  function initDrag() {
-    var sx, sy, ol, ot, moved, down = false;
-    fab.addEventListener('pointerdown', function (e) {
-      if (e.button != null && e.button !== 0) return;
-      down = true; moved = false; sx = e.clientX; sy = e.clientY; ol = curL; ot = curT;
-      try { fab.setPointerCapture(e.pointerId); } catch (_) {}
-    });
-    fab.addEventListener('pointermove', function (e) {
-      if (!down) return;
-      var dx = e.clientX - sx, dy = e.clientY - sy;
-      if (!moved && (Math.abs(dx) + Math.abs(dy)) > 6) { moved = true; fab.classList.add('dbw-dragging'); }
-      if (moved) applyPos(ol + dx, ot + dy);
-    });
-    function up(e) {
-      if (!down) return; down = false; fab.classList.remove('dbw-dragging');
-      try { fab.releasePointerCapture(e.pointerId); } catch (_) {}
-      if (moved) savePos(); else open();
-    }
-    fab.addEventListener('pointerup', up);
-    fab.addEventListener('pointercancel', function () { down = false; fab.classList.remove('dbw-dragging'); });
-    window.addEventListener('resize', function () { if (curL != null) applyPos(curL, curT); });
+  function initInvite() {
+    var seen = false; try { seen = sessionStorage.getItem(INVITE_KEY) === '1'; } catch (_) {}
+    if (seen) return;
+    setTimeout(showInvite, INVITE_DELAY);
   }
 
   function positionPanel() {
@@ -260,13 +249,13 @@
     window.visualViewport.addEventListener('scroll', syncViewport);
   }
 
-  function open() { positionPanel(); panel.classList.add('dbw-open'); fab.style.display = 'none'; greet(); inp.focus(); syncViewport(); }
-  function close() { panel.classList.remove('dbw-open'); clearViewport(); fab.style.display = 'flex'; }
+  function open() { closeInvite(); positionPanel(); panel.classList.add('dbw-open'); fab.style.display = 'none'; greet(); inp.focus(); syncViewport(); }
+  function close() { panel.classList.remove('dbw-open'); clearViewport(); fab.style.display = 'inline-flex'; }
 
   // Pkt 5: gdy otwarty lightbox galerii (.pe-lb.open) — CHOWAJ widget całkowicie (nie tylko z-index, zero prześwitu).
   function initLightboxWatch() {
     if (!('MutationObserver' in window)) return;
-    function apply(openLb) { fab.style.visibility = openLb ? 'hidden' : ''; panel.style.visibility = openLb ? 'hidden' : ''; }
+    function apply(openLb) { fab.style.visibility = openLb ? 'hidden' : ''; panel.style.visibility = openLb ? 'hidden' : ''; if (invite) invite.style.visibility = openLb ? 'hidden' : ''; }
     var mo = new MutationObserver(function (muts) {
       for (var i = 0; i < muts.length; i++) {
         var t = muts[i].target;
@@ -278,35 +267,28 @@
     try { mo.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['class'] }); } catch (_) {}
   }
 
-  // v1.4.0: auto-ukrycie stosu pływajacego (FAB + Messenger + WhatsApp z footer.js) przy scrollu w dol, powrot przy gore.
-  function initAutoHide() {
-    var lastY = window.pageYOffset || 0, hidden = false, ticking = false;
-    function setHidden(h) {
-      hidden = h;
-      if (fab) fab.classList.toggle('dbw-autohide', h);
-      var soc = [document.querySelector('.dbm-msg'), document.querySelector('.dbm-wa')];
-      for (var i = 0; i < soc.length; i++) if (soc[i]) soc[i].classList.toggle('dbw-autohide', h);
-    }
-    function onScroll() {
-      ticking = false;
-      if (panel && panel.classList.contains('dbw-open')) return;   // panel otwarty -> nie ruszaj
-      if (fab && fab.classList.contains('dbw-dragging')) return;    // trwa przeciaganie
-      var y = window.pageYOffset || 0;
-      if (y > lastY + 8 && y > 140) { if (!hidden) setHidden(true); }
-      else if (y < lastY - 8 || y < 140) { if (hidden) setHidden(false); }
-      lastY = y;
-    }
-    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
-  }
-
   function build() {
     var st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
 
+    // v1.5.0: FAB = pigułka "Zapytaj AI" (desktop) / koło "AI" (mobile). Ikona dymka (ciemny stroke) + zielona kropka online.
     fab = el('dbw-fab'); fab.id = 'dbw-fab';
     fab.setAttribute('role', 'button'); fab.setAttribute('tabindex', '0');
-    fab.setAttribute('aria-label', 'Doradca AI — czat z asystentem AI'); fab.setAttribute('title', 'Doradca AI — czat z asystentem AI');
-    fab.innerHTML = '<span class="dbw-dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>';
+    fab.setAttribute('aria-label', 'Zapytaj AI — czat z asystentem AI'); fab.setAttribute('title', 'Zapytaj AI — czat z asystentem AI');
+    fab.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#1A1714" stroke-width="1.9"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>';
+    var txt = document.createElement('span'); txt.className = 'dbw-txt'; txt.textContent = 'Zapytaj AI'; fab.appendChild(txt);
+    var dot = document.createElement('span'); dot.className = 'dbw-dot'; fab.appendChild(dot);
     var lbl = document.createElement('span'); lbl.className = 'dbw-lbl'; lbl.textContent = 'AI'; fab.appendChild(lbl);
+    // otwieranie: zwykły klik + klawiatura (Enter / Spacja)
+    fab.addEventListener('click', open);
+    fab.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); open(); } });
+
+    // v1.5.0: dymek zaproszenia (nieprzezroczysta karta obok FAB)
+    invite = el('dbw-invite'); invite.id = 'dbw-invite';
+    invite.appendChild(document.createTextNode('Pomogę dobrać meble do biura'));
+    var ix = document.createElement('button'); ix.className = 'dbw-ix'; ix.type = 'button'; ix.textContent = '×';
+    ix.setAttribute('aria-label', 'Zamknij'); ix.addEventListener('click', function (e) { e.stopPropagation(); closeInvite(); });
+    invite.appendChild(ix);
+    invite.addEventListener('click', function (e) { if (e.target === ix) return; open(); });
 
     panel = el('dbw-panel'); panel.id = 'dbw-panel';
     var head = el('dbw-head');
@@ -329,9 +311,9 @@
     foot.appendChild(chips); foot.appendChild(inrow); foot.appendChild(legal);
 
     panel.appendChild(head); panel.appendChild(body); panel.appendChild(foot);
-    document.body.appendChild(fab); document.body.appendChild(panel);
+    document.body.appendChild(fab); document.body.appendChild(invite); document.body.appendChild(panel);
 
-    restorePos(); initDrag(); initLightboxWatch(); initAutoHide(); initViewport();
+    initLightboxWatch(); initViewport(); initInvite();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
