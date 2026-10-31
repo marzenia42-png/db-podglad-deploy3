@@ -1,0 +1,49 @@
+{
+ "slug": "mdd-aloox",
+ "producent": "mdd",
+ "karta": "E:\\Dario\\projekty\\_wt\\t2-engine-baseline\\web\\_engine\\mdd-aloox.json",
+ "plik": "E:\\Dario\\projekty\\_podglad\\mdd\\mdd-aloox\\en\\index.html",
+ "tpl_hash": "dc9e4deb",
+ "silnik": "main",
+ "live_w_tyle": {
+  "linie": 1495,
+  "prob": [
+   "product-engine.js:l.26,27,28,29,30…"
+  ],
+  "js": "main e7be6dfad4d03302 vs live 79d8492be50605be (Δ1495)",
+  "css": "OK"
+ },
+ "obrazy_inline": 40,
+ "obrazy_sidecar": 4,
+ "sidecar_kb": 37,
+ "budzet_inline_przekroczony": false,
+ "pobrane_z_drive": [
+  "logo-mdd.png"
+ ],
+ "brak_u_producenta": [
+  "70doorsdarkoak.jpg",
+  "60opennatur.jpg",
+  "70drawerebony.jpg",
+  "70drawersnatur.jpg",
+  "70shelvesdarkoak.jpg",
+  "120dark_open.jpg",
+  "120ebony.jpg",
+  "120natur_half.jpg",
+  "aloox_40_drawers_darks.jpg",
+  "aloox_40_drawers_naturs.jpg",
+  "aloox_40_full_ebony_s.jpg",
+  "aloox_40_half_darkoaks.jpg",
+  "aloox_40_open_natur.jpg",
+  "set4darkoak.jpg",
+  "set4ebony.jpg",
+  "set4natur.jpg"
+ ],
+ "rozmiar_kb": 1124,
+ "data": "2026-10-31T14:08:33",
+ "samotest": {
+  "skip": true
+ },
+ "gate": {
+  "skip": "PODGLAD_NOGATE"
+ }
+}
