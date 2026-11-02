@@ -2292,6 +2292,7 @@ document.addEventListener('DOMContentLoaded',function(){fix(document);});setTime
  *   Mobile <=480px: FAB = koło 56px z "AI"; panel = pełnoekranowy (strona widoczna dopiero po zamknięciu).
  * Wersja: 1.5.0 (2026-10-24) — FAB przeprojektowany na WIDOCZNY "hero" czatu: desktop = złota PIGUŁKA (#C9A96E, ciemny tekst, dymek + "Zapytaj AI" + kropka online), mobile = koło 56px (dymek + "AI"). STAŁA pozycja right:24px (usunięto drag/restorePos/savePos/applyPos/clamp + sessionStorage pozycji ORAZ auto-ukrycie przy scrollu). Otwieranie = zwykły klik + Enter/Spacja. Dodane: dymek zaproszenia po ~8 s (raz na sesję, sessionStorage 'dbwInvite'). NIE ruszane: banner AI Act art.50, logika rozmowy, lead-pipeline, formularz, honeypot/timing, panel pełnoekranowy mobile + visualViewport, chowanie przy lightboxie .pe-lb. Baza 1.3.0: orb-avatar, złota obwódka gradient, streaming, kropki myślenia, glassmorphism, chipy znikają po 1. wiadomości, prefers-reduced-motion.
  * Wersja: 1.6.0 (2026-11-02, T2 ZAD2) — FAB PRZECIĄGALNY: pointerdown/move/up (mysz+dotyk), próg 6 px odróżnia tap (otwórz) od drag (przesuń); pozycja w localStorage 'dbwFabPos' (try/catch); clamp do okna + safe-area (env insets); drop NIE zasłania WhatsApp/back-to-top/koszyka (placeXY odsuwa bąbel znad przycisku). NIE ruszane: P0 02.11 (safe-area mobile, dymek OFF mobile, swipe-w-dół zamyka panel), logika czatu, lead, honeypot/timing, panel pełnoekranowy mobile.
+ * Wersja: 1.7.0 (2026-11-02, T2 ZAD1 — FAB P0 MOBILE, fix zgłoszenia Dario 02.11 M1: bąbel ~72px w połowie ekranu zasłaniał treść). WYŁĄCZNIE mobile <=480px (desktop/tablet = v1.6.0, bez zmian): (a) zwinięty bąbel 48px, domyślnie w PRAWYM DOLNYM rogu (right:12px, bottom:max(16px, safe-area-bottom+12px)); placeXY odsuwa znad WhatsApp/koszyka (nad jeśli jest miejsce, inaczej obok w jednym rzędzie); (b) scroll-dim: podczas przewijania w dół opacity 0.5, po 800 ms bez scrolla wraca do 1; (c) restore pozycji z drag TYLKO gdy mieści się w viewporcie (clamp nic nie przesuwa) i przylega do lewej/prawej krawędzi — inaczej reset do domyślnej; drag/zapis bez zmian. NIE ruszane: swipe-w-dół zamyka panel (e), safe-area/dymek-OFF mobile, panel pełnoekranowy, logika czatu/lead/honeypot.
  */
 (function () {
   'use strict';
@@ -2311,8 +2312,10 @@ document.addEventListener('DOMContentLoaded',function(){fix(document);});setTime
 
   var CSS = [
     // v1.5.0: FAB = złota PIGUŁKA "hero" czatu (kolor CTA "Umów konsultację"). Desktop: dymek + "Zapytaj AI" (bold) + kropka online. STAŁA pozycja right:24px, bottom:150px (nad Messenger ~86px i WhatsApp ~22px). z-index 902 = najwyżej w stosie social.
-    '.dbw-fab{position:fixed;right:24px;bottom:150px;z-index:902;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;height:56px;padding:0 20px 0 16px;background:#C9A96E;color:#1A1714;border:none;border-radius:999px;cursor:pointer;box-shadow:0 8px 26px rgba(0,0,0,.26),0 2px 6px rgba(0,0,0,.18);user-select:none;-webkit-user-select:none;touch-action:none;transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .24s}',
+    '.dbw-fab{position:fixed;right:24px;bottom:150px;z-index:902;display:inline-flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;height:56px;padding:0 20px 0 16px;background:#C9A96E;color:#1A1714;border:none;border-radius:999px;cursor:pointer;box-shadow:0 8px 26px rgba(0,0,0,.26),0 2px 6px rgba(0,0,0,.18);user-select:none;-webkit-user-select:none;touch-action:none;transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .24s,opacity .25s ease}',
     '.dbw-fab:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.32),0 3px 8px rgba(0,0,0,.2)}',
+    // v1.7.0: scroll-dim (mobile) — przygaszenie przy przewijaniu w dół, dodawane/zdejmowane klasą z JS
+    '.dbw-fab.dbw-dim{opacity:.5}',
     // v1.6.0: podczas przeciągania — kursor grabbing, najwyżej w stosie social, bez animacji/hoveru (snappy, nad WhatsApp z-index:60 także na mobile)
     '.dbw-fab.dbw-dragging{cursor:grabbing;z-index:903;transition:none}',
     '.dbw-fab.dbw-dragging:hover{transform:none}',
@@ -2371,8 +2374,9 @@ document.addEventListener('DOMContentLoaded',function(){fix(document);});setTime
     '.dbw-m.dbw-streaming::after{content:"▍";color:#C9A96E;margin-left:1px;animation:dbwCaret 1s steps(2,jump-none) infinite}@keyframes dbwCaret{0%,100%{opacity:0}50%{opacity:1}}',
     // MOBILE <=480: FAB = koło 56px (złote, dymek + "AI") — nie zasłania CTA; panel = PELNOEKRANOWY (prompt Dario 24.10).
     '@media(max-width:480px){',
-    '.dbw-fab{padding:0;width:56px;height:56px;right:24px;flex-direction:column;gap:1px;border-radius:50%;z-index:59;bottom:calc(150px + env(safe-area-inset-bottom,0px))}',
-    '.dbw-fab svg{width:22px;height:22px}',
+    // v1.7.0: zwinięty bąbel 48px w PRAWYM DOLNYM rogu (right:12px, bottom:max(16px, safe-area+12px)). JS placeXY ustawia pozycję inline (left/top) i odsuwa znad WhatsApp/koszyka; ten CSS = fallback zanim JS policzy.
+    '.dbw-fab{padding:0;width:48px;height:48px;right:12px;flex-direction:column;gap:1px;border-radius:50%;z-index:59;bottom:max(16px,calc(env(safe-area-inset-bottom,0px) + 12px))}',
+    '.dbw-fab svg{width:20px;height:20px}',
     '.dbw-fab .dbw-txt{display:none}',          // ukryj "Zapytaj AI" na mobile
     '.dbw-fab .dbw-lbl{display:block}',          // pokaż małe "AI"
     '.dbw-fab .dbw-dot{position:absolute;top:8px;right:8px;margin-left:0;box-shadow:0 0 0 2.5px #C9A96E}',
@@ -2622,18 +2626,61 @@ document.addEventListener('DOMContentLoaded',function(){fix(document);});setTime
     return c;
   }
   function savePos(c) { try { localStorage.setItem(POS_KEY, JSON.stringify({ x: Math.round(c.x), y: Math.round(c.y) })); } catch (_) {} }
-  function restorePos() {                      // odtworzenie pozycji przy starcie (po clamp+avoid)
+  function restorePos() {                      // DESKTOP/TABLET (v1.6.0, bez zmian): odtwórz zapis, jeśli jest
     var raw = null; try { raw = localStorage.getItem(POS_KEY); } catch (_) {}
     if (!raw) return;                          // brak zapisu -> zostaw domyślne CSS (right/bottom)
     var p = null; try { p = JSON.parse(raw); } catch (_) {}
     if (!p || typeof p.x !== 'number' || typeof p.y !== 'number') return;
-    refreshSA(); placeXY(p.x, p.y);
+    placeXY(p.x, p.y);
+  }
+  // ---- v1.7.0 (02.11, T2 ZAD1): pozycja startowa mobile = prawy dolny róg + walidacja zapisu z drag ----
+  function defaultMobileXY() {                 // right 12px, bottom max(16px, safe-area-bottom+12px)
+    var w = fab.offsetWidth, h = fab.offsetHeight;
+    var x = window.innerWidth - w - 12 - _sa.right;
+    var y = window.innerHeight - h - Math.max(16, _sa.bottom + 12);
+    return { x: x, y: y };
+  }
+  function edgeHug(c, w) {                      // przylega do lewej LUB prawej krawędzi (nie środek treści)
+    var minX = EDGE + _sa.left, maxX = window.innerWidth - w - EDGE - _sa.right;
+    if (maxX < minX) maxX = minX;
+    var BAND = 64;
+    return (c.x - minX) <= BAND || (maxX - c.x) <= BAND;
+  }
+  function initPosition() {                     // wołane zamiast restorePos (build + resize)
+    refreshSA();
+    if (!isMobile()) { restorePos(); return; }  // desktop/tablet = zachowanie v1.6.0 (wymóg d)
+    var w = fab.offsetWidth, h = fab.offsetHeight, use = null;
+    var raw = null; try { raw = localStorage.getItem(POS_KEY); } catch (_) {}
+    if (raw) {
+      var p = null; try { p = JSON.parse(raw); } catch (_) {}
+      if (p && typeof p.x === 'number' && typeof p.y === 'number') {
+        var c = clampXY(p.x, p.y, w, h);
+        var fits = Math.abs(c.x - p.x) <= 1 && Math.abs(c.y - p.y) <= 1;   // (c) mieści się w viewporcie
+        if (fits && edgeHug(c, w)) use = { x: p.x, y: p.y };               //     i przy krawędzi -> wczytaj
+      }
+    }
+    if (!use) use = defaultMobileXY();          // brak/odrzucony zapis -> reset do prawego dolnego rogu
+    placeXY(use.x, use.y);                       // clamp + odsuń znad WhatsApp/koszyka (nad lub obok)
+  }
+  // ---- v1.7.0: scroll-dim (mobile) — przewijanie w dół przygasza bąbel do 0.5; po 800 ms bez scrolla -> 1 ----
+  var _dimT = null, _lastSY = 0;
+  function initScrollDim() {
+    try { _lastSY = window.pageYOffset || document.documentElement.scrollTop || 0; } catch (_) {}
+    window.addEventListener('scroll', function () {
+      if (!isMobile() || !fab || fab.style.display === 'none' || fab.classList.contains('dbw-dragging')) return;
+      var y = 0; try { y = window.pageYOffset || document.documentElement.scrollTop || 0; } catch (_) {}
+      if (y > _lastSY + 2) fab.classList.add('dbw-dim');    // ruch w dół -> przygaś
+      _lastSY = y;
+      if (_dimT) clearTimeout(_dimT);
+      _dimT = setTimeout(function () { if (fab) fab.classList.remove('dbw-dim'); }, 800);
+    }, { passive: true });
   }
   function bindDrag() {
     refreshSA();
     var sx = 0, sy = 0, bx = 0, by = 0, down = false, moved = false, pid = null;
     fab.addEventListener('pointerdown', function (e) {
       if (typeof e.button === 'number' && e.button > 0) return;   // tylko lewy przycisk / dotyk
+      fab.classList.remove('dbw-dim');                            // v1.7.0: drag = pełna widoczność
       var r = fab.getBoundingClientRect(); bx = r.left; by = r.top;
       sx = e.clientX; sy = e.clientY; down = true; moved = false; pid = e.pointerId;
       try { fab.setPointerCapture(pid); } catch (_) {}
@@ -2654,7 +2701,11 @@ document.addEventListener('DOMContentLoaded',function(){fix(document);});setTime
     }
     window.addEventListener('pointerup', end);
     window.addEventListener('pointercancel', end);
-    window.addEventListener('resize', function () { refreshSA(); if (fab.style.left) { var r = fab.getBoundingClientRect(); placeXY(r.left, r.top); } });
+    window.addEventListener('resize', function () {
+      refreshSA(); fab.classList.remove('dbw-dim');
+      if (isMobile()) { initPosition(); return; }        // v1.7.0: mobile -> przelicz prawy dolny róg / walidację zapisu
+      if (fab.style.left) { var r = fab.getBoundingClientRect(); placeXY(r.left, r.top); }   // desktop/tablet = v1.6.0
+    });
   }
 
   function build() {
@@ -2703,7 +2754,7 @@ document.addEventListener('DOMContentLoaded',function(){fix(document);});setTime
     panel.appendChild(head); panel.appendChild(body); panel.appendChild(foot);
     document.body.appendChild(fab); document.body.appendChild(invite); document.body.appendChild(panel);
 
-    initLightboxWatch(); initViewport(); initInvite(); bindDrag(); restorePos();
+    initLightboxWatch(); initViewport(); initInvite(); bindDrag(); initPosition(); initScrollDim();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
