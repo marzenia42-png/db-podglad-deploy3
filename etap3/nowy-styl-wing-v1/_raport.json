@@ -1,0 +1,44 @@
+{
+ "slug": "nowy-styl-wing",
+ "producent": "nowy styl",
+ "karta": "E:\\Dario\\projekty\\_wt\\t1-ns\\web\\_engine\\nowy-styl-wing.json",
+ "plik": "E:\\Dario\\projekty\\_podglad\\nowy styl\\nowy-styl-wing\\index.html",
+ "tpl_hash": "c445df81",
+ "silnik": "main",
+ "live_w_tyle": {
+  "linie": 2250,
+  "prob": [
+   "product-engine.js:l.26,27,28,29,30…",
+   "product-engine.css:l.42,43,44,45,46…"
+  ],
+  "js": "main 7cfcfedc816eee8d vs live 4469565eb21ee726 (Δ1578)",
+  "css": "main 5efd170c2a0977b9 vs live d5c4ce728fbe3855 (Δ672)"
+ },
+ "obrazy_inline": 0,
+ "obrazy_sidecar": 233,
+ "sidecar_kb": 6427,
+ "budzet_inline_przekroczony": false,
+ "filemode": true,
+ "bg_fx": 1,
+ "pdf_sidecar": 2,
+ "pdf_brak": [],
+ "pobrane_z_drive": [],
+ "brak_u_producenta": [],
+ "rozmiar_kb": 353,
+ "data": "2026-11-05T14:14:44",
+ "samotest": {
+  "pass": true,
+  "hero": true,
+  "galeria": 9,
+  "imgs": 151,
+  "broken": 0,
+  "brokenSrc": [],
+  "zakladki": 6,
+  "zakladki_klik_ok": true,
+  "konsola_bledy": [],
+  "konsola_artefakty_file": 0
+ },
+ "gate": {
+  "skip": "PODGLAD_NOGATE"
+ }
+}
