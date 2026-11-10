@@ -1,0 +1,44 @@
+{
+ "A.jpg": {
+  "w": 1080,
+  "h": 1350,
+  "panel_top": 1132,
+  "left": -1,
+  "right": -1
+ },
+ "B1.jpg": {
+  "w": 1080,
+  "h": 1080,
+  "panel_top": 880,
+  "left": -1,
+  "right": -1
+ },
+ "B2.jpg": {
+  "w": 1080,
+  "h": 1080,
+  "panel_top": 862,
+  "left": -1,
+  "right": -1
+ },
+ "B3.jpg": {
+  "w": 1080,
+  "h": 1080,
+  "panel_top": 803,
+  "left": -1,
+  "right": -1
+ },
+ "B4.jpg": {
+  "w": 1080,
+  "h": 1080,
+  "panel_top": 800,
+  "left": -1,
+  "right": -1
+ },
+ "B5.jpg": {
+  "w": 1080,
+  "h": 1080,
+  "panel_top": 958,
+  "left": -1,
+  "right": -1
+ }
+}

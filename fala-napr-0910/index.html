@@ -1,0 +1,44 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>DB NEW — FALA NAPRAWCZA 09.10 (podgląd wewnętrzny)</title>
+<style>
+ body{background:#1A1A1E;color:#E8E8EA;font:15px/1.6 system-ui,Segoe UI,Arial;margin:0 auto;padding:32px 20px;max-width:1000px}
+ h1{color:#C9A24B;font-size:22px;margin:0 0 4px} h2{color:#C9A24B;font-size:16px;margin:26px 0 8px}
+ small{color:#8a8a90} a{color:#8ab4f8;text-decoration:none;font-weight:600} a:hover{text-decoration:underline}
+ table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+ th,td{text-align:left;padding:9px 12px;border-bottom:1px solid #2c2c33;vertical-align:top} th{color:#C9A24B;border-bottom:1px solid #C9A24B44}
+ .note{margin-top:22px;padding:14px 16px;border-left:3px solid #C9A24B;background:#222228;font-size:13px;color:#b9b9c0}
+ code{color:#C9A24B}
+</style></head><body>
+<h1>DB NEW — FALA NAPRAWCZA 09.10</h1>
+<small>podgląd wewnętrzny do pikselu (Dario + BETI) · <b>NIE indeksowane, NIE na dbmeble.pl</b> · bez deployu · gałąź <code>t2/fala-napr-0910</code></small>
+
+<h2>Karty (render silnikiem z gałęzi fali, tryb publiczny)</h2>
+<table>
+<thead><tr><th>Podgląd</th><th>Co zmienione</th></tr></thead>
+<tbody>
+<tr><td><a href="u-connect/">u-Connect →</a></td><td>2a — usunięta zaślepka „Wzornik prześlemy na zapytanie" (silnik). Render materiałów bez zaślepki.</td></tr>
+<tr><td><a href="mdd-echo/">MDD Echo →</a></td><td>2b — usunięty artefakt „---" z FAQ (targeted z main; BEZ przepisu z 6655c260 — decyzja BETI echo=targeted).</td></tr>
+<tr><td><a href="maro-op-lite-ii-a/">MARO op-lite II A →</a></td><td>2b — usunięty artefakt „---" z FAQ.</td></tr>
+<tr><td><a href="viga-stol/">MDD Viga stół →</a></td><td>2c — FAQ 6 (dodane faq[5] „dokumentacja środowiskowa" 1:1) · link „Cała kolekcja" znika (hub nie istnieje).</td></tr>
+</tbody>
+</table>
+
+<h2>Blog (nowe artykuły — styl z live CSS)</h2>
+<table>
+<thead><tr><th>Podgląd</th><th>Co</th></tr></thead>
+<tbody>
+<tr><td><a href="jak-wybrac-ergonomiczne-krzeslo-biurowe/">Poradnik: Jak wybrać ergonomiczne krzesło biurowe →</a></td><td>2f — Poradnik GEO #1 v2 (forma „Państwo"), FAQPage, link wzajemny z „fotel 8 godzin", hreflang PL. Tekst BETI 1:1.</td></tr>
+<tr><td><a href="lunea-profim-sofa-modulowa/">Lunea Profim — sofa modułowa →</a></td><td>2g — handoff BLOG_LUNEA 1:1. CTA tel/mail (karta Lunea nie-live), link do /producenci/profim/, zero linków do karty.</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>Zmiany site-wide (bez osobnego podglądu — do weryfikacji po buildzie):</b><br>
+• <b>Silnik</b> (product-engine.js ×2): usunięta zaślepka „Wzornik prześlemy na zapytanie" (l.306 placeholder + l.513 lead). Dotyka SSR wszystkich kart.<br>
+• <b>/producenci/</b>: kafel <b>Nowy Styl</b> dodany (<code>_build_mirror.cjs</code> CATALOG_LIVE_HUBS); Malow NIE (brak kart live).<br>
+• <b>Materiały do pobrania</b>: fix 404 — <code>_mat_mdd_store</code> wraca do wysyłki (<b>+136 plików</b>, SPIS tylko PLUSY). Usunięte martwe wpisy: Malow karta-katalogowa ×3, coda instrukcje ×3.<br>
+• <b>„Cała kolekcja"</b>: silnik/build renderuje link tylko gdy hub istnieje (licznik <code>[kolUrl-skip]</code> w logu buildu).<br>
+• <b>Bramka</b>: nowa reguła <b>WIDOK-HR</b> (separator „---"/HR w FAQ = HARD); sweep R3 bez wyjątku „na zapytanie"+wzornik.<br>
+Uwaga: viga-stol — 6 zdjęć galerii nie znaleziono lokalnie (BRAK 6 w podglądzie); do sprawdzenia źródła zdjęć (osobno, nie blokuje tekstu FAQ).
+</div>
+</body></html>

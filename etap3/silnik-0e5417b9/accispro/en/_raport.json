@@ -1,0 +1,34 @@
+{
+ "slug": "accispro",
+ "producent": "profim",
+ "karta": "E:\\Dario\\projekty\\dbmeble-new\\web\\_engine\\accispro.json",
+ "plik": "E:\\Dario\\projekty\\_podglad\\profim\\accispro\\en\\index.html",
+ "tpl_hash": "b258fc25",
+ "silnik": "main",
+ "live_w_tyle": {
+  "linie": 1095,
+  "prob": [
+   "product-engine.js:l.140,141,142,143,144…",
+   "product-engine.css:l.659,660,661,662,663…"
+  ],
+  "js": "main 0d4c75606e10a2b6 vs live 4e4c4add1769c5a8 (Δ1077)",
+  "css": "main 4f02c7174d8c1992 vs live f3752159c039869e (Δ18)"
+ },
+ "obrazy_inline": 201,
+ "obrazy_sidecar": 31,
+ "sidecar_kb": 10476,
+ "budzet_inline_przekroczony": false,
+ "pobrane_z_drive": [],
+ "brak_u_producenta": [
+  "maxresdefault.jpg",
+  "hqdefault.jpg"
+ ],
+ "rozmiar_kb": 9879,
+ "data": "2026-09-24T13:22:19",
+ "samotest": {
+  "skip": true
+ },
+ "gate": {
+  "skip": "PODGLAD_NOGATE"
+ }
+}
