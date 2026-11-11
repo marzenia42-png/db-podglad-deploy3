@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('dbm_theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1A1A1E">
+<title>Paged — krzesła i stoły z giętego drewna | DB Meble</title>
+<meta name="description" content="Paged — polski producent krzeseł, hokerów i stołów z giętego drewna od 1881 roku. Kolekcja Antilla. Wycena, dostawa i montaż w całej Polsce.">
+<meta name="author" content="DB Meble">
+<link rel="canonical" href="https://dbmeble.pl/producenci/paged/">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>/* product-list.css — katalog filtrowalny (P1/P3/P5/P8). Uzywa zmiennych strony (--ink/--gold/--cream/--line/--serif/--sans). */
+#katalog { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px) 100px; }
+/* FILTRY — jawne kolory per motyw (NIE var(--ink)/var(--cream): shell stron kategorii/hubow ma je odwrocone -> czarny blok w jasnym) */
+.kl-filters { position: sticky; top: 0; z-index: 5; padding: 18px 0 14px; background: #17151A; border-bottom: 1px solid rgba(200,169,106,.20); }
+html[data-theme="light"] .kl-filters { background: #FAF7F0; border-bottom-color: rgba(26,23,20,.12); }
+.kl-row { display: flex; align-items: center; gap: 12px; margin: 0 0 10px; flex-wrap: wrap; }
+.kl-lab { font: 600 11px/1 var(--sans, sans-serif); letter-spacing: .14em; text-transform: uppercase; color: var(--gold, #C8A96A); min-width: 76px; opacity: .85; }
+.kl-chips { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; }
+.kl-chip { font: 500 13px/1 var(--sans, sans-serif); padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(200,169,106,.30); background: none; color: #F2E9D8; cursor: pointer; transition: .15s; }
+html[data-theme="light"] .kl-chip { color: #2A2622; border-color: rgba(26,23,20,.22); }
+.kl-chip:hover { border-color: var(--gold, #C8A96A); }
+.kl-chip.active { background: var(--gold, #C8A96A); color: var(--ink, #1A1714); border-color: var(--gold, #C8A96A); font-weight: 700; }
+.kl-n { opacity: .6; font-size: 11px; margin-left: 3px; }
+.kl-chip.active .kl-n { opacity: .85; }
+.kl-search { flex: 1; min-width: 220px; font: 400 15px var(--sans, sans-serif); padding: 11px 16px; border-radius: 10px; border: 1px solid rgba(200,169,106,.30); background: rgba(255,255,255,.06); color: #F5EEE0; }
+.kl-search::placeholder { color: rgba(245,238,224,.5); }
+.kl-search:focus { outline: none; border-color: var(--gold, #C8A96A); }
+/* widoczny przycisk czyszczenia (× dziedziczy kolor tekstu -> widac w obu motywach) */
+.kl-search::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; height: 15px; width: 15px; cursor: pointer; background: currentColor; opacity: .55; -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6 6l12 12M18 6L6 18' stroke='black' stroke-width='2.6' stroke-linecap='round'/></svg>") center/contain no-repeat; mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6 6l12 12M18 6L6 18' stroke='black' stroke-width='2.6' stroke-linecap='round'/></svg>") center/contain no-repeat; }
+.kl-search::-webkit-search-cancel-button:hover { opacity: 1; }
+html[data-theme="light"] .kl-search { background: #FFFFFF; color: #1A1A1E; border-color: rgba(26,23,20,.22); }
+html[data-theme="light"] .kl-search::placeholder { color: rgba(26,23,20,.45); }
+/* FAZA 5.1 — filtr AKORDEON (zwinięty domyślnie, klik rozwija; mobile-first, nie zasłania strony) */
+.kl-filters { display: flex; flex-direction: column; gap: 10px; }
+.kl-acc-wrap { display: flex; flex-direction: column; gap: 8px; }
+.kl-acc { border: 1px solid var(--line, rgba(200,169,106,.22)); border-radius: 10px; overflow: hidden; }
+.kl-acc > summary { list-style: none; cursor: pointer; padding: 11px 14px; font: 600 12px/1 var(--sans, sans-serif); letter-spacing: .1em; text-transform: uppercase; color: var(--gold, #C8A96A); display: flex; align-items: center; gap: 8px; user-select: none; }
+.kl-acc > summary::-webkit-details-marker { display: none; }
+.kl-acc > summary::after { content: "▾"; margin-left: auto; font-size: 11px; opacity: .7; transition: transform .2s ease; }
+.kl-acc[open] > summary::after { transform: rotate(180deg); }
+.kl-acc[open] > summary { border-bottom: 1px solid var(--line, rgba(200,169,106,.18)); }
+.kl-acc .kl-chips { padding: 12px 14px; }
+.kl-acc-dot { color: var(--gold, #C8A96A); font-size: 9px; }
+.kl-clear { align-self: flex-start; background: none; border: none; color: var(--gold, #C8A96A); font: 500 13px var(--sans, sans-serif); cursor: pointer; padding: 2px 0; opacity: .85; }
+.kl-clear:hover { opacity: 1; text-decoration: underline; }
+@media (min-width: 720px) { .kl-acc-wrap { flex-direction: row; align-items: flex-start; } .kl-acc { flex: 1; } .kl-acc[open] { flex: 1 1 100%; } }
+.kl-count { font: 500 13px var(--sans, sans-serif); color: var(--gold, #C8A96A); letter-spacing: .04em; padding: 18px 0 14px; }
+.kl-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); }
+.kl-card { display: flex; flex-direction: column; border: 1px solid var(--line, rgba(200,169,106,.18)); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; background: rgba(255,255,255,.02); transition: .2s; }
+.kl-card:hover { border-color: var(--gold, #C8A96A); transform: translateY(-3px); }
+/* kafle (korekta 3 pkt 9): 4:3, object-fit cover, tlo JASNE w kazdym motywie (zero ciemnego tla pod zdjeciem) */
+.kl-thumb { aspect-ratio: 4/3; background: #F2EEE6; display: block; overflow: hidden; padding: 0; box-sizing: border-box; }
+.kl-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* KADR (T2 10.09) — 2 klasy kadru na kontenerze .kl-thumb. Domyslnie cover (bezpieczny fallback dla stron spoza _build_mirror). */
+/* PRODUKT = packshot: mebel w CALOSCI (contain + padding, nigdy obciety). Override nad domyslnym cover (ta sama specyficznosc, pozniejsza regula). */
+.kadr-produkt img { object-fit: contain; mix-blend-mode: multiply; }
+.kadr-produkt { padding: 10px; }
+/* SCENA = aranzacja/kontekst: wypelnia kafel (cover). Jawne dla bramki regresji. */
+.kadr-scena img { object-fit: cover; }
+.kl-card { gap: 0; }
+.kl-body { padding: 14px 16px 16px; }
+.kl-body { padding: 14px 16px 16px; }
+.kl-arch { font: 600 10.5px/1 var(--sans, sans-serif); letter-spacing: .08em; text-transform: uppercase; color: var(--gold, #C8A96A); display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-bottom: 7px; }
+.kl-badge { display: inline-block; padding: 2px 9px; border-radius: 999px; background: var(--gold, #C8A96A); color: var(--ink, #1A1714); font-size: 9.5px; font-weight: 700; letter-spacing: .03em; }
+.kl-title { font: 500 22px var(--serif, serif); margin: 0 0 5px; }
+.kl-desc { font: 400 13px/1.45 var(--sans, sans-serif); opacity: .78; margin: 0 0 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.kl-meta { font: 400 12.5px var(--sans, sans-serif); opacity: .6; }
+.kl-empty { opacity: .8; font-style: italic; padding: 40px 0; color: #F2E9D8; }
+html[data-theme="light"] .kl-empty { color: #1A1A1E; }
+.kl-empty .kl-clear { display: inline-block; margin-top: 14px; font-style: normal; align-self: auto; }
+@media (max-width: 560px) { .kl-lab { min-width: 100%; } .kl-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; } }
+
+/* HERO WYSPA site-wide (korekta 3 pkt 6): ciemny overlay >=55% + jasny tekst NIEZALEZNIE od data-theme; zero jasnego gradientu w trybie jasnym. Wspoldzielone: huby/kategorie/przestrzenie. */
+.m-hero.m-hero--wyspa{border-radius:16px;background-size:cover;background-position:center;padding:clamp(40px,6vw,84px) clamp(24px,4vw,52px);margin:18px 0 0;max-width:none;position:relative}
+html[data-theme=light] .m-hero--wyspa,.m-hero--wyspa{color:#ECE3D2}
+.m-hero--wyspa .m-eyebrow{color:var(--gold,#C9A24B)}
+.m-hero--wyspa h1{color:#F4ECDD}
+.m-hero--wyspa p{color:#ECE3D2;opacity:.94}
+
+/* ETYKIETA AI site-wide (korekta 3 pkt 7): lewy dolny rog hero, 15px, bialy 0.8, bez tla, margines 24px */
+.m-hero--wyspa{position:relative}
+.hero-ai{position:absolute;left:24px;bottom:24px;z-index:4;font:400 15px/1 var(--sans,"DM Sans",sans-serif);letter-spacing:.14em;color:rgba(255,255,255,.8);pointer-events:none}
+</style>
+<style>/* logo-tune.css — JEDNO źródło strojenia wysokości logotypów marek (T2 2026-08-04).
+   Używane w DWÓCH miejscach z TYMI SAMYMI wartościami:
+   - home: siatka „12 marek" (.brand-cell img)
+   - /producenci/: kafle marek (.kl-logo img — osobna klasa od .kl-thumb, żeby NIE ruszać
+     kwadratowych miniatur zdjęć produktów na hubach).
+   Baza 40px + strojenie per-logo (wyrównanie pola optycznego). */
+.brand-cell img,
+.kl-logo img { height: 40px; width: auto; max-width: 150px; object-fit: contain; }
+
+.brand-cell img[src*="logo-profim"],    .kl-logo img[src*="logo-profim"]    { height: 28px; } /* 3.51:1 po trim białego */
+.brand-cell img[src*="logo-mebelux"],   .kl-logo img[src*="logo-mebelux"]   { height: 52px; } /* 1.25:1 gęste stackowane logo */
+.brand-cell img[src*="logo-bejot"],     .kl-logo img[src*="logo-bejot"]     { height: 32px; } /* 2.63:1 svg */
+.brand-cell img[src*="logo-antrax"],    .kl-logo img[src*="logo-antrax"]    { height: 29px; } /* 3.19:1 */
+.brand-cell img[src*="logo-maro"],      .kl-logo img[src*="logo-maro"]      { height: 29px; } /* 3.2:1 */
+.brand-cell img[src*="logo-mutedesign"],.kl-logo img[src*="logo-mutedesign"]{ height: 33px; } /* wordmark małe litery */
+.brand-cell img[src*="logo-mdd"],       .kl-logo img[src*="logo-mdd"]       { height: 28px; } /* 3.44:1 */
+.brand-cell img[src*="logo-vzor"],      .kl-logo img[src*="logo-vzor"]      { height: 27px; } /* 3.64:1 */
+.brand-cell img[src*="logo-flokk"],     .kl-logo img[src*="logo-flokk"]     { height: 27px; } /* 3.67:1 */
+.brand-cell img[src*="logo-nowystyl"],  .kl-logo img[src*="logo-nowystyl"]  { height: 26px; } /* 4.81:1 */
+.brand-cell img[src*="logo-kleiber"],   .kl-logo img[src*="logo-kleiber"]   { height: 26px; } /* 7.0:1 → max-width domyka */
+.brand-cell img[src*="logo-malow"],     .kl-logo img[src*="logo-malow"]     { height: 26px; } /* ~5:1 mark+wordmark SVG */
+
+/* /producenci/: logo w bandzie (a nie w kwadracie 1:1 kl-thumb od zdjęć produktów) */
+.kl-logo { aspect-ratio: auto; min-height: 120px; padding: 22px 18px; }
+</style>
+<style>
+:root{--ink:#F0E6D3;--gold:#C9A24B;--cream:#1A1A1E;--line:rgba(201,162,75,.18);--serif:"Cormorant Garamond",serif;--sans:"DM Sans",sans-serif}
+html[data-theme=light]{--ink:#1A1A1E;--cream:#F7F2E8;--line:rgba(26,23,20,.14)}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+.mw{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.m-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--cream);z-index:10}
+.m-nav a{color:var(--ink);text-decoration:none;font-size:14px;letter-spacing:.02em}
+.m-nav .m-brand{display:flex;align-items:center}
+.m-nav .m-logo{height:30px;width:auto;display:block;flex:0 0 auto}
+.m-nav .m-links{display:flex;gap:22px;align-items:center}
+.m-nav .m-cta{color:var(--gold);border:1px solid var(--gold);padding:8px 16px;border-radius:3px}
+.m-hero{padding:clamp(36px,6vw,72px) 0 clamp(20px,3vw,32px)}
+.m-eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 14px}
+.m-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5vw,56px);line-height:1.05;margin:0 0 16px}
+.m-hero p{font-size:clamp(15px,1.3vw,17px);line-height:1.6;color:var(--ink);opacity:.78;max-width:60ch;margin:0}
+.m-bc{font-size:13px;opacity:.7;padding:14px 0}.m-bc a{color:var(--gold);text-decoration:none}
+.m-sec{padding-top:clamp(20px,3vw,36px);padding-bottom:clamp(20px,3vw,36px)}/* Fix (BETI 01.10 @390): tylko pion — skrot 'padding ... 0' zerowal padding boczny .mw i tekst/kafle dotykaly krawedzi na mobile */
+.m-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:22px}
+.m-sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2.6vw,32px);margin:0}
+.m-sec-head .m-count{font-size:13px;opacity:.65}
+.m-sub{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);opacity:.85;margin:18px 0 12px;font-weight:600}
+.m-foot{border-top:1px solid var(--line);margin-top:40px;padding:28px 0;font-size:13px;opacity:.7;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.hub-grid{display:grid;gap:22px;grid-template-columns:repeat(4,1fr)}
+@media(max-width:1024px){.hub-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.hub-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media(max-width:480px){.hub-grid{grid-template-columns:1fr;gap:14px}}
+.kl-fam{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.9;margin:2px 0;font-weight:600}
+/* HERO WYSPA: obraz aranzacji + ciemny overlay + jasny tekst NIEZALEZNIE od motywu (pkt 3 Dario, siostra fixa nav 684b8fba) */
+.m-hero.m-hero--wyspa{border-radius:16px;background-size:cover;background-position:center;padding:clamp(40px,6vw,84px) clamp(24px,4vw,52px);margin:18px 0 0;max-width:none}
+.m-hero--wyspa .m-eyebrow{color:var(--gold)}
+.m-hero--wyspa h1{color:#F4ECDD}
+.m-hero--wyspa p{color:#ECE3D2;opacity:.94}
+/* FAQ + kontakt na hubie (Dario 25.09, huby FULL) */
+.m-faq-list{display:flex;flex-direction:column;gap:10px}
+.m-faq-item{border:1px solid var(--line);border-radius:10px;padding:2px 16px;background:rgba(255,255,255,.015)}
+.m-faq-item summary{cursor:pointer;padding:14px 0;font-size:15.5px;font-weight:500;list-style:none}
+.m-faq-item summary::-webkit-details-marker{display:none}
+.m-faq-item summary::after{content:"+";float:right;color:var(--gold);font-size:20px;line-height:1}
+.m-faq-item[open] summary::after{content:"–"}
+.m-faq-a{padding:0 0 14px;font-size:14.5px;line-height:1.6;opacity:.85;max-width:80ch}
+.m-kontakt-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.m-kontakt-i{display:flex;flex-direction:column;gap:4px;padding:16px 18px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:inherit;background:rgba(255,255,255,.015)}
+a.m-kontakt-i:hover{border-color:var(--gold)}
+.m-kontakt-i b{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);opacity:.85}
+.m-kontakt-i span{font-size:15px}
+@media(max-width:768px){.m-kontakt-row{grid-template-columns:1fr}}
+.hub-brand{display:inline-flex;align-items:center;background:#F7F2E8;border-radius:8px;padding:10px 16px;margin:0 0 16px}.hub-brand img{height:26px;width:auto;display:block}
+</style>
+
+</head>
+<body>
+<nav class="m-nav mw"><a class="m-brand" href="../../"><img class="m-logo" src="assets/logo-db-nav.png" alt="DB Meble"></a>
+<div class="m-links"><a href="../../producenci/profim/">Profim</a><a href="../../producenci/bejot/">Bejot</a><a href="../../producenci/">Katalog</a><a class="m-cta" href="tel:+48506147435">506 147 435</a></div></nav>
+<header class="m-hero m-hero--wyspa mw" style="background-image:linear-gradient(180deg,rgba(15,15,18,.55),rgba(15,15,18,.85)),url('assets/paged-antilla-aranz-1.webp')"><div class="hub-brand"><img src="assets/logo-paged.png" alt="Paged"></div><p class="m-eyebrow">Producent · Paged</p><h1>Paged — krzesła i stoły z giętego drewna</h1><p>Paged gnie drewno od 1881 roku, kontynuując tradycję zapoczątkowaną przez Michaela Thoneta. Meble powstają w Polsce, a w centrum badawczo-rozwojowym Paged LabTech firma rozwija technologie, które mają zapewnić długą wygodę krzeseł i stołów. Drewno pochodzi z lasów z certyfikatem FSC®, a w produkcji Paged używa energii odnawialnej, lakierów wodnych i ekologicznych klejów. Paged współpracuje ze znanymi projektantami, a jego meble trafiają na ponad 40 rynków na świecie. Krzesła, hokery i stoły Paged sprawdzają się w kuchniach i kawiarniach firmowych, salach spotkań, restauracjach i hotelach.</p></header>
+<nav class="m-bc mw" aria-label="Okruszki"><a href="../../">Start</a> › <a href="../../producenci/">Producenci</a> › Paged</nav>
+<main><section class="m-sec mw"><div class="m-sec-head"><h2>Kolekcje Paged</h2><span class="m-count">1 kolekcja</span></div><div class="hub-grid"><a class="kl-card" href="krzesla-konferencyjne/do-spotkan/antilla/"><div class="kl-thumb kadr-produkt"><img loading="lazy" src="assets/paged-antilla-a-9850-1.webp" alt="Antilla — krzesło z giętego buku (Paged)" onerror="this.style.display='none';this.parentElement.style.background='#F2EEE6'"></div><div class="kl-body"><div class="kl-fam">Krzesła konferencyjne</div><div class="kl-title">Antilla</div><div class="kl-desc">Krzesło z giętego buku z charakterystycznym oparciem z toczonych prętów, zwieńczonych „grzebieniem". Siedzisko drewniane lub tapicerowane, wersja z podłokietnikami, część modeli można sztaplować.</div></div></a></div></section></main>
+
+
+
+
+</body>
+</html>
