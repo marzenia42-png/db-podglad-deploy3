@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="FORMATKA" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660.60 582.10">
+<defs><style>.o{fill:#f4f4f2;stroke:#1b1b1b;stroke-width:.9;stroke-linejoin:round}.g{fill:#dfe4e6;stroke:#1b1b1b;stroke-width:.5}.b{fill:#1b1b1b}.l{fill:none;stroke:#1b1b1b;stroke-width:.5;stroke-linecap:round}.d{stroke:#1b1b1b;stroke-width:.35}.f{fill:#1b1b1b}.t{fill:#1b1b1b;font-family:"DM Sans",Arial,sans-serif;font-size:9px}.cap{fill:#1b1b1b;font-family:"DM Sans",Arial,sans-serif;font-size:9px;font-weight:600;letter-spacing:.5px}</style></defs>
+<g id="front">
+<rect class="o" x="46.00" y="20.00" width="255.30" height="522.10" rx="3"/>
+<rect class="g" x="81.74" y="46.11" width="198.11" height="449.01" rx="2"/>
+<rect class="b" x="46.00" y="518.61" width="255.30" height="23.49"/>
+<line class="l" x1="81.74" y1="260.17" x2="279.85" y2="260.17"/>
+<text x="173.65" y="564.10" class="cap" text-anchor="middle">FRONT</text>
+<line x1="46.00" y1="552.10" x2="301.30" y2="552.10" class="d"/><path class="f" d="M46.00 552.10 l3.20 -3.20 l0 6.40 z"/><path class="f" d="M301.30 552.10 l-3.20 -3.20 l0 6.40 z"/><text x="173.65" y="548.10" class="t" text-anchor="middle">szer. 1110 mm</text>
+<line x1="34.00" y1="20.00" x2="34.00" y2="542.10" class="d"/><path class="f" d="M34.00 20.00 l-3.20 3.20 l6.40 0 z"/><path class="f" d="M34.00 542.10 l-3.20 -3.20 l6.40 0 z"/><text x="29.00" y="281.05" class="t" text-anchor="middle" transform="rotate(-90 29.00 281.05)">wys. 2270 mm</text>
+</g>
+<g id="plan">
+<rect class="o" x="361.30" y="20.00" width="255.30" height="230.00" rx="2"/>
+<path class="l" d="M397.04 250.00 A 153.18 153.18 0 0 1 540.01 100.50"/>
+<text x="488.95" y="272.00" class="cap" text-anchor="middle">RZUT / PLAN</text>
+<line x1="361.30" y1="260.00" x2="616.60" y2="260.00" class="d"/><path class="f" d="M361.30 260.00 l3.20 -3.20 l0 6.40 z"/><path class="f" d="M616.60 260.00 l-3.20 -3.20 l0 6.40 z"/><text x="488.95" y="256.00" class="t" text-anchor="middle">szer. 1110 mm</text>
+<line x1="628.60" y1="20.00" x2="628.60" y2="250.00" class="d"/><path class="f" d="M628.60 20.00 l-3.20 3.20 l6.40 0 z"/><path class="f" d="M628.60 250.00 l-3.20 -3.20 l6.40 0 z"/><text x="623.60" y="135.00" class="t" text-anchor="middle" transform="rotate(-90 623.60 135.00)">gl. 1000 mm</text>
+</g>
+</svg>

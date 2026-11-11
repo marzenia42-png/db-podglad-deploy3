@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="FORMATKA" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 517.28 436.89">
+<defs><style>.o{fill:#f4f4f2;stroke:#1b1b1b;stroke-width:.9;stroke-linejoin:round}.g{fill:#dfe4e6;stroke:#1b1b1b;stroke-width:.5}.b{fill:#1b1b1b}.l{fill:none;stroke:#1b1b1b;stroke-width:.5}.d{stroke:#1b1b1b;stroke-width:.35}.f{fill:#1b1b1b}.t{fill:#1b1b1b;font-family:"DM Sans",Arial,sans-serif;font-size:9px}.cap{fill:#1b1b1b;font-family:"DM Sans",Arial,sans-serif;font-size:9px;font-weight:600}</style></defs>
+<rect class="o" x="46.00" y="20.00" width="185.64" height="376.89" rx="14"/>
+<rect class="g" x="86.84" y="38.84" width="103.96" height="324.13" rx="6"/>
+<rect class="b" x="46.00" y="379.93" width="185.64" height="16.96"/>
+<text x="138.82" y="418.89" class="cap" text-anchor="middle">FRONT</text>
+<line x1="46.00" y1="406.89" x2="231.64" y2="406.89" class="d"/><path class="f" d="M46.00 406.89 l3.20 -3.20 l0 6.40 z"/><path class="f" d="M231.64 406.89 l-3.20 -3.20 l0 6.40 z"/><text x="138.82" y="402.89" class="t" text-anchor="middle">szer. 1092 mm</text>
+<line x1="34.00" y1="20.00" x2="34.00" y2="396.89" class="d"/><path class="f" d="M34.00 20.00 l-3.20 3.20 l6.40 0 z"/><path class="f" d="M34.00 396.89 l-3.20 -3.20 l6.40 0 z"/><text x="29.00" y="208.44" class="t" text-anchor="middle" transform="rotate(-90 29.00 208.44)">wys. 2217 mm</text>
+<rect class="o" x="285.64" y="20.00" width="185.64" height="201.28" rx="8"/>
+<text x="378.46" y="243.28" class="cap" text-anchor="middle">RZUT / PLAN</text>
+<line x1="285.64" y1="231.28" x2="471.28" y2="231.28" class="d"/><path class="f" d="M285.64 231.28 l3.20 -3.20 l0 6.40 z"/><path class="f" d="M471.28 231.28 l-3.20 -3.20 l0 6.40 z"/><text x="378.46" y="227.28" class="t" text-anchor="middle">szer. 1092 mm</text>
+<line x1="483.28" y1="20.00" x2="483.28" y2="221.28" class="d"/><path class="f" d="M483.28 20.00 l-3.20 3.20 l6.40 0 z"/><path class="f" d="M483.28 221.28 l-3.20 -3.20 l6.40 0 z"/><text x="478.28" y="120.64" class="t" text-anchor="middle" transform="rotate(-90 478.28 120.64)">gl. 1184 mm</text>
+</svg>
