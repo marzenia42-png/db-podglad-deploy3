@@ -1,0 +1,40 @@
+{
+ "slug": "nowy-styl-iso-lawka",
+ "producent": "nowy styl",
+ "karta": "E:\\Dario\\projekty\\_wt\\t1-iso\\web\\_engine\\nowy-styl-iso-lawka.json",
+ "plik": "E:\\Dario\\projekty\\_podglad\\nowy styl\\nowy-styl-iso-lawka\\index.html",
+ "tpl_hash": "41aa0225",
+ "silnik": "main",
+ "live_w_tyle": {
+  "linie": 2133,
+  "prob": [
+   "product-engine.js:l.37,72,73,75,76…",
+   "product-engine.css:l.127,128,129,130,131…"
+  ],
+  "js": "main 13fd0b626b2dc2a2 vs live 4469565eb21ee726 (Δ1542)",
+  "css": "main f3d51c2946ed28e9 vs live d5c4ce728fbe3855 (Δ591)"
+ },
+ "obrazy_inline": 12,
+ "obrazy_sidecar": 109,
+ "sidecar_kb": 1533,
+ "budzet_inline_przekroczony": false,
+ "pobrane_z_drive": [],
+ "brak_u_producenta": [],
+ "rozmiar_kb": 1113,
+ "data": "2026-11-11T20:20:59",
+ "samotest": {
+  "pass": true,
+  "hero": true,
+  "galeria": 5,
+  "imgs": 136,
+  "broken": 0,
+  "brokenSrc": [],
+  "zakladki": 5,
+  "zakladki_klik_ok": true,
+  "konsola_bledy": [],
+  "konsola_artefakty_file": 2
+ },
+ "gate": {
+  "skip": "PODGLAD_NOGATE"
+ }
+}
