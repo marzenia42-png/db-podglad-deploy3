@@ -55,7 +55,7 @@
     // Zawartość stopki home (bez bloku danych podmiotu i bez linków prawnych — te są w pasku prawnym).
     f.innerHTML = '<div class="wrap"><div class="grid">'
       + '<div class="col">'
-      +   '<img src="' + root + 'images/logo-db-nav.png?v=0a124bbb" alt="DB Meble" class="footer-logo">'
+      +   '<img src="' + root + '../../_assets/401336fa5e7960db86baf50bf91090db.png?v=0a124bbb" alt="DB Meble" class="footer-logo">'
       +   '<p>Meble biurowe dla firm. Od jednego fotela po całe biuro — doradzamy, dostarczamy, montujemy. ponad 20 lat doświadczenia w branży, ponad 10 tysięcy realizacji dla 1500+ firm, kilkadziesiąt tysięcy m² wyposażonych przestrzeni w Polsce i Europie — Rzym, Londyn, Belfast, Berlin, Wiedeń, Barcelona.</p>'
       +   '<div class="social-row" aria-label="Social media">'
       +     '<a href="https://www.linkedin.com/in/dariusz-barut-67b761364" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4 4h4v4H4z"/><path d="M4 10h4v10H4zM10 10h4v2c.8-1.3 2.2-2.3 4-2.3 3 0 4 2 4 5V20h-4v-5c0-1.4-.6-2.2-2-2.2s-2 .8-2 2.2v5h-4z"/></svg></a>'

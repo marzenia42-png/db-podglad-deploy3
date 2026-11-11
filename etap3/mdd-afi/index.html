@@ -2187,7 +2187,7 @@ body.pe-body .pe-topbar{display:none}
 </script>
 <script>(function(){var A=document.getElementById('app'),C={"gallery":"A","tabs":"tabs","bg":"depth","imageBase":"","fileBase":""};try{ProductEngine.mount(A,window.PRODUCT_DATA,C,window.SITE_DATA);}catch(e){console.error('mount',e);}})();</script>
 <script>(function(){var A=window.__ASSETS||{};function bn(u){return String(u||'').split('/').pop().split('?')[0].toLowerCase();}
-function done(s){return s.indexOf('data:')===0||s.indexOf('assets/')>=0;}
+function done(s){return s.indexOf('data:')===0||s.indexOf('_assets/')>=0;}
 function fix(root){(root.querySelectorAll?root.querySelectorAll('img'):[]).forEach(function(im){var s=im.getAttribute('src')||'';if(!done(s)){var b=bn(s);if(A[b]&&A[b]!==s)im.setAttribute('src',A[b]);}});
 (root.querySelectorAll?root.querySelectorAll('[style*=background]'):[]).forEach(function(el){var st=el.getAttribute('style')||'';if(done(st))return;var m=st.match(/url\((['"]?)([^'")]+)\1\)/);if(m){var b=bn(m[2]);if(A[b])el.style.backgroundImage="url('"+A[b]+"')";}});}
 var mo;try{mo=new MutationObserver(function(){fix(document);});mo.observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['src','style']});}catch(e){}

@@ -170,7 +170,7 @@
     + '</div></div></div>';
 
   var navHtml = '<a href="' + esc(root || '/') + '" class="brand" aria-label="DB Meble — strona główna">'
-    + '<img src="' + esc(root + 'images/logo-db-nav.png') + '?v=0a124bbb" alt="DB Meble" class="brand-logo"></a>'
+    + '<img src="' + esc(root + '../../_assets/401336fa5e7960db86baf50bf91090db.png') + '?v=0a124bbb" alt="DB Meble" class="brand-logo"></a>'
     + '<div class="nav-center">' + megaHtml + linksHtml + '</div>'
     + '<div class="nav-right">'
     + '<button type="button" class="nav-search" aria-label="Szukaj" aria-haspopup="dialog">'

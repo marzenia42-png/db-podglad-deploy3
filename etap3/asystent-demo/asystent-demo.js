@@ -7,9 +7,9 @@
   'use strict';
   var TEL='+48506147435', WA='https://wa.me/48506147435';
   var MODELS=[
-    {name:'Krzesło obrotowe Xenon Profim', img:'../xenon/assets/profim-xenon-10-1.webp',          href:'../xenon/'},
-    {name:'Stoły Revo Profim',             img:'../revo-stoly-konf/assets/profim-revo-t150-1.webp', href:'../revo-stoly-konf/'},
-    {name:'Paralel MDD — fotel konferencyjny', img:'../mdd-paralel/assets/mdd-paralel-pr1p19.webp', href:'../mdd-paralel/'}
+    {name:'Krzesło obrotowe Xenon Profim', img:'../../_assets/303db0afad84e2c4c20fe9f543f7dc7f.webp',          href:'../xenon/'},
+    {name:'Stoły Revo Profim',             img:'../../_assets/3386347423f910aafe4ac34cd2cad96c.webp', href:'../revo-stoly-konf/'},
+    {name:'Paralel MDD — fotel konferencyjny', img:'../../_assets/61b5b0b9cf968ba9613e031896f02607.webp', href:'../mdd-paralel/'}
   ];
   var choice={osoby:'', zakres:'', kontakt:''}, built=false;
 
