@@ -11,7 +11,8 @@
 <link rel="canonical" href="https://dbmeble.pl/producenci/paged/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>/* product-list.css — katalog filtrowalny (P1/P3/P5/P8). Uzywa zmiennych strony (--ink/--gold/--cream/--line/--serif/--sans). */
+<style>/*product-list*/
+/* product-list.css — katalog filtrowalny (P1/P3/P5/P8). Uzywa zmiennych strony (--ink/--gold/--cream/--line/--serif/--sans). */
 #katalog { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px) 100px; }
 /* FILTRY — jawne kolory per motyw (NIE var(--ink)/var(--cream): shell stron kategorii/hubow ma je odwrocone -> czarny blok w jasnym) */
 .kl-filters { position: sticky; top: 0; z-index: 5; padding: 18px 0 14px; background: #17151A; border-bottom: 1px solid rgba(200,169,106,.20); }
@@ -83,8 +84,10 @@ html[data-theme=light] .m-hero--wyspa,.m-hero--wyspa{color:#ECE3D2}
 /* ETYKIETA AI site-wide (korekta 3 pkt 7): lewy dolny rog hero, 15px, bialy 0.8, bez tla, margines 24px */
 .m-hero--wyspa{position:relative}
 .hero-ai{position:absolute;left:24px;bottom:24px;z-index:4;font:400 15px/1 var(--sans,"DM Sans",sans-serif);letter-spacing:.14em;color:rgba(255,255,255,.8);pointer-events:none}
+
 </style>
-<style>/* logo-tune.css — JEDNO źródło strojenia wysokości logotypów marek (T2 2026-08-04).
+<style>/*logo-tune*/
+/* logo-tune.css — JEDNO źródło strojenia wysokości logotypów marek (T2 2026-08-04).
    Używane w DWÓCH miejscach z TYMI SAMYMI wartościami:
    - home: siatka „12 marek" (.brand-cell img)
    - /producenci/: kafle marek (.kl-logo img — osobna klasa od .kl-thumb, żeby NIE ruszać
@@ -108,6 +111,7 @@ html[data-theme=light] .m-hero--wyspa,.m-hero--wyspa{color:#ECE3D2}
 
 /* /producenci/: logo w bandzie (a nie w kwadracie 1:1 kl-thumb od zdjęć produktów) */
 .kl-logo { aspect-ratio: auto; min-height: 120px; padding: 22px 18px; }
+
 </style>
 <style>
 :root{--ink:#F0E6D3;--gold:#C9A24B;--cream:#1A1A1E;--line:rgba(201,162,75,.18);--serif:"Cormorant Garamond",serif;--sans:"DM Sans",sans-serif}
@@ -164,7 +168,8 @@ a.m-kontakt-i:hover{border-color:var(--gold)}
 <div class="m-links"><a href="../../producenci/profim/">Profim</a><a href="../../producenci/bejot/">Bejot</a><a href="../../producenci/">Katalog</a><a class="m-cta" href="tel:+48506147435">506 147 435</a></div></nav>
 <header class="m-hero m-hero--wyspa mw" style="background-image:linear-gradient(180deg,rgba(15,15,18,.55),rgba(15,15,18,.85)),url('assets/paged-antilla-aranz-1.webp')"><div class="hub-brand"><img src="assets/logo-paged.png" alt="Paged"></div><p class="m-eyebrow">Producent · Paged</p><h1>Paged — krzesła i stoły z giętego drewna</h1><p>Paged gnie drewno od 1881 roku, kontynuując tradycję zapoczątkowaną przez Michaela Thoneta. Meble powstają w Polsce, a w centrum badawczo-rozwojowym Paged LabTech firma rozwija technologie, które mają zapewnić długą wygodę krzeseł i stołów. Drewno pochodzi z lasów z certyfikatem FSC®, a w produkcji Paged używa energii odnawialnej, lakierów wodnych i ekologicznych klejów. Paged współpracuje ze znanymi projektantami, a jego meble trafiają na ponad 40 rynków na świecie. Krzesła, hokery i stoły Paged sprawdzają się w kuchniach i kawiarniach firmowych, salach spotkań, restauracjach i hotelach.</p></header>
 <nav class="m-bc mw" aria-label="Okruszki"><a href="../../">Start</a> › <a href="../../producenci/">Producenci</a> › Paged</nav>
-<main><section class="m-sec mw"><div class="m-sec-head"><h2>Kolekcje Paged</h2><span class="m-count">1 kolekcja</span></div><div class="hub-grid"><a class="kl-card" href="krzesla-konferencyjne/do-spotkan/antilla/"><div class="kl-thumb kadr-produkt"><img loading="lazy" src="assets/paged-antilla-a-9850-1.webp" alt="Antilla — krzesło z giętego buku (Paged)" onerror="this.style.display='none';this.parentElement.style.background='#F2EEE6'"></div><div class="kl-body"><div class="kl-fam">Krzesła konferencyjne</div><div class="kl-title">Antilla</div><div class="kl-desc">Krzesło z giętego buku z charakterystycznym oparciem z toczonych prętów, zwieńczonych „grzebieniem". Siedzisko drewniane lub tapicerowane, wersja z podłokietnikami, część modeli można sztaplować.</div></div></a></div></section></main>
+<!-- CLAIMY HERO (1881 / Thonet / LabTech / FSC / energia odnawialna / 40+ rynków): źródło = pagedmeble.pl, strona „O firmie". FLAGA K15/K8 11.11g: strona O firmie niedostępna do re-weryfikacji (Cloudflare 403) — „ponad 40 rynków" i „energia odnawialna / lakiery wodne / ekologiczne kleje" do potwierdzenia u Paged / na żywej stronie. FSC = certyfikat PDF w Materiałach karty. Hub docelowo = jeden szablon T2 (11.11m). -->
+<main><section class="m-sec mw"><div class="m-sec-head"><h2>Kolekcje Paged</h2><span class="m-count">1 kolekcja · więcej wkrótce</span></div><div class="hub-grid"><a class="kl-card" href="krzesla-kawiarniane/drewniane/antilla/"><div class="kl-thumb kadr-produkt"><img loading="lazy" src="assets/paged-antilla-a-9850-1.webp" alt="Antilla — krzesło z giętego buku (Paged)" onerror="this.style.display='none';this.parentElement.style.background='#F2EEE6'"></div><div class="kl-body"><div class="kl-fam">Krzesła kawiarniane i restauracyjne</div><div class="kl-title">Antilla</div><div class="kl-desc">Krzesło z giętego buku z charakterystycznym oparciem z toczonych prętów, zwieńczonych „grzebieniem". Siedzisko drewniane lub tapicerowane, wersja z podłokietnikami, część modeli można sztaplować.</div></div></a><div class="kl-card kl-soon" aria-disabled="true"><div class="kl-thumb" style="background:#F2EEE6"></div><div class="kl-body"><div class="kl-fam">Hokery barowe</div><div class="kl-title">Antilla hokery <span style="color:var(--gold);font-size:11px;letter-spacing:.1em">· WKRÓTCE</span></div><div class="kl-desc">Hoker Antilla H-9850 (wys. 680 / 780 mm), buk, siedzisko drewniane lub tapicerowane.</div></div></div><div class="kl-card kl-soon" aria-disabled="true"><div class="kl-thumb" style="background:#F2EEE6"></div><div class="kl-body"><div class="kl-fam">Taborety</div><div class="kl-title">Antilla taboret <span style="color:var(--gold);font-size:11px;letter-spacing:.1em">· WKRÓTCE</span></div><div class="kl-desc">Taboret Antilla C-9850 (wys. 680 / 780 mm), buk, bez oparcia.</div></div></div><div class="kl-card kl-soon" aria-disabled="true"><div class="kl-thumb" style="background:#F2EEE6"></div><div class="kl-body"><div class="kl-fam">Stoły i fotele</div><div class="kl-title">Kolejne kolekcje <span style="color:var(--gold);font-size:11px;letter-spacing:.1em">· WKRÓTCE</span></div><div class="kl-desc">Stoły, fotele i kolejne rodziny Paged — w przygotowaniu.</div></div></div></div></section></main>
 
 
 
