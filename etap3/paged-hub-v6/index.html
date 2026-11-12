@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<script>(function(){try{var t=localStorage.getItem('dbm_theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1A1A1E">
+<title>Paged — krzesła, hokery i stoły gięte | DB Meble</title>
+<meta name="description" content="Paged — polski producent krzeseł, hokerów, foteli i stołów z giętego drewna od 1881 r. 75 rodzin w ofercie DB. Wycena, dostawa i montaż w całej Polsce.">
+<meta name="author" content="PM Smart Solution – Dariusz Barut">
+<link rel="canonical" href="https://dbmeble.pl/producenci/paged/">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>/* product-list.css — katalog filtrowalny (P1/P3/P5/P8). Uzywa zmiennych strony (--ink/--gold/--cream/--line/--serif/--sans). */
+#katalog { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px) 100px; }
+/* FILTRY — jawne kolory per motyw (NIE var(--ink)/var(--cream): shell stron kategorii/hubow ma je odwrocone -> czarny blok w jasnym) */
+.kl-filters { position: sticky; top: 0; z-index: 5; padding: 18px 0 14px; background: #17151A; border-bottom: 1px solid rgba(200,169,106,.20); }
+html[data-theme="light"] .kl-filters { background: #FAF7F0; border-bottom-color: rgba(26,23,20,.12); }
+.kl-row { display: flex; align-items: center; gap: 12px; margin: 0 0 10px; flex-wrap: wrap; }
+.kl-lab { font: 600 11px/1 var(--sans, sans-serif); letter-spacing: .14em; text-transform: uppercase; color: var(--gold, #C8A96A); min-width: 76px; opacity: .85; }
+.kl-chips { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; }
+.kl-chip { font: 500 13px/1 var(--sans, sans-serif); padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(200,169,106,.30); background: none; color: #F2E9D8; cursor: pointer; transition: .15s; }
+html[data-theme="light"] .kl-chip { color: #2A2622; border-color: rgba(26,23,20,.22); }
+.kl-chip:hover { border-color: var(--gold, #C8A96A); }
+.kl-chip.active { background: var(--gold, #C8A96A); color: var(--ink, #1A1714); border-color: var(--gold, #C8A96A); font-weight: 700; }
+.kl-n { opacity: .6; font-size: 11px; margin-left: 3px; }
+.kl-chip.active .kl-n { opacity: .85; }
+.kl-search { flex: 1; min-width: 220px; font: 400 15px var(--sans, sans-serif); padding: 11px 16px; border-radius: 10px; border: 1px solid rgba(200,169,106,.30); background: rgba(255,255,255,.06); color: #F5EEE0; }
+.kl-search::placeholder { color: rgba(245,238,224,.5); }
+.kl-search:focus { outline: none; border-color: var(--gold, #C8A96A); }
+/* widoczny przycisk czyszczenia (× dziedziczy kolor tekstu -> widac w obu motywach) */
+.kl-search::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; height: 15px; width: 15px; cursor: pointer; background: currentColor; opacity: .55; -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6 6l12 12M18 6L6 18' stroke='black' stroke-width='2.6' stroke-linecap='round'/></svg>") center/contain no-repeat; mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6 6l12 12M18 6L6 18' stroke='black' stroke-width='2.6' stroke-linecap='round'/></svg>") center/contain no-repeat; }
+.kl-search::-webkit-search-cancel-button:hover { opacity: 1; }
+html[data-theme="light"] .kl-search { background: #FFFFFF; color: #1A1A1E; border-color: rgba(26,23,20,.22); }
+html[data-theme="light"] .kl-search::placeholder { color: rgba(26,23,20,.45); }
+/* FAZA 5.1 — filtr AKORDEON (zwinięty domyślnie, klik rozwija; mobile-first, nie zasłania strony) */
+.kl-filters { display: flex; flex-direction: column; gap: 10px; }
+.kl-acc-wrap { display: flex; flex-direction: column; gap: 8px; }
+.kl-acc { border: 1px solid var(--line, rgba(200,169,106,.22)); border-radius: 10px; overflow: hidden; }
+.kl-acc > summary { list-style: none; cursor: pointer; padding: 11px 14px; font: 600 12px/1 var(--sans, sans-serif); letter-spacing: .1em; text-transform: uppercase; color: var(--gold, #C8A96A); display: flex; align-items: center; gap: 8px; user-select: none; }
+.kl-acc > summary::-webkit-details-marker { display: none; }
+.kl-acc > summary::after { content: "▾"; margin-left: auto; font-size: 11px; opacity: .7; transition: transform .2s ease; }
+.kl-acc[open] > summary::after { transform: rotate(180deg); }
+.kl-acc[open] > summary { border-bottom: 1px solid var(--line, rgba(200,169,106,.18)); }
+.kl-acc .kl-chips { padding: 12px 14px; }
+.kl-acc-dot { color: var(--gold, #C8A96A); font-size: 9px; }
+.kl-clear { align-self: flex-start; background: none; border: none; color: var(--gold, #C8A96A); font: 500 13px var(--sans, sans-serif); cursor: pointer; padding: 2px 0; opacity: .85; }
+.kl-clear:hover { opacity: 1; text-decoration: underline; }
+@media (min-width: 720px) { .kl-acc-wrap { flex-direction: row; align-items: flex-start; } .kl-acc { flex: 1; } .kl-acc[open] { flex: 1 1 100%; } }
+.kl-count { font: 500 13px var(--sans, sans-serif); color: var(--gold, #C8A96A); letter-spacing: .04em; padding: 18px 0 14px; }
+.kl-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); }
+.kl-card { display: flex; flex-direction: column; border: 1px solid var(--line, rgba(200,169,106,.18)); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; background: rgba(255,255,255,.02); transition: .2s; }
+.kl-card:hover { border-color: var(--gold, #C8A96A); transform: translateY(-3px); }
+/* kafle (korekta 3 pkt 9): 4:3, object-fit cover, tlo JASNE w kazdym motywie (zero ciemnego tla pod zdjeciem) */
+.kl-thumb { aspect-ratio: 4/3; background: #F2EEE6; display: block; overflow: hidden; padding: 0; box-sizing: border-box; }
+.kl-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* KADR (T2 10.09) — 2 klasy kadru na kontenerze .kl-thumb. Domyslnie cover (bezpieczny fallback dla stron spoza _build_mirror). */
+/* PRODUKT = packshot: mebel w CALOSCI (contain + padding, nigdy obciety). Override nad domyslnym cover (ta sama specyficznosc, pozniejsza regula). */
+.kadr-produkt img { object-fit: contain; mix-blend-mode: multiply; }
+.kadr-produkt { padding: 10px; }
+/* SCENA = aranzacja/kontekst: wypelnia kafel (cover). Jawne dla bramki regresji. */
+.kadr-scena img { object-fit: cover; }
+.kl-card { gap: 0; }
+.kl-body { padding: 14px 16px 16px; }
+.kl-body { padding: 14px 16px 16px; }
+.kl-arch { font: 600 10.5px/1 var(--sans, sans-serif); letter-spacing: .08em; text-transform: uppercase; color: var(--gold, #C8A96A); display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-bottom: 7px; }
+.kl-badge { display: inline-block; padding: 2px 9px; border-radius: 999px; background: var(--gold, #C8A96A); color: var(--ink, #1A1714); font-size: 9.5px; font-weight: 700; letter-spacing: .03em; }
+.kl-title { font: 500 22px var(--serif, serif); margin: 0 0 5px; }
+.kl-desc { font: 400 13px/1.45 var(--sans, sans-serif); opacity: .78; margin: 0 0 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.kl-meta { font: 400 12.5px var(--sans, sans-serif); opacity: .6; }
+.kl-empty { opacity: .8; font-style: italic; padding: 40px 0; color: #F2E9D8; }
+html[data-theme="light"] .kl-empty { color: #1A1A1E; }
+.kl-empty .kl-clear { display: inline-block; margin-top: 14px; font-style: normal; align-self: auto; }
+@media (max-width: 560px) { .kl-lab { min-width: 100%; } .kl-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; } }
+
+/* HERO WYSPA site-wide (korekta 3 pkt 6): ciemny overlay >=55% + jasny tekst NIEZALEZNIE od data-theme; zero jasnego gradientu w trybie jasnym. Wspoldzielone: huby/kategorie/przestrzenie. */
+.m-hero.m-hero--wyspa{border-radius:16px;background-size:cover;background-position:center;padding:clamp(40px,6vw,84px) clamp(24px,4vw,52px);margin:18px 0 0;max-width:none;position:relative}
+html[data-theme=light] .m-hero--wyspa,.m-hero--wyspa{color:#ECE3D2}
+.m-hero--wyspa .m-eyebrow{color:var(--gold,#C9A24B)}
+.m-hero--wyspa h1{color:#F4ECDD}
+.m-hero--wyspa p{color:#ECE3D2;opacity:.94}
+
+/* ETYKIETA AI site-wide (korekta 3 pkt 7): lewy dolny rog hero, 15px, bialy 0.8, bez tla, margines 24px */
+.m-hero--wyspa{position:relative}
+.hero-ai{position:absolute;left:24px;bottom:24px;z-index:4;font:400 15px/1 var(--sans,"DM Sans",sans-serif);letter-spacing:.14em;color:rgba(255,255,255,.8);pointer-events:none}
+</style>
+<style>/* logo-tune.css — JEDNO źródło strojenia wysokości logotypów marek (T2 2026-08-04).
+   Używane w DWÓCH miejscach z TYMI SAMYMI wartościami:
+   - home: siatka „12 marek" (.brand-cell img)
+   - /producenci/: kafle marek (.kl-logo img — osobna klasa od .kl-thumb, żeby NIE ruszać
+     kwadratowych miniatur zdjęć produktów na hubach).
+   Baza 40px + strojenie per-logo (wyrównanie pola optycznego). */
+.brand-cell img,
+.kl-logo img { height: 40px; width: auto; max-width: 150px; object-fit: contain; }
+
+.brand-cell img[src*="logo-profim"],    .kl-logo img[src*="logo-profim"]    { height: 28px; } /* 3.51:1 po trim białego */
+.brand-cell img[src*="logo-mebelux"],   .kl-logo img[src*="logo-mebelux"]   { height: 52px; } /* 1.25:1 gęste stackowane logo */
+.brand-cell img[src*="logo-bejot"],     .kl-logo img[src*="logo-bejot"]     { height: 32px; } /* 2.63:1 svg */
+.brand-cell img[src*="logo-antrax"],    .kl-logo img[src*="logo-antrax"]    { height: 29px; } /* 3.19:1 */
+.brand-cell img[src*="logo-maro"],      .kl-logo img[src*="logo-maro"]      { height: 29px; } /* 3.2:1 */
+.brand-cell img[src*="logo-mutedesign"],.kl-logo img[src*="logo-mutedesign"]{ height: 33px; } /* wordmark małe litery */
+.brand-cell img[src*="logo-mdd"],       .kl-logo img[src*="logo-mdd"]       { height: 28px; } /* 3.44:1 */
+.brand-cell img[src*="logo-vzor"],      .kl-logo img[src*="logo-vzor"]      { height: 27px; } /* 3.64:1 */
+.brand-cell img[src*="logo-flokk"],     .kl-logo img[src*="logo-flokk"]     { height: 27px; } /* 3.67:1 */
+.brand-cell img[src*="logo-nowystyl"],  .kl-logo img[src*="logo-nowystyl"]  { height: 26px; } /* 4.81:1 */
+.brand-cell img[src*="logo-kleiber"],   .kl-logo img[src*="logo-kleiber"]   { height: 26px; } /* 7.0:1 → max-width domyka */
+.brand-cell img[src*="logo-malow"],     .kl-logo img[src*="logo-malow"]     { height: 26px; } /* ~5:1 mark+wordmark SVG */
+
+/* /producenci/: logo w bandzie (a nie w kwadracie 1:1 kl-thumb od zdjęć produktów) */
+.kl-logo { aspect-ratio: auto; min-height: 120px; padding: 22px 18px; }
+</style>
+<style>:root{--ink:#F0E6D3;--gold:#C9A24B;--cream:#1A1A1E;--line:rgba(201,162,75,.18);--serif:"Cormorant Garamond",serif;--sans:"DM Sans",sans-serif}
+html[data-theme=light]{--ink:#1A1A1E;--cream:#F7F2E8;--line:rgba(26,23,20,.14)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+.mw{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.m-bc{font-size:12.5px;opacity:.6;padding:16px 0 0}.m-bc a{color:inherit;text-decoration:none}
+.m-hero{padding:clamp(22px,4vw,40px) 0 clamp(8px,2vw,14px)}
+.m-eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 12px}
+.m-logo{height:40px;width:auto;display:block;margin:0 0 14px}
+.m-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5vw,54px);line-height:1.03;margin:0 0 8px}
+.m-des{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.85;margin:0 0 14px}
+.m-intro{max-width:76ch;font-size:clamp(15px,1.25vw,16.5px);line-height:1.72;opacity:.88}.m-intro p{margin:0 0 12px}
+.m-sec{padding:clamp(16px,3vw,28px) 0;scroll-margin-top:16px}
+.m-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:18px}
+.m-sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(21px,2.5vw,30px);margin:0}
+.m-sec-head .m-count{font-size:13px;opacity:.6}
+.kl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:15px}
+.kl-card{position:relative;display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:rgba(255,255,255,.015);width:100%;text-align:left;font-family:inherit;cursor:pointer;padding:0}
+a.kl-card,button.kl-card{transition:.2s}a.kl-card:hover,button.kl-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.kl-thumb{aspect-ratio:4/3;background:#151519;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.kl-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.kl-thumb.contain{background:#efe8da}.kl-thumb.contain img{object-fit:contain;padding:8px}
+.kl-ph{font-family:var(--serif);font-size:34px;color:var(--gold);opacity:.5}
+.kl-body{padding:12px 14px 14px}.kl-arch{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);opacity:.8;margin:0 0 4px}
+.kl-title{font-family:var(--serif);font-size:18px;font-weight:500;margin:0 0 4px;line-height:1.16}.kl-meta{font-size:12.5px;opacity:.62;line-height:1.4}
+.kl-tag{position:absolute;right:10px;top:10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);border-radius:999px;padding:3px 9px;background:var(--cream)}
+.kl-tag.live{color:#2F7D46;border-color:rgba(47,125,70,.4)}
+.kl-go{display:block;text-align:right;padding:2px 14px 12px;font-size:12px;font-weight:600;color:var(--gold)}a.kl-card{display:flex;flex-direction:column}a.kl-card .kl-body{flex:1 0 auto}
+.m-jump{display:flex;gap:8px;flex-wrap:wrap;padding:14px 0 2px}
+.m-jump a{font-size:13px;color:var(--ink);opacity:.82;text-decoration:none;border:1px solid var(--line);padding:6px 13px;border-radius:999px}
+.m-jump a:hover{color:var(--gold);border-color:var(--gold)}
+.m-cta{margin:10px 0 0;border:1px solid var(--line);border-radius:12px;padding:clamp(20px,3vw,30px);background:linear-gradient(180deg,rgba(201,162,75,.06),transparent)}
+.m-cta h3{font-family:var(--serif);font-weight:500;font-size:clamp(20px,2.4vw,27px);margin:0 0 8px}.m-cta p{opacity:.82;line-height:1.6;margin:0 0 16px;max-width:64ch}
+.m-why{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 26px;margin:0 0 6px}@media(max-width:680px){.m-why{grid-template-columns:1fr}}
+.m-why .w{border-left:2px solid var(--gold);padding:2px 0 2px 14px}.m-why .w h4{font-family:var(--serif);font-size:18px;margin:0 0 3px;font-weight:600}.m-why .w p{font-size:14px;line-height:1.55;opacity:.8;margin:0;max-width:none}
+.m-cta .m-btns{display:flex;gap:12px;flex-wrap:wrap}.m-cta a{text-decoration:none;font-weight:600;font-size:14px;padding:11px 20px;border-radius:4px}
+.m-cta .m-b1{background:var(--gold);color:#1A1A1E}.m-cta .m-b2{color:var(--gold);border:1px solid var(--gold)}
+.m-faq details{border-bottom:1px solid var(--line);padding:13px 0}.m-faq summary{font-family:var(--serif);font-size:18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.m-faq summary::-webkit-details-marker{display:none}.m-faq summary::after{content:"+";color:var(--gold);font-size:21px;line-height:1}.m-faq details[open] summary::after{content:"\2212"}
+.m-faq p{font-size:14.5px;line-height:1.62;opacity:.82;margin:9px 0 0;max-width:80ch}
+.m-back{padding:10px 0 36px}.m-back a{color:var(--gold);font-weight:600;text-decoration:none}
+.pgmodal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(10,9,8,.72)}
+.pgmodal.open{display:flex}.pgmodal .box{background:#F7F2E8;color:#2A2622;border-radius:10px;max-width:760px;width:100%;max-height:90vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:680px){.pgmodal .box{grid-template-columns:1fr}}.pgmodal .mimg{background:#fff;aspect-ratio:1/1}.pgmodal .mimg img{width:100%;height:100%;object-fit:contain;display:block}
+.pgmodal .mbody{padding:22px}.pgmodal h3{font-family:var(--serif);font-size:26px;margin:0 0 3px;color:#1A1A1E}.pgmodal .mtype{font-size:12.5px;letter-spacing:.04em;color:#8A7A5E;margin:0 0 12px;text-transform:uppercase}
+.pgmodal .mdesc{font-size:14.5px;line-height:1.6;color:#3B342B;margin:0 0 16px}.pgmodal .msoon{display:inline-block;font-size:11.5px;font-weight:600;background:#F3ECDD;color:#9A7B2E;padding:4px 10px;border-radius:999px;margin:0 0 16px}
+.pgmodal .mcta{display:flex;gap:10px;flex-wrap:wrap}.pgmodal .mcta a{font-size:14px;font-weight:600;text-decoration:none;padding:10px 16px;border-radius:4px}.pgmodal .mcta .p{background:#C9A24B;color:#1A1A1E}.pgmodal .mcta .s{border:1px solid #C9A24B;color:#9A7B2E}
+.pgmodal .close{position:absolute;top:16px;right:20px;font-size:30px;color:#fff;background:none;border:none;cursor:pointer;line-height:1}</style>
+
+</head>
+<body><!-- PODGLAD DEPLOY3 etap3/paged-hub-v6 (standalone) -->
+<script data-root="https://dbmeble.pl/">
+/* header.js — WSPÓLNY nagłówek + megamenu DB (JEDNO źródło dla wszystkich stron).
+   ------------------------------------------------------------------------------
+   Cel: koniec z osobnymi wariantami nagłówka (m-nav na hubach, header silnika na
+   kartach, megamenu inline na home). Ten plik wstrzykuje TEN SAM nagłówek wszędzie.
+   Zmiana w JEDNYM miejscu (ten plik) propaguje się na wszystkie strony — jak theme.js.
+
+   Ładowanie: synchronicznie, jako pierwszy skrypt w <body><!-- PODGLAD DEPLOY3 etap3/paged-hub-v6 (standalone) --> (BEZ defer) → nagłówek
+   jest od pierwszego renderu (brak "doskakiwania"). Nie przesuwa treści na home
+   (nakłada się na hero); na pozostałych stronach dokłada padding-top pod treść.
+
+   data-root = prefiks ścieżki do korzenia /new/:
+     ""  home ·  "../"  o-nas ·  "https://dbmeble.pl/../"  hub 3-poziomowy ·  "https://dbmeble.pl/https://dbmeble.pl/../"  karta.
+
+   Współpraca z theme.js: markup ma .nav / .nav-center / .nav-cta — theme.js sam
+   dokłada przełącznik motywu i hamburger mobilny (szuka tych klas). Wystarczy, że
+   strona ładuje też theme.js.
+
+   Idempotentny: drugi raz się nie wstrzyknie. Fallback bez JS: <noscript> w HTML strony.
+*/
+(function () {
+  'use strict';
+  if (document.querySelector('nav.nav[data-dbnav]')) return;               // już wstrzyknięty
+
+  var sc = document.currentScript;
+  var root = sc && sc.getAttribute('data-root');
+  if (root == null) root = (document.body && document.body.getAttribute('data-root')) || '';
+  var transparent = sc && sc.getAttribute('data-transparent') === '1';      // home: nakładka na hero
+  var crumb = sc && sc.getAttribute('data-crumb');                          // opcjonalny "← wstecz"
+  var crumbHref = sc && sc.getAttribute('data-crumb-href');
+  try { window.__dbSearchIndex = root + 'search-index.json'; } catch (e) {}  // dla search.js — root-wzgledna sciezka indeksu (dziala pod /new/ i po swapie)
+
+  // === KATEGORIE MEGAMENU — AUTO-GENEROWANE z dane/_mapy/kategorie.json (grupy_megamenu). NIE EDYTUJ RECZNIE.
+  // Zmien w kategorie.json + uruchom: node web/_engine/_build_header_cats.cjs (JEDNO ZRODLO, zero dryfu).
+  /* CATS:GENERATED-START */
+  var CATS = [
+    { t: 'Fotele i krzesła', sub: '15 kolekcji · 7 producentów', img: 'images/cat-fotele-db.webp?v=db0814', tag: 'Fotele i krzesła', desc: 'Ergonomia, komfort, prestiż — od pojedynczego fotela po wyposażenie całego open-space.', href: 'kategorie/krzesla-obrotowe/' },
+    { t: 'Biurka i stanowiska', sub: '8 kolekcji · 4 producentów', img: 'images/cat-biurka-db.webp?v=db0814', tag: 'Biurka i stanowiska pracy', desc: 'Biurka elektryczne, ławki, stanowiska gabinetowe — dopasowane do tempa pracy.', href: 'kategorie/biurka-pracownicze/' },
+    { t: 'Sale konferencyjne', sub: '4 kolekcje · 3 producentów', img: 'images/cat-konferencyjne-db.webp?v=db0814', tag: 'Sale konferencyjne', desc: 'Stoły dla zespołu lub zarządu, krzesła konferencyjne, wyposażenie multimedialne.', href: 'kategorie/krzesla-konferencyjne/' },
+    { t: 'Strefa recepcji', sub: '3 kolekcje · 3 producentów', img: 'images/cat-recepcja-db.webp?v=db0814', tag: 'Strefa recepcji', desc: 'Pierwsze wrażenie kosztuje raz. Lady, sofy lobby, stoliki kawowe.', href: 'przestrzenie/recepcja/' },
+    { t: 'Akustyka i strefy ciszy', sub: '8 kolekcji · 5 producentów', img: 'images/cat-akustyka-db.webp?v=db0814', tag: 'Akustyka i strefy ciszy', desc: 'Panele, sofy akustyczne, strefy ciszy — open-space, który pozwala się skupić.', href: 'kategorie/akustyka/' },
+    { t: 'Budki akustyczne', sub: 'Sale spotkań i skupienia', img: 'images/cat-budki-db.webp?v=db0814', tag: 'Budki akustyczne', desc: 'Kabiny do rozmów, wideokonferencji i pracy w skupieniu — cisza w środku open-space.', href: 'producenci/bejot/akustyka/budki/' },
+    { t: 'Przechowywanie', sub: '6 kolekcji · 3 producentów', img: 'images/cat-przechowywanie-db.webp?v=db0814', tag: 'Przechowywanie', desc: 'Szafy, lockery, regały — porządek widoczny i ten, którego nie widać.', href: 'kategorie/przechowywanie/' },
+    { t: 'Siedziska miękkie', sub: '8 kolekcji · 7 producentów', img: 'images/cat-siedziska-db.webp?v=db0814', tag: 'Siedziska tapicerowane / Chillout', desc: 'Sofy modułowe, fotele lounge — strefy regeneracji i nieformalnych spotkań.', href: 'kategorie/soft-seating/' },
+    { t: 'Wieszaki', sub: 'Wolnostojące i ubraniowe', img: 'images/cat-wieszaki-db.webp?v=db0814', tag: 'Wieszaki ubraniowe', desc: 'Wieszaki stojące i ubraniowe do biura, recepcji i stref wejściowych.', href: 'kategorie/wieszaki/', enabled: false },
+    { t: 'Stoły', sub: '', img: '', tag: 'Stoły', desc: '', href: 'kategorie/stoly/', enabled: false },
+    { t: 'Aranżacja', sub: '', img: '', tag: 'Aranżacja przestrzeni', desc: '', href: 'kategorie/aranzacja-przestrzeni/', enabled: false }
+  ];
+  /* CATS:GENERATED-END */
+
+  // === LINKI GŁÓWNE (poza megamenu) ===
+  var LINKS = [
+    ['O nas',       root + 'o-nas/'],
+    ['Producenci',  root + 'producenci/'],
+    ['Przestrzenie', root + 'przestrzenie/'],
+    ['Realizacje',  root + 'realizacje/'],
+    ['Wiedza',      root + 'blog/'],
+    ['FAQ',         root + 'faq/'],
+    ['Kontakt',     root + 'kontakt/']
+  ];
+
+  var GOLD = '#C8A96A';
+
+  // === CSS (samodzielny — jawne wartości, żeby wyglądał 1:1 niezależnie od tokenów strony) ===
+  var css = [
+    '.nav[data-dbnav]{position:fixed;top:0;left:0;right:0;z-index:200;padding:14px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:24px;font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;box-sizing:border-box;transition:background .35s ease,border-color .35s ease}',
+    '.nav[data-dbnav]{background:rgba(16,16,19,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,169,106,.18)}',
+    '.nav[data-dbnav].dbnav-over{background:linear-gradient(180deg,rgba(16,16,19,.6) 0%,rgba(16,16,19,.18) 70%,rgba(16,16,19,0) 100%);backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:transparent}',
+    '.nav[data-dbnav] .brand{display:flex;align-items:center;flex-shrink:0;line-height:0;text-decoration:none}',
+    '.nav[data-dbnav] .brand-logo{height:48px;width:auto;display:block;object-fit:contain}',
+    '.nav[data-dbnav] .nav-center{display:none;gap:clamp(14px,1.6vw,26px);font-size:13px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:rgba(250,250,248,.82);align-items:center}',
+    '@media(min-width:980px){.nav[data-dbnav] .nav-center{display:flex}}',
+    '.nav[data-dbnav] .nav-center>a{position:relative;padding:8px 0;transition:color .25s ease;color:inherit;text-decoration:none}',
+    '.nav[data-dbnav] .nav-center>a:hover{color:' + GOLD + '}',
+    '.nav[data-dbnav] .has-mega{position:relative;padding:8px 0}',
+    '.nav[data-dbnav] .nav-trigger{cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:6px;color:rgba(250,250,248,.82);transition:color .25s ease}',
+    '.nav[data-dbnav] .has-mega:hover .nav-trigger{color:' + GOLD + '}',
+    '.nav[data-dbnav] .nav-trigger::after{content:"";width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .25s ease}',
+    '.nav[data-dbnav] .has-mega:hover .nav-trigger::after{transform:rotate(-135deg) translate(2px,2px)}',
+    '.nav[data-dbnav] .nav-right{display:flex;align-items:center;gap:16px;flex-shrink:0}',
+    '.nav[data-dbnav] .nav-cta{display:none;padding:11px 20px;border:1px solid ' + GOLD + ';color:' + GOLD + ';font-size:12px;letter-spacing:.14em;border-radius:2px;text-decoration:none;white-space:nowrap;transition:background .3s ease,color .3s ease}',
+    '@media(min-width:600px){.nav[data-dbnav] .nav-cta{display:inline-flex}}',
+    '.nav[data-dbnav] .nav-cta:hover{background:' + GOLD + ';color:#1A1714}',
+    // ≤1365px: przełącznik trybu jako IKONA (słońce) zamiast tekstu „Tryb jasny | Tryb ciemny" — telefon zostaje pełny (fix 1280 overflow, BETI 02.10). Steruje elementami theme.js, ale CSS jest w headerze (theme.js nietknięty).
+    '@media(max-width:1365px){.nav[data-dbnav] .theme-switch:not(.ts-in-menu){display:none!important}.nav[data-dbnav] .theme-toggle{display:inline-flex!important}}',
+    // megamenu
+    '.nav[data-dbnav] .mega-menu{position:absolute;top:100%;left:0;transform:translateY(8px);width:min(920px,92vw);background:rgba(16,16,19,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(200,169,106,.18);border-radius:6px;padding:32px;display:grid;grid-template-columns:1.1fr 1fr;gap:32px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s ease,transform .3s cubic-bezier(.2,.7,.2,1),visibility 0s linear .3s;box-shadow:0 30px 80px -30px rgba(0,0,0,.7);z-index:5}',
+    '.nav[data-dbnav] .has-mega:hover .mega-menu,.nav[data-dbnav] .has-mega:focus-within .mega-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);transition:opacity .3s ease,transform .3s cubic-bezier(.2,.7,.2,1),visibility 0s linear 0s}',
+    '.nav[data-dbnav] .mega-cats{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin:0;padding:0;list-style:none}',
+    '.nav[data-dbnav] .mega-cat{position:relative;padding:10px 14px 10px 22px;font-size:13px;letter-spacing:.04em;text-transform:none;color:rgba(250,250,248,.85);border-radius:3px;transition:background .25s ease,color .25s ease;cursor:pointer}',
+    '.nav[data-dbnav] .mega-cat::before{content:"";position:absolute;left:8px;top:50%;width:6px;height:6px;background:' + GOLD + ';border-radius:50%;transform:translateY(-50%);opacity:.5;transition:opacity .25s ease,transform .25s ease}',
+    '.nav[data-dbnav] .mega-cat:hover,.nav[data-dbnav] .mega-cat.is-active{background:rgba(200,169,106,.08);color:' + GOLD + '}',
+    '.nav[data-dbnav] .mega-cat:hover::before,.nav[data-dbnav] .mega-cat.is-active::before{opacity:1;transform:translateY(-50%) scale(1.3)}',
+    '.nav[data-dbnav] .mega-cat .mc-title{font-family:"Cormorant Garamond","Times New Roman",serif;font-size:17px;font-weight:500;display:block;line-height:1.2;color:inherit}',
+    '.nav[data-dbnav] .mega-cat .mc-sub{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,250,248,.5);display:block;margin-top:2px}',
+    '.nav[data-dbnav] .mega-preview{position:relative;border-radius:4px;overflow:hidden;background:#000;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end}',
+    '.nav[data-dbnav] .mp-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity .4s ease,transform .8s cubic-bezier(.2,.7,.2,1);opacity:0;transform:scale(1.04)}',
+    '.nav[data-dbnav] .mp-img.is-active{opacity:1;transform:scale(1)}',
+    '.nav[data-dbnav] .mega-preview::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(16,16,19,.88) 100%);pointer-events:none}',
+    '.nav[data-dbnav] .mp-caption{position:relative;z-index:1;padding:22px;color:#FAFAF8}',
+    '.nav[data-dbnav] .mp-tag{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:' + GOLD + ';display:block;margin-bottom:6px}',
+    '.nav[data-dbnav] .mp-desc{font-family:"Cormorant Garamond","Times New Roman",serif;font-size:18px;line-height:1.3;margin:0 0 14px;font-weight:500;color:#FAFAF8}',
+    '.nav[data-dbnav] .mp-cta{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:' + GOLD + ';display:inline-flex;align-items:center;gap:8px;text-decoration:none}',
+    '.nav[data-dbnav] .mp-cta::after{content:"→";font-size:14px}',
+    // breadcrumb pasek (opcjonalny)
+    '.dbnav-crumb{position:fixed;top:76px;left:0;right:0;z-index:199;background:rgba(12,10,8,.94);border-bottom:1px solid rgba(200,169,106,.12);padding:8px clamp(20px,4vw,56px);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-family:"DM Sans",system-ui,sans-serif;box-sizing:border-box}',
+    '.dbnav-crumb a{color:rgba(250,250,248,.72);text-decoration:none}',
+    '.dbnav-crumb a:hover{color:' + GOLD + '}',
+    // light-mode (gdy html[data-theme=light]) — nagłówek zostaje ciemny, ale megamenu jaśniejsze jak na home
+    'html[data-theme="light"] .nav[data-dbnav] .mega-menu{background:rgba(250,250,248,.98);border-color:rgba(26,23,20,.10)}',
+    'html[data-theme="light"] .nav[data-dbnav] .mega-cat{color:rgba(26,23,20,.82)}',
+    'html[data-theme="light"] .nav[data-dbnav] .mega-cat .mc-sub{color:rgba(26,23,20,.5)}',
+    'html[data-theme="light"] .nav[data-dbnav] .mp-desc,html[data-theme="light"] .nav[data-dbnav] .mp-caption{color:#FAFAF8}',
+    // === LUPKA + overlay wyszukiwarki (search.js) ===
+    '.nav[data-dbnav] .nav-search{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;margin:0;background:none;border:none;color:rgba(250,250,248,.82);cursor:pointer;border-radius:50%;transition:color .25s ease,background .25s ease}',
+    '.nav[data-dbnav] .nav-search:hover{color:' + GOLD + ';background:rgba(200,169,106,.10)}',
+    '.nav[data-dbnav] .nav-search svg{width:20px;height:20px;display:block}',
+    '.dbnav-search-ov{position:fixed;inset:0;z-index:300;background:rgba(10,9,8,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:14vh 20px 20px;box-sizing:border-box}',
+    '.dbnav-search-ov[hidden]{display:none}',
+    '.dbnav-search-box{position:relative;width:min(680px,94vw);background:rgba(20,19,22,.98);border:1px solid rgba(200,169,106,.22);border-radius:8px;box-shadow:0 30px 90px -30px rgba(0,0,0,.8);padding:22px}',
+    '.dbnav-search-box input#szukaj-input{width:100%;box-sizing:border-box;background:rgba(255,255,255,.04);border:1px solid rgba(200,169,106,.25);color:#FAFAF8;font-size:18px;font-family:"DM Sans",system-ui,sans-serif;padding:14px 16px;border-radius:5px;outline:none}',
+    '.dbnav-search-box input#szukaj-input:focus{border-color:' + GOLD + '}',
+    '.dbnav-search-close{position:absolute;top:12px;right:12px;width:34px;height:34px;background:none;border:none;color:rgba(250,250,248,.6);font-size:26px;line-height:1;cursor:pointer;border-radius:50%}',
+    '.dbnav-search-close:hover{color:' + GOLD + '}',
+    '#szukaj-wyniki{margin-top:14px;max-height:56vh;overflow:auto}',
+    '#szukaj-wyniki .sz-empty{color:rgba(250,250,248,.55);font-size:14px;font-family:"DM Sans",system-ui,sans-serif;padding:10px 4px;margin:0}',
+    '#szukaj-wyniki .sz-empty a{color:' + GOLD + '}',
+    '#szukaj-wyniki .sz-count{color:rgba(250,250,248,.5);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin:6px 4px 10px}',
+    '#szukaj-wyniki .sz-list{list-style:none;margin:0;padding:0}',
+    '#szukaj-wyniki .sz-list a{display:flex;align-items:baseline;gap:10px;padding:10px 12px;border-radius:5px;text-decoration:none;color:#FAFAF8;transition:background .2s ease}',
+    '#szukaj-wyniki .sz-list a:hover{background:rgba(200,169,106,.10)}',
+    '#szukaj-wyniki .sz-t{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:' + GOLD + ';flex-shrink:0;min-width:74px}',
+    '#szukaj-wyniki .sz-n{font-family:"Cormorant Garamond",serif;font-size:17px;font-weight:500}',
+    '#szukaj-wyniki .sz-m{font-size:12px;color:rgba(250,250,248,.5);margin-left:auto;text-align:right}',
+    'html[data-theme="light"] .dbnav-search-box{background:rgba(250,250,248,.99);border-color:rgba(26,23,20,.12)}',
+    'html[data-theme="light"] .dbnav-search-box input#szukaj-input{background:rgba(0,0,0,.03);color:#1A1714}',
+    'html[data-theme="light"] #szukaj-wyniki .sz-n,html[data-theme="light"] #szukaj-wyniki .sz-list a{color:#1A1714}',
+    // na najwezszych telefonach — zwez padding/gap, zeby klaster ikon (lupka + hamburger + motyw) na pewno sie zmiescil
+    '@media(max-width:400px){.nav[data-dbnav]{padding-left:16px;padding-right:16px}.nav[data-dbnav] .nav-right{gap:8px}}'
+  ].join('');
+
+  var st = document.createElement('style');
+  st.setAttribute('data-dbnav-css', '1');
+  st.textContent = css;
+  (document.head || document.documentElement).appendChild(st);
+
+  // === MARKUP ===
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+  var catsHtml = CATS.filter(function (c) { return c.enabled !== false; }).map(function (c, i) {
+    return '<li class="mega-cat' + (i === 0 ? ' is-active' : '') + '"'
+      + ' data-img="' + esc(root + c.img) + '"'
+      + ' data-tag="' + esc(c.tag) + '"'
+      + ' data-desc="' + esc(c.desc) + '"'
+      + ' data-href="' + esc(root + c.href) + '">'
+      + '<span class="mc-title">' + esc(c.t) + '</span><span class="mc-sub">' + esc(c.sub) + '</span></li>';
+  }).join('');
+
+  var linksHtml = LINKS.map(function (l) { return '<a href="' + esc(l[1]) + '">' + esc(l[0]) + '</a>'; }).join('');
+
+  var first = CATS[0];
+  var megaHtml = '<div class="has-mega">'
+    + '<a class="nav-trigger" href="' + esc(root + 'produkty/') + '" role="button" aria-haspopup="true">Produkty</a>'
+    + '<div class="mega-menu" role="menu" aria-label="Kategorie produktów">'
+    + '<ul class="mega-cats">' + catsHtml + '</ul>'
+    + '<div class="mega-preview" id="dbnavMegaPreview">'
+    + '<div class="mp-img is-active" style="background-image:url(\'' + esc(root + first.img) + '\')"></div>'
+    + '<div class="mp-caption"><span class="mp-tag" id="dbnavMpTag">' + esc(first.tag) + '</span>'
+    + '<p class="mp-desc" id="dbnavMpDesc">' + esc(first.desc) + '</p>'
+    + '<a href="' + esc(root + 'produkty/') + '" class="mp-cta">Zobacz wszystkie</a></div>'
+    + '</div></div></div>';
+
+  var navHtml = '<a href="' + esc(root || '/') + '" class="brand" aria-label="DB Meble — strona główna">'
+    + '<img src="' + esc(root + 'images/logo-db-nav.png') + '?v=0a124bbb" alt="DB Meble" class="brand-logo"></a>'
+    + '<div class="nav-center">' + megaHtml + linksHtml + '</div>'
+    + '<div class="nav-right">'
+    + '<button type="button" class="nav-search" aria-label="Szukaj" aria-haspopup="dialog">'
+    + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>'
+    + '</button>'
+    + '<a href="tel:+48506147435" class="nav-cta" data-event="phone_click" data-event-source="nav">506 147 435</a>'
+    + '</div>';
+
+  var nav = document.createElement('nav');
+  nav.className = 'nav' + (transparent ? ' dbnav-over' : '');
+  nav.id = 'nav';
+  nav.setAttribute('data-dbnav', '1');
+  nav.innerHTML = navHtml;
+  document.body.insertBefore(nav, document.body.firstChild);
+
+  // breadcrumb (jeśli podany data-crumb)
+  if (crumb) {
+    var bc = document.createElement('div');
+    bc.className = 'dbnav-crumb';
+    bc.innerHTML = '<a href="' + esc(crumbHref || root) + '">← ' + esc(crumb) + '</a>';
+    nav.parentNode.insertBefore(bc, nav.nextSibling);
+  }
+
+  // padding pod treść (poza home, gdzie nav nakłada się na hero)
+  if (!transparent && document.body) {
+    var pad = crumb ? 108 : 74;
+    var prev = parseInt((document.body.style.paddingTop || '0'), 10) || 0;
+    if (prev < pad) document.body.style.paddingTop = pad + 'px';
+  }
+
+  // === ZACHOWANIE MEGAMENU — hover/klik na kategorię = podmiana podglądu ===
+  var preview = nav.querySelector('#dbnavMegaPreview');
+  var mpTag = nav.querySelector('#dbnavMpTag');
+  var mpDesc = nav.querySelector('#dbnavMpDesc');
+  var mpCta = nav.querySelector('.mp-cta');
+  var cats = nav.querySelectorAll('.mega-cat');
+
+  function activate(cat) {
+    cats.forEach(function (c) { c.classList.remove('is-active'); });
+    cat.classList.add('is-active');
+    var oldImg = preview.querySelector('.mp-img.is-active');
+    var newImg = document.createElement('div');
+    newImg.className = 'mp-img';
+    newImg.style.backgroundImage = "url('" + cat.getAttribute('data-img') + "')";
+    preview.insertBefore(newImg, preview.firstChild);
+    requestAnimationFrame(function () { newImg.classList.add('is-active'); });
+    setTimeout(function () { if (oldImg) oldImg.remove(); }, 500);
+    if (mpTag) mpTag.textContent = cat.getAttribute('data-tag');
+    if (mpDesc) mpDesc.textContent = cat.getAttribute('data-desc');
+    if (mpCta && cat.getAttribute('data-href')) mpCta.setAttribute('href', cat.getAttribute('data-href'));
+  }
+
+  cats.forEach(function (cat) {
+    cat.addEventListener('mouseenter', function () { activate(cat); });
+    cat.addEventListener('click', function () {
+      var href = cat.getAttribute('data-href');
+      if (href) window.location.href = href;
+    });
+  });
+
+  // === LUPKA — overlay wyszukiwarki. search.js ładowany LENIWIE przy 1. otwarciu. ===
+  var searchBtn = nav.querySelector('.nav-search');
+  if (searchBtn) {
+    var ov = document.createElement('div');
+    ov.className = 'dbnav-search-ov';
+    ov.id = 'dbnavSearchOv';
+    ov.setAttribute('hidden', '');
+    ov.innerHTML = '<div class="dbnav-search-box" role="dialog" aria-modal="true" aria-label="Wyszukiwarka">'
+      + '<button type="button" class="dbnav-search-close" aria-label="Zamknij">×</button>'
+      + '<input id="szukaj-input" type="search" autocomplete="off" placeholder="Szukaj produktu, kategorii, producenta…">'
+      + '<div id="szukaj-wyniki"><p class="sz-empty">Wpisz nazwę produktu, kategorii lub producenta…</p></div>'
+      + '</div>';
+    document.body.appendChild(ov);
+
+    var searchLoaded = false;
+    function openSearch() {
+      ov.removeAttribute('hidden');
+      var inp = ov.querySelector('#szukaj-input');
+      if (!searchLoaded) {
+        searchLoaded = true;                         // search.js sam wpina się na #szukaj-input i robi focus
+        var s = document.createElement('script');
+        s.src = root + 'search.js';
+        document.body.appendChild(s);
+      } else if (inp) { inp.focus(); }
+    }
+    function closeSearch() { ov.setAttribute('hidden', ''); }
+
+    searchBtn.addEventListener('click', openSearch);
+    ov.querySelector('.dbnav-search-close').addEventListener('click', closeSearch);
+    ov.addEventListener('click', function (e) { if (e.target === ov) closeSearch(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !ov.hasAttribute('hidden')) closeSearch();
+    });
+  }
+
+  // Uwaga: „potrójny nagłówek" na kartach (shared nav + pe-topbar + pe-nav) domyka
+  // fix prezentacji w product-engine (usunięcie pe-topbar + ukrycie .pe-nav .brand) — T3.
+})();
+
+</script>
+<noscript><nav class="mw" style="display:flex;justify-content:space-between;padding:16px 0"><a href="https://dbmeble.pl/index.html">DB Meble</a><span><a href="https://dbmeble.pl/producenci/">Producenci</a> · <a href="tel:+48506147435">506 147 435</a></span></nav></noscript>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://dbmeble.pl/"}, {"@type": "ListItem", "position": 2, "name": "Producenci", "item": "https://dbmeble.pl/producenci/"}, {"@type": "ListItem", "position": 3, "name": "Paged", "item": "https://dbmeble.pl/producenci/paged/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Brand", "name": "Paged", "description": "Polski producent mebli z giętego drewna od 1881 roku.", "url": "https://dbmeble.pl/producenci/paged/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Czy krzesła Paged są sztaplowane?", "acceptedAnswer": {"@type": "Answer", "text": "Część modeli Paged można sztaplować — sztaplowalność zależy od rodziny i wersji; potwierdzamy ją przy wycenie na podstawie karty modelu."}}, {"@type": "Question", "name": "Ile trwa realizacja zamówienia Paged?", "acceptedAnswer": {"@type": "Answer", "text": "Standardowy czas realizacji to 4–5 tygodni. Modele z wyplotem oraz stoły Sund i Drum mają dłuższy czas — około 8 tygodni."}}, {"@type": "Question", "name": "Jakie wykończenia drewna oferuje Paged?", "acceptedAnswer": {"@type": "Answer", "text": "Drewno bukowe wykańczane jest bejcami i lakierami wodnymi w palecie wybarwień; dostępne są też wersje tapicerowane w tkaninach z wzornika."}}, {"@type": "Question", "name": "Czy Paged robi hokery do wysokich blatów?", "acceptedAnswer": {"@type": "Answer", "text": "Tak. Paged oferuje hokery z giętego drewna, m.in. w wysokościach siedziska 680 i 780 mm — do wysokich blatów, wysp kuchennych i lad."}}, {"@type": "Question", "name": "Z jakiego drewna są meble Paged?", "acceptedAnswer": {"@type": "Answer", "text": "Z giętego drewna bukowego z lasów z certyfikatem FSC®; produkcja na energii odnawialnej, lakierach wodnych i ekologicznych klejach."}}, {"@type": "Question", "name": "Gdzie zobaczyć meble Paged?", "acceptedAnswer": {"@type": "Answer", "text": "Wybrane modele i próbki wykończeń prezentujemy w showroomie DB Concept Space w Warszawie — umów się pod 506 147 435."}}, {"@type": "Question", "name": "Czy DB dostarcza i montuje meble Paged w całej Polsce?", "acceptedAnswer": {"@type": "Answer", "text": "Tak. DB Concept Space realizuje dostawę i montaż mebli Paged na terenie całej Polski."}}, {"@type": "Question", "name": "Do jakich wnętrz pasują meble Paged?", "acceptedAnswer": {"@type": "Answer", "text": "Do kawiarni i kuchni firmowych, restauracji, hoteli, sal spotkań oraz stref socjalnych biura."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Rodziny mebli Paged w ofercie DB Concept Space", "numberOfItems": 75, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Paged Aires", "url": "https://dbmeble.pl/producenci/paged/#fotele"}, {"@type": "ListItem", "position": 2, "name": "Paged Aldo", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 3, "name": "Paged Antilla", "url": "https://dbmeble.pl/producenci/paged/krzesla-kawiarniane/antilla/"}, {"@type": "ListItem", "position": 4, "name": "Paged Archer", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 5, "name": "Paged Argo", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 6, "name": "Paged Aria", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 7, "name": "Paged Benko", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 8, "name": "Paged Bizo", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 9, "name": "Paged Classic", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 10, "name": "Paged Domo", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 11, "name": "Paged Dot", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 12, "name": "Paged Evo", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 13, "name": "Paged Fuoco", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 14, "name": "Paged Icho", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 15, "name": "Paged Indiana", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 16, "name": "Paged K2", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 17, "name": "Paged K3", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 18, "name": "Paged La Benda", "url": "https://dbmeble.pl/producenci/paged/#fotele"}, {"@type": "ListItem", "position": 19, "name": "Paged Lagom", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 20, "name": "Paged Link", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 21, "name": "Paged Lof", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 22, "name": "Paged Lubi", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 23, "name": "Paged Moon", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 24, "name": "Paged Nimm", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 25, "name": "Paged Nodo", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 26, "name": "Paged Perline", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 27, "name": "Paged Plasa", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 28, "name": "Paged Prop", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 29, "name": "Paged Shell", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 30, "name": "Paged Spire", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 31, "name": "Paged Sudoku", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 32, "name": "Paged Tuk", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 33, "name": "Paged Uvu", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 34, "name": "Paged Uxi", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 35, "name": "Paged Xchair", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 36, "name": "Paged Yesterday", "url": "https://dbmeble.pl/producenci/paged/#krzesla"}, {"@type": "ListItem", "position": 37, "name": "Paged Aldo", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 38, "name": "Paged Antilla", "url": "https://dbmeble.pl/producenci/paged/stolki-barowe/antilla-hoker/"}, {"@type": "ListItem", "position": 39, "name": "Paged Archer", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 40, "name": "Paged Benko", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 41, "name": "Paged Classic", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 42, "name": "Paged Evo", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 43, "name": "Paged Icho", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 44, "name": "Paged K2", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 45, "name": "Paged Lof", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 46, "name": "Paged Lubi", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 47, "name": "Paged Moon", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 48, "name": "Paged Nimm", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 49, "name": "Paged Note", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 50, "name": "Paged Prop", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 51, "name": "Paged Shell", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 52, "name": "Paged Sudoku", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 53, "name": "Paged Tuk", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 54, "name": "Paged Uvu", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 55, "name": "Paged Xstool", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 56, "name": "Paged Yesterday", "url": "https://dbmeble.pl/producenci/paged/#hokery"}, {"@type": "ListItem", "position": 57, "name": "Paged Aria", "url": "https://dbmeble.pl/producenci/paged/#taborety"}, {"@type": "ListItem", "position": 58, "name": "Paged K2", "url": "https://dbmeble.pl/producenci/paged/#taborety"}, {"@type": "ListItem", "position": 59, "name": "Paged Aria", "url": "https://dbmeble.pl/producenci/paged/#fotele"}, {"@type": "ListItem", "position": 60, "name": "Paged Bizo", "url": "https://dbmeble.pl/producenci/paged/#fotele"}, {"@type": "ListItem", "position": 61, "name": "Paged Classic", "url": "https://dbmeble.pl/producenci/paged/#fotele"}, {"@type": "ListItem", "position": 62, "name": "Paged Icho", "url": "https://dbmeble.pl/producenci/paged/#fotele"}, {"@type": "ListItem", "position": 63, "name": "Paged K2", "url": "https://dbmeble.pl/producenci/paged/#fotele"}, {"@type": "ListItem", "position": 64, "name": "Paged Link", "url": "https://dbmeble.pl/producenci/paged/#fotele"}, {"@type": "ListItem", "position": 65, "name": "Paged Note", "url": "https://dbmeble.pl/producenci/paged/#fotele"}, {"@type": "ListItem", "position": 66, "name": "Paged Tuk", "url": "https://dbmeble.pl/producenci/paged/#fotele"}, {"@type": "ListItem", "position": 67, "name": "Paged Argo", "url": "https://dbmeble.pl/producenci/paged/#stoly"}, {"@type": "ListItem", "position": 68, "name": "Paged Drum", "url": "https://dbmeble.pl/producenci/paged/#stoly"}, {"@type": "ListItem", "position": 69, "name": "Paged Lungo", "url": "https://dbmeble.pl/producenci/paged/#stoly"}, {"@type": "ListItem", "position": 70, "name": "Paged Muro", "url": "https://dbmeble.pl/producenci/paged/#stoly"}, {"@type": "ListItem", "position": 71, "name": "Paged Podstawa stołowa", "url": "https://dbmeble.pl/producenci/paged/#akcesoria"}, {"@type": "ListItem", "position": 72, "name": "Paged Still Line", "url": "https://dbmeble.pl/producenci/paged/#stoly"}, {"@type": "ListItem", "position": 73, "name": "Paged Sund", "url": "https://dbmeble.pl/producenci/paged/#stoly"}, {"@type": "ListItem", "position": 74, "name": "Paged Classic", "url": "https://dbmeble.pl/producenci/paged/#akcesoria"}, {"@type": "ListItem", "position": 75, "name": "Paged Solo", "url": "https://dbmeble.pl/producenci/paged/#akcesoria"}]}</script>
+<div class="m-bc mw"><a href="https://dbmeble.pl/index.html">Start</a> · <a href="https://dbmeble.pl/producenci/">Producenci</a> · Paged</div>
+<header class="m-hero mw">
+  <img class="m-logo" src="assets/logo-paged.webp" alt="Paged" onerror="this.style.display='none'">
+  <p class="m-eyebrow">Producent · drewno gięte</p>
+  <h1>Paged — krzesła, hokery i stoły z giętego drewna</h1>
+  <p class="m-des">75 rodzin · drewno gięte od 1881 r. · wycena, dostawa, montaż</p>
+  <div class="m-intro"><p>Polska marka mebli z giętego buku, kontynuatorka tradycji Michaela Thoneta. Krzesła, hokery, taborety, fotele i stoły do kawiarni, restauracji, hoteli i stref socjalnych biura — z wyceną, dostawą i montażem przez DB Concept Space.</p></div>
+  <nav class="m-jump"><a href="#krzesla">Krzesła (34)</a><a href="#hokery">Hokery (20)</a><a href="#taborety">Taborety i pufy (2)</a><a href="#fotele">Fotele i sofy (10)</a><a href="#stoly">Stoły i stoliki (6)</a><a href="#akcesoria">Akcesoria (3)</a></nav>
+</header>
+<section class="m-sec mw" id="historia"><div class="m-sec-head"><h2>Historia i fabryka</h2></div><div class="m-intro"><p>Paged gnie drewno od 1881 roku, kontynuując tradycję zapoczątkowaną przez Michaela Thoneta. Meble powstają w Polsce, a w centrum badawczo-rozwojowym Paged LabTech firma rozwija technologie zapewniające trwałość i wygodę krzeseł oraz stołów. Fabryka i firmowy showroom Paged mieszczą się w Jasienicy (woj. śląskie).</p><p>Drewno pochodzi z lasów z certyfikatem FSC®, a produkcja opiera się na energii odnawialnej, lakierach wodnych i ekologicznych klejach. Meble Paged trafiają na ponad 40 rynków na świecie i współtworzą je uznani projektanci.</p><p>Krzesła, hokery i stoły Paged sprawdzają się w kuchniach i kawiarniach firmowych, salach spotkań, restauracjach i hotelach.</p></div></section>
+<section class="m-sec mw" id="krzesla"><div class="m-sec-head"><h2>Krzesła</h2><span class="m-count">34 rodziny</span></div><div class="kl-grid"><button type="button" class="kl-card" data-name="Aldo" data-type="Krzesło" data-img="assets/paged-aldo-a-1070.webp" data-desc="Krzesło Paged ALDO – Minimalistyczna Forma z Giętego Drewna Krzesło Paged ALDO w gładkiej wersji wyróżnia się czystą, harmonijną sylwetką, która łączy tradycyjną technikę gięcia drewna ze współczesnym podejściem do wzornictwa."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-aldo-a-1070.webp" alt="Aldo — krzesło" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Aldo</div><div class="kl-meta">krzesło</div></div></button><a class="kl-card" href="/producenci/paged/krzesla-kawiarniane/antilla/"><span class="kl-tag live">karta</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-antilla-a-9850.webp" alt="Antilla — krzesło — oparcie z prętów" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Antilla</div><div class="kl-meta">krzesło — oparcie z prętów</div></div><span class="kl-go">otwórz →</span></a><button type="button" class="kl-card" data-name="Archer" data-type="Krzesło" data-img="assets/paged-archer-a-4800.webp" data-desc="Kolekcja Paged ARCHER – Dynamiczny Design i Wyrazista Forma Najważniejsze atrybuty i cechy produktu: Krzesło Paged ARCHER A-4800 , zaprojektowane przez Grzegorza Gancarczyka, to propozycja dla wnętrz, w których mebel ma nie tylko pełnić swoją funkcję, ale również przyci…"><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-archer-a-4800.webp" alt="Archer — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Archer</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Argo" data-type="Krzesło" data-img="assets/paged-argo-a-4205.webp" data-desc="Rodzina ARGO stanowi wyraźny hołd dla harmonii kompozycji. Mocne, proste linie w dolnej części krzesła doskonale kontrastują z dynamicznymi, śmiałymi łukami w górnej części oparcia oraz konturach siedziska. Elementy te zostały dodatkowo otapicerowane, co czyni je wizualnie bardziej atrakcyjnymi."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-argo-a-4205.webp" alt="Argo — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Argo</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Aria" data-type="Krzesło" data-img="assets/paged-aria-b-5300.webp" data-desc="Aria to krzesło o wielu obliczach, jedno z najbardziej wszechstronnych w kolekcji Paged. Jego najbardziej charakterystycznym elementem jest unikalne oparcie, wyróżniające się eleganckim podcięciem."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-aria-b-5300.webp" alt="Aria — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Aria</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Benko" data-type="Krzesło" data-img="assets/paged-benko-a-8120.webp" data-desc="BENKO to próba reinterpretacji XIX-wiecznej technologii gięcia drewna bukowego wykorzystanie jej do stworzenia modelu spełniającego wymagania współczesności. Benko wyraźnie inspiruje się archetypem wygiętego krzesła, pierwszymi kultowymi modelami wykonanymi w tej technologii."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-benko-a-8120.webp" alt="Benko — krzesło — drewno bukowe" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Benko</div><div class="kl-meta">krzesło — drewno bukowe</div></div></button><button type="button" class="kl-card" data-name="Bizo" data-type="Krzesło" data-img="assets/paged-bizo-a-2631.webp" data-desc="Krzesło Paged Bizo – Komfort i Naturalne Drewno Krzesło Paged Bizo łączy elegancką formę drewnianego krzesła z komfortem wymaganym w restauracjach, hotelach i nowoczesnych przestrzeniach komercyjnych."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-bizo-a-2631.webp" alt="Bizo — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Bizo</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Classic" data-type="Krzesło" data-img="assets/paged-a-6010.webp" data-desc="Krzesło gięte, wykonane z wysokiej jakości drewna bukowego, jest kwintesencją ponadczasowego designu inspirowanego stylem vintage. Jego wyjątkowy charakter podkreślają charakterystyczne wycięcia w oparciu, które nie tylko przyciągają wzrok, ale również zwiększają komfort użytkowania."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-a-6010.webp" alt="Classic — krzesło — drewno bukowe" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Classic</div><div class="kl-meta">krzesło — drewno bukowe</div></div></button><button type="button" class="kl-card" data-name="Domo" data-type="Krzesło" data-img="assets/paged-domo-a-9605.webp" data-desc="Kolekcja Paged DOMO – Minimalistyczny Design i Lite Drewno Najważniejsze atrybuty i cechy produktu: Krzesło Paged DOMO A-9605 to nowoczesne drewniane krzesło, które łączy minimalistyczną formę z mistrzowskim rzemiosłem i naturalnym pięknem litego drewna bukowego."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-domo-a-9605.webp" alt="Domo — krzesło — drewno bukowe" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Domo</div><div class="kl-meta">krzesło — drewno bukowe</div></div></button><button type="button" class="kl-card" data-name="Dot" data-type="Krzesło" data-img="assets/paged-dot-a-dot.webp" data-desc="Optymizm i zabawa – tak można zdefiniować wartości, które dominują w dizajnie tego krzesła. Zarówno deska oparciowa, jak i siedzisko mają zaokrągloną formę, co nadaje Dotowi radosnego, nieco dziecięcego wyglądu."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-dot-a-dot.webp" alt="Dot — krzesło" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Dot</div><div class="kl-meta">krzesło</div></div></button><button type="button" class="kl-card" data-name="Evo" data-type="Krzesło" data-img="assets/paged-evo-b-2940.webp" data-desc="Kolekcja stanowi reinterpretację klasycznego thonetowskiego krzesła. W projekcie EVO liczba nóg została zredukowana do trzech. Efektem tego zabiegu jest świeża estetycznie forma mebla."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-evo-b-2940.webp" alt="Evo — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Evo</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Fuoco" data-type="Krzesło" data-img="assets/paged-classic-a-1889-fuoco.webp" data-desc="Fouco stanowi nowoczesną wersję klasycznego modelu Thoneta A-1880. Projektanci ze Studio Iskry wnadali mu wyjątkowego charakteru używając do produkcji jesionowego drewna z charakterystycznym rysunkiem oraz wprowadzając fascynujący element &amp;#8211; mosiężną kulę pełniącą funkcję wieszaka na torebkę."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-classic-a-1889-fuoco.webp" alt="Fuoco — krzesło" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Fuoco</div><div class="kl-meta">krzesło</div></div></button><button type="button" class="kl-card" data-name="Icho" data-type="Krzesło" data-img="assets/paged-icho-a-4420.webp" data-desc="Krzesło Paged ICHO A-4420 Seat Wood Back Wood – Lekki Design i Naturalne Drewno Najważniejsze atrybuty i cechy produktu: Krzesło Paged ICHO A-4420 Seat Wood Back Wood to nowoczesna propozycja dla wnętrz, w których liczą się ponadczasowy design, naturalne materiały i fun…"><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-icho-a-4420.webp" alt="Icho — krzesło" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Icho</div><div class="kl-meta">krzesło</div></div></button><button type="button" class="kl-card" data-name="Indiana" data-type="Krzesło" data-img="assets/paged-aldo-a-1070-kopia.webp" data-desc="Krzesło Paged Indiana A-9840 – Klasyczne Drewniane Krzesło Bukowe o Ponadczasowym Designie. Krzesło Paged Indiana A-9840 łączy klasyczne wzornictwo z naturalnym charakterem drewna, tworząc ponadczasowy model o ciepłej i wyrazistej stylistyce."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-aldo-a-1070-kopia.webp" alt="Indiana — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Indiana</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="K2" data-type="Krzesło" data-img="assets/paged-k2-a-2220.webp" data-desc="K2 to rodzina drewnianych mebli tapicerowanych, która powstała w odpowiedzi na rosnące zapotrzebowanie na współczesne meble w stylu górskim, które harmonijnie uzupełniałyby zaawansowaną architekturę powstającą u podnóża Tatr i Beskidów oraz Alp."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-k2-a-2220.webp" alt="K2 — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">K2</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="K3" data-type="Krzesło" data-img="assets/paged-k3-a-5035.webp" data-desc="Model A 5035 łączy tapicerowane od wewnątrz oparcie z gładkimi, drewnianymi plecami, które podkreślają naturalną strukturę drewna. Komfortowe, tapicerowane siedzisko harmonizuje z elegancką formą i starannym doborem materiałów."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-k3-a-5035.webp" alt="K3 — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">K3</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Lagom" data-type="Krzesło" data-img="assets/paged-lagom-a-0200.webp" data-desc="Krzesło LAGOM czerpie swoją tożsamość z idei prostoty i umiaru — wartości wpisanych w znaczenie szwedzkiego słowa lagom. To właśnie one definiują formę, która nie szuka efektowności, a mimo to zachwyca spokojną, naturalną elegancją."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-lagom-a-0200.webp" alt="Lagom — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Lagom</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Link" data-type="Krzesło" data-img="assets/paged-link-a-2120.webp" data-desc="Kolekcja Paged LINK – Nowoczesna Funkcjonalność Najważniejsze atrybuty i cechy produktu: Krzesło Paged LINK to nowoczesna propozycja, która łączy minimalistyczne wzornictwo z funkcjonalnością, doskonale odpowiadając na potrzeby współczesnych przestrzeni biurowych i komercyjnych."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-link-a-2120.webp" alt="Link — krzesło" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Link</div><div class="kl-meta">krzesło</div></div></button><button type="button" class="kl-card" data-name="Lof" data-type="Krzesło" data-img="assets/paged-lof-a-4230.webp" data-desc="Krzesło LOF charakteryzuje się mocną, stabilną konstrukcją oraz niezobowiązującym designem. LOF cieszy się popularnością dzięki swojemu neutralnemu charakterowi, doskonale wpasowując się zarówno w przestrzenie tradycyjne, jak i nowoczesne, od kameralnych spotkań po biura czy wnętrza hotelowe."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-lof-a-4230.webp" alt="Lof — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Lof</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Lubi" data-type="Krzesło" data-img="assets/paged-lubi-b-5005.webp" data-desc="Lubi to kolekcja mebli, w której wyjątkowa konstrukcja łączy funkcjonalność z lekkością formy. Połączenie stabilnej oskrzyni z profilowaną sklejką oparciową sprawia, że cała bryła jest niezwykle wytrzymała i nie wymaga dodatkowego zespolenia nóg."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-lubi-b-5005.webp" alt="Lubi — krzesło — siedzisko ze sklejki" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Lubi</div><div class="kl-meta">krzesło — siedzisko ze sklejki</div></div></button><button type="button" class="kl-card" data-name="Moon" data-type="Krzesło" data-img="assets/paged-moon-a-1260.webp" data-desc="Kolekcja Moon 1260 to nowoczesna interpretacja tradycji mebli giętych, łącząca ponad stuletnie doświadczenie jasienickiego rzemiosła z lekką, harmonijną linią charakterystyczną dla współczesnego wzornictwa."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-moon-a-1260.webp" alt="Moon — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Moon</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Nimm" data-type="Krzesło" data-img="assets/paged-nimm-a-4590.webp" data-desc="Krzesło Paged Nimm A-4590 – Bestseller Łączący Design i Funkcjonalność Krzesło Paged Nimm A-4590, zaprojektowane przez Macieja Karpiaka, to bestseller łączący przyjazny charakter drewnianego krzesła jadalnianego z funkcjonalnością mebla do intensywnie użytkowanych wnętrz."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-nimm-a-4590.webp" alt="Nimm — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Nimm</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Nodo" data-type="Krzesło" data-img="assets/paged-nodo-a-1400.webp" data-desc="Charakterystycznym elementem krzesła A-1400 są cienkie tylne nogi, wykonane z bukowych prętów i wygięte w elegancki, zmysłowy kształt. Pozostała część sylwetki krzesła poniekąd uzupełnia to wrażenie, dzięki surowej geometrycznie formie siedziska i przednich nóg."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-nodo-a-1400.webp" alt="Nodo — krzesło — oparcie z prętów" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Nodo</div><div class="kl-meta">krzesło — oparcie z prętów</div></div></button><button type="button" class="kl-card" data-name="Perline" data-type="Krzesło" data-img="assets/paged-perline-b-1838.webp" data-desc="Perline to prawdziwe dzieło sztuki użytkowej. To nie tylko krzesło, ale również zabawka, narzędzie do medytacji i rzeźba, która zaprasza do dotyku. Korale, nie są wyłącznie ozdobą, są także interaktywnym elementem pełnym radości."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-perline-b-1838.webp" alt="Perline — krzesło" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Perline</div><div class="kl-meta">krzesło</div></div></button><button type="button" class="kl-card" data-name="Plasa" data-type="Krzesło" data-img="assets/paged-plasa-a-4290.webp" data-desc="Forma krzesła PLASA czerpie z klasycznych giętych krzeseł kawiarnianych co można dostrzec w kształcie oparcia. Nawiązanie to przefiltrowane jest przez nowe technologie obróbki drewna oraz założenie maksymalnej redukcji wagi mebla bez utraty jego wytrzymałości i stabilno…"><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-plasa-a-4290.webp" alt="Plasa — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Plasa</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Prop" data-type="Krzesło" data-img="assets/paged-prop-a-4390.webp" data-desc="Siła projektu PROP wynika z pogodzenia klasycznego stylu z minimalizmem. Konstrukcję mebli tworzą toczone z drewna nogi oraz sklejkowe siedzisko i oparcie. Dodatkowym akcesorium jest tapicerowanie, które dodaje modelom miękkości i podkreśla unikalny charakter."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-prop-a-4390.webp" alt="Prop — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Prop</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Shell" data-type="Krzesło" data-img="assets/paged-shell-a-0042.webp" data-desc="Kolekcja klasycznych krzeseł i hokerów tapicerowanych zainspirowanych designem lat 60-tych. Elementem charakterystycznym modelu jest szerokie kubełkowe oparcie, które zapewnia wysoki komfort użytkowania. Wizualnej lekkości nadaje natomiast modelom wytrzymała podstawa z ręcznie wygiętą łączyną."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-shell-a-0042.webp" alt="Shell — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Shell</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Spire" data-type="Krzesło" data-img="assets/paged-spire-a-4770.webp" data-desc="Krzesło Paged SPIRE A-4770 – Nowoczesny Design i Maksymalna Funkcjonalność Krzesło Paged SPIRE A-4770 wyróżnia się minimalistyczną, geometryczną sylwetką zaprojektowaną z myślą o wymagających przestrzeniach gastronomicznych i komercyjnych."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-spire-a-4770.webp" alt="Spire — krzesło" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Spire</div><div class="kl-meta">krzesło</div></div></button><button type="button" class="kl-card" data-name="Sudoku" data-type="Krzesło" data-img="assets/paged-sudoku-b-9820.webp" data-desc="Rodzina krzeseł, której wyróżniającą cechą jest konstrukcja, wykorzystująca zarówno gięte, jak i toczone elementy, łączone z siedziskiem z profilowanej sklejki. Meble, mimo że złożone z niewielkiej ilości delikatnych części, zapewniają solidne i komfortowe podparcie."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-sudoku-b-9820.webp" alt="Sudoku — krzesło — siedzisko ze sklejki" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Sudoku</div><div class="kl-meta">krzesło — siedzisko ze sklejki</div></div></button><button type="button" class="kl-card" data-name="Tuk" data-type="Krzesło" data-img="assets/paged-tuk-a-5051.webp" data-desc="Dobre rozwiązania nigdy się nie starzeją. Budząca skojarzenia z geometrycznym designem lat 70 kolekcja TUK spełnia wszystkie wymagania współczesnych odbiorców."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-tuk-a-5051.webp" alt="Tuk — krzesło — z podłokietnikami" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Tuk</div><div class="kl-meta">krzesło — z podłokietnikami</div></div></button><button type="button" class="kl-card" data-name="Uvu" data-type="Krzesło" data-img="assets/paged-uvu-a-4350.webp" data-desc="Krzesło UVU 4350, zaprojektowane przez Kingę Chmielarz‑Hulak, to połączenie minimalistycznej formy i solidnej konstrukcji, stworzone z myślą o przestrzeniach, w których liczy się zarówno funkcjonalność, jak i estetyka."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-uvu-a-4350.webp" alt="Uvu — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Uvu</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Uxi" data-type="Krzesło" data-img="assets/paged-uxi-a-2920.webp" data-desc="Kolekcja Paged UXI – Minimalistyczna Forma z Wyrazistym Charakterem Najważniejsze atrybuty i cechy produktu: Krzesło Paged UXI A-2920 to nowoczesny model o minimalistycznej, ale zdecydowanie wyrazistej formie, którą definiują krzyżowa konstrukcja oraz charakterystyczne…"><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-uxi-a-2920.webp" alt="Uxi — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Uxi</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Xchair" data-type="Krzesło" data-img="assets/paged-xchair-a-2094.webp" data-desc="X‑CHAIR to hołd dla ponadczasowego wzornictwa lat 80., przedstawiony w świeżej, minimalistycznej formie. Projekt czerpie z kultowych rozwiązań konstrukcyjnych — charakterystyczne, toczone i subtelnie zwężane nogi połączone stabilizującym łącznikiem w kształcie litery „H…"><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-xchair-a-2094.webp" alt="Xchair — krzesło — siedzisko ze sklejki" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Xchair</div><div class="kl-meta">krzesło — siedzisko ze sklejki</div></div></button><button type="button" class="kl-card" data-name="Yesterday" data-type="Krzesło" data-img="assets/paged-yesterday-a-4100.webp" data-desc="Niektóre aranżacje wymagają niestandardowych rozwiązań. YESTERDAY jest kolekcją, która doskonale realizuje to założenie. Modele w tej rodzinie mocno nawiązują do klasycznych wzorów, ale niektóre detale oraz minimalistyczny charakter powodują, że ta rodzina doskonale odn…"><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-yesterday-a-4100.webp" alt="Yesterday — krzesło — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Krzesło</div><div class="kl-title">Yesterday</div><div class="kl-meta">krzesło — siedzisko tapicerowane</div></div></button></div></section><section class="m-sec mw" id="hokery"><div class="m-sec-head"><h2>Hokery</h2><span class="m-count">20 rodzin</span></div><div class="kl-grid"><button type="button" class="kl-card" data-name="Aldo" data-type="Hoker" data-img="assets/paged-aldo-h-1070.webp" data-desc="Krzesło barowe ALDO łączy w sobie elegancję i funkcjonalność. Tradycyjna technika ręcznego gięcia drewna pozwoliła na stworzenie płynnej linii łączącej oparcie z tylnymi nogami, co zapewnia wyjątkową trwałość i estetykę."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-aldo-h-1070.webp" alt="Aldo — hoker" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Aldo</div><div class="kl-meta">hoker</div></div></button><a class="kl-card" href="/producenci/paged/stolki-barowe/antilla-hoker/"><span class="kl-tag live">karta</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-antilla-c-9850.webp" alt="Antilla — hoker — oparcie z prętów" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Antilla</div><div class="kl-meta">hoker — oparcie z prętów</div></div><span class="kl-go">otwórz →</span></a><button type="button" class="kl-card" data-name="Archer" data-type="Hoker" data-img="assets/paged-archer-h-4800.webp" data-desc="Krzesło barowe Archer to definicja stylu i funkcjonalności. Łączy łukowate oparcie z wysokimi, dynamicznie wygiętymi nogami, tworząc wyrazisty element dekoracyjny każdego baru czy kuchni."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-archer-h-4800.webp" alt="Archer — hoker" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Archer</div><div class="kl-meta">hoker</div></div></button><button type="button" class="kl-card" data-name="Benko" data-type="Hoker" data-img="assets/paged-benko-h-8130.webp" data-desc="BENKO to próba reinterpretacji XIX-wiecznej technologii gięcia drewna bukowego wykorzystanie jej do stworzenia modelu spełniającego wymagania współczesności. Benko wyraźnie inspiruje się archetypem wygiętego krzesła, pierwszymi kultowymi modelami wykonanymi w tej technologii."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-benko-h-8130.webp" alt="Benko — hoker — drewno bukowe" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Benko</div><div class="kl-meta">hoker — drewno bukowe</div></div></button><button type="button" class="kl-card" data-name="Classic" data-type="Hoker" data-img="assets/paged-classic-c-2082.webp" data-desc="Ten hoker bez oparcia wykonany z litego drewna łączy minimalistyczną formę z wyraźnym odniesieniem do klasycznego rzemiosła marki Paged. Smukłe, lekko rozchylone nogi oraz chromowana łączyna nadają mu lekkiej wizualnie, a jednocześnie stabilnej konstrukcji."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-classic-c-2082.webp" alt="Classic — hoker" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Classic</div><div class="kl-meta">hoker</div></div></button><button type="button" class="kl-card" data-name="Evo" data-type="Hoker" data-img="assets/paged-evo-h-2940.webp" data-desc="Kolekcja stanowi reinterpretację klasycznego thonetowskiego krzesła. W projekcie EVO liczba nóg została zredukowana do trzech. Efektem tego zabiegu jest świeża estetycznie forma mebla."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-evo-h-2940.webp" alt="Evo — hoker — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Evo</div><div class="kl-meta">hoker — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Icho" data-type="Hoker" data-img="assets/paged-icho-h-4420.webp" data-desc="Smukłe, oszczędne w zakresie formy, uniwersalne krzesło. Lekkość konstrukcji przekłada się również na lekkość w sensie wizualnym, mimo iż krzesło charakteryzuje się wyjątkowo mocnym oparciem i stabilnym siedziskiem."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-icho-h-4420.webp" alt="Icho — hoker" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Icho</div><div class="kl-meta">hoker</div></div></button><button type="button" class="kl-card" data-name="K2" data-type="Hoker" data-img="assets/paged-k2-h-2220.webp" data-desc="K2 to rodzina drewnianych mebli tapicerowanych, która powstała w odpowiedzi na rosnące zapotrzebowanie na współczesne meble w stylu górskim, które harmonijnie uzupełniałyby zaawansowaną architekturę powstającą u podnóża Tatr i Beskidów oraz Alp."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-k2-h-2220.webp" alt="K2 — hoker — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">K2</div><div class="kl-meta">hoker — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Lof" data-type="Hoker" data-img="assets/paged-lof-h-4230.webp" data-desc="Krzesło barowe LOF wyróżnia się solidną, stabilną budową oraz prostym wzornictwem. Dzięki swojej neutralnej estetyce, LOF zyskało uznanie, świetnie komponując się z różnorodnymi aranżacjami &amp;#8211; od tradycyjnych po nowoczesne, idealne do prywatnych spotkań, jak również do przestrzeni hotelowych."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-lof-h-4230.webp" alt="Lof — hoker — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Lof</div><div class="kl-meta">hoker — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Lubi" data-type="Hoker" data-img="assets/paged-lubi-h-5005.webp" data-desc="Hoker LUBI łączy w sobie solidność konstrukcji i subtelną lekkość formy. Połączenie oskrzyni z profilowaną sklejką oparciową sprawia, że mebel jest wyjątkowo wytrzymały, a jednocześnie nie wymaga dodatkowego zespolenia nóg."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-lubi-h-5005.webp" alt="Lubi — hoker — siedzisko ze sklejki" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Lubi</div><div class="kl-meta">hoker — siedzisko ze sklejki</div></div></button><button type="button" class="kl-card" data-name="Moon" data-type="Hoker" data-img="assets/paged-moon-h-1260.webp" data-desc="Kolekcja Moon 1260 to współczesna interpretacja tradycji giętego drewna, która od ponad 140 lat stanowi wizytówkę jasienickiego rzemiosła. Model powstaje przy użyciu klasycznej technologii ręcznego gięcia bukowych elementów przy pomocy pary i ciśnienia, co nadaje mu cha…"><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-moon-h-1260.webp" alt="Moon — hoker — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Moon</div><div class="kl-meta">hoker — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Nimm" data-type="Hoker" data-img="assets/paged-nimm-h-4590.webp" data-desc="Hoker Nimm doskonale sprawdzi się zarówno w przestrzeniach restauracyjnych, jak i wnętrzach domowych. Miękkie detale oparcia oraz zaokrąglone nogi tworzą przyjazną i ponadczasową formę."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-nimm-h-4590.webp" alt="Nimm — hoker — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Nimm</div><div class="kl-meta">hoker — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Note" data-type="Hoker" data-img="assets/paged-note-h-4060.webp" data-desc="Note to kolekcja mebli zaprojektowana jako współczesna odpowiedź na klasyczne formy obecne w ofercie Paged. Jej charakterystyczną cechą jest wyraźny podział formy mebla na elementy – oparcie, podłokietniki i siedzisko – tapicerowane osobno i wykończone cienką warstwą pianki."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-note-h-4060.webp" alt="Note — hoker — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Note</div><div class="kl-meta">hoker — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Prop" data-type="Hoker" data-img="assets/paged-prop-c-4390.webp" data-desc="Siła projektu PROP wynika z pogodzenia klasycznego stylu z minimalizmem. Konstrukcję mebli tworzą toczone z drewna nogi oraz sklejkowe siedzisko i oparcie. Dodatkowym akcesorium jest tapicerowanie, które dodaje modelom miękkości i podkreśla unikalny charakter."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-prop-c-4390.webp" alt="Prop — hoker — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Prop</div><div class="kl-meta">hoker — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Shell" data-type="Hoker" data-img="assets/paged-shell-h-0042.webp" data-desc="Kolekcja klasycznych krzeseł i hokerów tapicerowanych zainspirowanych designem lat 60-tych. Elementem charakterystycznym modelu jest szerokie kubełkowe oparcie, które zapewnia wysoki komfort użytkowania. Wizualnej lekkości nadaje natomiast modelom wytrzymała podstawa z ręcznie wygiętą łączyną."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-shell-h-0042.webp" alt="Shell — hoker — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Shell</div><div class="kl-meta">hoker — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Sudoku" data-type="Hoker" data-img="assets/paged-sudoku-h-9820.webp" data-desc="Rodzina krzeseł, której wyróżniającą cechą jest konstrukcja, wykorzystująca zarówno gięte, jak i toczone elementy, łączone z siedziskiem z profilowanej sklejki. Meble, mimo że złożone z niewielkiej ilości delikatnych części, zapewniają solidne i komfortowe podparcie."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-sudoku-h-9820.webp" alt="Sudoku — hoker — siedzisko ze sklejki" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Sudoku</div><div class="kl-meta">hoker — siedzisko ze sklejki</div></div></button><button type="button" class="kl-card" data-name="Tuk" data-type="Hoker" data-img="assets/paged-tuk-h-5051.webp" data-desc="Dobre rozwiązania nigdy się nie starzeją. Budząca skojarzenia z geometrycznym designem lat 70 kolekcja TUK spełnia wszystkie wymagania współczesnych odbiorców."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-tuk-h-5051.webp" alt="Tuk — hoker — z podłokietnikami" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Tuk</div><div class="kl-meta">hoker — z podłokietnikami</div></div></button><button type="button" class="kl-card" data-name="Uvu" data-type="Hoker" data-img="assets/paged-uvu-h-4350.webp" data-desc="Hoker UVU 4350, zaprojektowany przez Kingę Chmielarz‑Hulak, wyróżnia się prostą, elegancką bryłą oraz solidną konstrukcją, która sprawdza się w intensywnym, codziennym użytkowaniu."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-uvu-h-4350.webp" alt="Uvu — hoker — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Uvu</div><div class="kl-meta">hoker — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Xstool" data-type="Hoker" data-img="assets/paged-xstool-h-2090.webp" data-desc="Duch wzornictwa lat 80 w nowoczesnej, świeżej formie. Rodzina X-CHAIR wykorzystuje popularne wcześniej rozwiązanie podstawy w postaci toczonych, zwężanych nóg połączonych łącznikiem w kształcie litery „H”, pełniącym rolę stabilizatora konstrukcji."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-xstool-h-2090.webp" alt="Xstool — hoker — siedzisko ze sklejki" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Xstool</div><div class="kl-meta">hoker — siedzisko ze sklejki</div></div></button><button type="button" class="kl-card" data-name="Yesterday" data-type="Hoker" data-img="assets/paged-yesterday-h-4100.webp" data-desc="Niektóre aranżacje wymagają niestandardowych rozwiązań. YESTERDAY jest kolekcją, która doskonale realizuje to założenie. Modele w tej rodzinie mocno nawiązują do klasycznych wzorów, ale niektóre detale oraz minimalistyczny charakter powodują, że ta rodzina doskonale odn…"><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-yesterday-h-4100.webp" alt="Yesterday — hoker — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Hoker</div><div class="kl-title">Yesterday</div><div class="kl-meta">hoker — siedzisko tapicerowane</div></div></button></div></section><section class="m-sec mw" id="taborety"><div class="m-sec-head"><h2>Taborety i pufy</h2><span class="m-count">2 rodzin</span></div><div class="kl-grid"><button type="button" class="kl-card" data-name="Aria" data-type="Pufa" data-img="assets/paged-aria-ottoman-ww-c-5340.webp" data-desc="Aria to krzesło o wielu obliczach, jedno z najbardziej wszechstronnych w kolekcji Paged. Jego najbardziej charakterystycznym elementem jest unikalne oparcie, wyróżniające się eleganckim podcięciem."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-aria-ottoman-ww-c-5340.webp" alt="Aria — pufa — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Pufa</div><div class="kl-title">Aria</div><div class="kl-meta">pufa — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="K2" data-type="Taboret" data-img="assets/paged-k2-c-2220.webp" data-desc="K2 to rodzina drewnianych mebli tapicerowanych, która powstała w odpowiedzi na rosnące zapotrzebowanie na współczesne meble w stylu górskim, które harmonijnie uzupełniałyby zaawansowaną architekturę powstającą u podnóża Tatr i Beskidów oraz Alp."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-k2-c-2220.webp" alt="K2 — taboret — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Taboret</div><div class="kl-title">K2</div><div class="kl-meta">taboret — siedzisko tapicerowane</div></div></button></div></section><section class="m-sec mw" id="fotele"><div class="m-sec-head"><h2>Fotele i sofy</h2><span class="m-count">10 rodzin</span></div><div class="kl-grid"><button type="button" class="kl-card" data-name="Aria" data-type="Fotel" data-img="assets/paged-aria-lounge-m-5340.webp" data-desc="Aria to fotel o wielu obliczach, jedno z najbardziej wszechstronnych w kolekcji Paged. Jego najbardziej charakterystycznym elementem jest unikalne oparcie, wyróżniające się eleganckim podcięciem."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-aria-lounge-m-5340.webp" alt="Aria — fotel — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Fotel</div><div class="kl-title">Aria</div><div class="kl-meta">fotel — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Bizo" data-type="Fotel" data-img="assets/paged-bizo-b-2631.webp" data-desc="Fotel Paged Bizo B-2631 – Tapicerowane Siedzisko i Oparcie Fotel Paged Bizo B-2631 łączy elegancką drewnianą konstrukcję z podłokietnikami oraz komfortową tapicerką siedziska i oparcia."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-bizo-b-2631.webp" alt="Bizo — fotel — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Fotel</div><div class="kl-title">Bizo</div><div class="kl-meta">fotel — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Classic" data-type="Fotel" data-img="assets/paged-classic-b-8250.webp" data-desc="Tylko najdoskonalsze produkty mogą z czasem stać się symbolem całej kategorii. Tak jest w przypadku kolekcji klasycznych mebli giętych, której flagowy reprezentant – fotel bujany B-8250 – dorobił się ikonicznego statusu."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-classic-b-8250.webp" alt="Classic — fotel" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Fotel</div><div class="kl-title">Classic</div><div class="kl-meta">fotel</div></div></button><button type="button" class="kl-card" data-name="Icho" data-type="Fotel" data-img="assets/paged-icho-b-4420.webp" data-desc="Kolekcja Paged ICHO – Klasyka Nowoczesnego Wzornictwa Najważniejsze atrybuty i cechy produktu: Fotel Paged ICHO B-4420 Seat Wood Back Wood to projekt Nikodema Szpunara, który łączy oszczędną, nowoczesną formę z funkcjonalnością i naturalnym charakterem drewna."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-icho-b-4420.webp" alt="Icho — fotel — drewno bukowe" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Fotel</div><div class="kl-title">Icho</div><div class="kl-meta">fotel — drewno bukowe</div></div></button><button type="button" class="kl-card" data-name="K2" data-type="Fotel" data-img="assets/paged-k2-b-2220.webp" data-desc="K2 to rodzina drewnianych mebli tapicerowanych, która powstała w odpowiedzi na rosnące zapotrzebowanie na współczesne meble w stylu górskim, które harmonijnie uzupełniałyby zaawansowaną architekturę powstającą u podnóża Tatr i Beskidów oraz Alp."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-k2-b-2220.webp" alt="K2 — fotel — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Fotel</div><div class="kl-title">K2</div><div class="kl-meta">fotel — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Link" data-type="Fotel" data-img="assets/paged-link-b-2120.webp" data-desc="Fotel Paged LINK Seat Wood Back Wood – Design, Komfort i Naturalne Drewno Najważniejsze atrybuty i cechy produktu: Fotel Paged LINK Seat Wood Back Wood to połączenie nowoczesnej, oszczędnej formy z komfortem, którego oczekują współczesne przestrzenie komercyjne i biurowe."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-link-b-2120.webp" alt="Link — fotel — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Fotel</div><div class="kl-title">Link</div><div class="kl-meta">fotel — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Note" data-type="Fotel" data-img="assets/paged-note-b-4060.webp" data-desc="Fotel Note – jak sama nazwa wskazuje – miał wyraźnie wyróżnić się na tle bardziej tradycyjnych pozycji w ofercie. Tapicerowane oparcie łączy się miękką, płynną linią z podłokietnikami. Fotel nie jest zwartą bryłą, lecz kompozycją wyraźnie oddzielonych części: oparcia, poręczy i nóg."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-note-b-4060.webp" alt="Note — fotel — siedzisko tapicerowane" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Fotel</div><div class="kl-title">Note</div><div class="kl-meta">fotel — siedzisko tapicerowane</div></div></button><button type="button" class="kl-card" data-name="Tuk" data-type="Fotel" data-img="assets/paged-tuk-big-b-5051.webp" data-desc="Dobre rozwiązania nigdy się nie starzeją. Budząca skojarzenia z geometrycznym designem lat 70 kolekcja TUK spełnia wszystkie wymagania współczesnych odbiorców."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-tuk-big-b-5051.webp" alt="Tuk — fotel — z podłokietnikami" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Fotel</div><div class="kl-title">Tuk</div><div class="kl-meta">fotel — z podłokietnikami</div></div></button><button type="button" class="kl-card" data-name="Aires" data-type="Fotel" data-img="assets/paged-aires-b-4050.webp" data-desc="Fotel AIRES, który zadebiutował w 2018 roku, zaskakiwał nietypowym kształtem podłokietników i nóg, inspirowanych konstrukcją siodła jeździeckiego. Rozwinięcie tej konstrukcji do formy ławki pozwoliło na stworzenie pełnoprawnej kolekcji, ale przede wszystkim – poszerzenia obszaru zastosowań."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-aires-b-4050.webp" alt="Aires — fotel — z podłokietnikami" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Fotel</div><div class="kl-title">Aires</div><div class="kl-meta">fotel — z podłokietnikami</div></div></button><button type="button" class="kl-card" data-name="La Benda" data-type="Fotel" data-img="assets/paged-la-benda-b-2960.webp" data-desc="Kolekcja Paged LA BENDA – Wyjątkowa Płynność Formy i Sztuka Gięcia Drewna Najważniejsze atrybuty i cechy produktu: Krzesło Paged LA BENDA B-2960 , zaprojektowane przez Pedro Salgado, zachwyca wyjątkowo płynną linią, lekkością i harmonijną formą inspirowaną ruchem partnerów w tańcu."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-la-benda-b-2960.webp" alt="La Benda — fotel — drewno bukowe" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Fotel</div><div class="kl-title">La Benda</div><div class="kl-meta">fotel — drewno bukowe</div></div></button></div></section><section class="m-sec mw" id="stoly"><div class="m-sec-head"><h2>Stoły i stoliki</h2><span class="m-count">6 rodzin</span></div><div class="kl-grid"><button type="button" class="kl-card" data-name="Argo" data-type="Stół" data-img="assets/paged-argo-s-argo.webp" data-desc="Interesujący, niebanalny stół o szerokim zakresie zastosowań. Blat Argo przed rozłożeniem jest okręgiem o średnicy 110 cm. Dzięki temu, doskonale sprawdzi się nawet w niewielkich pomieszczeniach."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-argo-s-argo.webp" alt="Argo — stół" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Stół</div><div class="kl-title">Argo</div><div class="kl-meta">stół</div></div></button><button type="button" class="kl-card" data-name="Drum" data-type="Stolik" data-img="assets/paged-drum-m.webp" data-desc="Wyjątkowy stolik, który idealnie łączy klasyczny styl vintage z nowoczesnymi elementami. Jego unikalna, gięta rama wykonana z wysokiej jakości drewna bukowego dodaje elegancji, a oryginalna półka z maty rattanowej wprowadza ciepły, naturalny akcent do każdego wnętrza."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-drum-m.webp" alt="Drum — stolik — z plecionką rattanową" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Stolik</div><div class="kl-title">Drum</div><div class="kl-meta">stolik — z plecionką rattanową</div></div></button><button type="button" class="kl-card" data-name="Lungo" data-type="Stół" data-img="assets/paged-lungo.webp" data-desc="Minimalistyczna, prosta forma stołu Lungo zachwyca doskonałymi proporcjami i harmonijnym wyglądem. Neutralny design sprawia, że Lungo doskonale komponuje się zarówno w klasycznych, jak i nowoczesnych wnętrzach."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-lungo.webp" alt="Lungo — stół — blat dębowy" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Stół</div><div class="kl-title">Lungo</div><div class="kl-meta">stół — blat dębowy</div></div></button><button type="button" class="kl-card" data-name="Muro" data-type="Stół" data-img="assets/paged-muro.webp" data-desc="Muro to stół wykonany z litego drewna dębowego, które słynie z wyjątkowej twardości i trwałości. Pięknie wyselekcjonowane drewno podkreśla naturalne usłojenie, dodając elegancji i wyrafinowania każdemu wnętrzu."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-muro.webp" alt="Muro — stół — blat dębowy" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Stół</div><div class="kl-title">Muro</div><div class="kl-meta">stół — blat dębowy</div></div></button><button type="button" class="kl-card" data-name="Still Line" data-type="Stół" data-img="assets/paged-still-line-a-s-bar.webp" data-desc="Stoły Still Line zostały zaprojektowane z myślą o intensywnym użytkowaniu w przestrzeniach komercyjnych, nasze stoły stanowią doskonałe połączenie trwałości, funkcjonalności i nowoczesnego designu. To idealne rozwiązanie dla branży HoReCa oraz innych wymagających środowisk."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-still-line-a-s-bar.webp" alt="Still Line — stół" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Stół</div><div class="kl-title">Still Line</div><div class="kl-meta">stół</div></div></button><button type="button" class="kl-card" data-name="Sund" data-type="Stół" data-img="assets/paged-sund-rd-130.webp" data-desc="Stół Sund Rd 130 łączy ciepło naturalnego drewna z harmonijną, zapraszającą formą. Obszerny okrągły blat z litego drewna dębowego wsparty jest na charakterystycznej, krzyżowej podstawie o miękkiej, zakrzywionej linii, która nadaje konstrukcji wizualnej lekkości i harmonii."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-sund-rd-130.webp" alt="Sund — stół — blat dębowy" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Stół</div><div class="kl-title">Sund</div><div class="kl-meta">stół — blat dębowy</div></div></button></div></section><section class="m-sec mw" id="akcesoria"><div class="m-sec-head"><h2>Akcesoria</h2><span class="m-count">3 rodziny</span></div><div class="kl-grid"><button type="button" class="kl-card" data-name="Classic" data-type="Wieszak" data-img="assets/paged-classic-p-1042.webp" data-desc="Classic P-1042 to wolnostojący wieszak wykonany z ręcznie giętego drewna bukowego, który łączy funkcjonalność z elegancką, ponadczasową formą. Smukły trzon, rzeźbiarska podstawa oraz rozbudowana korona z dekoracyjnie wyprofilowanymi hakami nadają mu wyraźnie szlachetny charakter."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-classic-p-1042.webp" alt="Classic — wieszak wolnostojący — drewno bukowe" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Wieszak</div><div class="kl-title">Classic</div><div class="kl-meta">wieszak wolnostojący — drewno bukowe</div></div></button><button type="button" class="kl-card" data-name="Solo" data-type="Parawan" data-img="assets/paged-solo-f-90.webp" data-desc="Parawany SOLO to doskonałe połączenie lekkości, przewiewności i eleganckiego designu. Dostępne w dwóch rozmiarach, harmonijnie wpisują się w różnorodne wnętrza, oferując subtelny sposób na wyznaczenie stref zarówno w przestrzeniach biurowych, jak i w restauracjach czy hotelach."><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-solo-f-90.webp" alt="Solo — parawan ażurowy — plecionka" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Parawan</div><div class="kl-title">Solo</div><div class="kl-meta">parawan ażurowy — plecionka</div></div></button><button type="button" class="kl-card" data-name="Podstawa stołowa" data-type="Podstawa stołowa" data-img="assets/paged-podstawa-600-mm.webp" data-desc="RODZINA: Stil Line BAZA Okrągła Ø 405 mm, stal 8 mm KOLUMNA 09 Steel — okrągła Ø 76 mm, stal MOCOWANIE KSM — żeliwny odlew WYKOŃCZENIE STD — lakier proszkowy RAL 9005 (czarny) lub RAL 9003 (biały), drobna struktura, indoor RAL — dowolny kolor z palety RAL Classic 7, dro…"><span class="kl-tag">wkrótce</span><div class="kl-thumb contain"><img loading="lazy" src="assets/paged-podstawa-600-mm.webp" alt="Podstawa stołowa — stal, do blatów" width="640" height="640"></div><div class="kl-body"><div class="kl-arch">Podstawa stołowa</div><div class="kl-title">Podstawa stołowa</div><div class="kl-meta">stal, do blatów</div></div></button></div></section>
+<section class="m-sec mw" id="dlaczego"><div class="m-sec-head"><h2>Dlaczego Paged w DB Concept Space</h2></div><div class="m-why"><div class="w"><h4>Projekt i dobór modeli</h4><p>Dobieramy rodziny Paged pod funkcję przestrzeni — kawiarnia, stołówka firmowa, restauracja, strefa socjalna.</p></div><div class="w"><h4>Dostawa i montaż w całej Polsce</h4><p>Realizujemy dostawę i montaż mebli Paged na terenie całego kraju.</p></div><div class="w"><h4>Showroom w Warszawie</h4><p>Wybrane modele i próbki wykończeń prezentujemy na spotkaniach w showroomie w Warszawie.</p></div><div class="w"><h4>Wzorniki bejc i tkanin</h4><p>Udostępniamy wzorniki wybarwień drewna oraz tkanin tapicerskich Paged.</p></div><div class="w"><h4>Czas realizacji</h4><p>Standardowo 4–5 tygodni; modele z wyplotem oraz stoły Sund i Drum — ok. 8 tygodni.</p></div></div></section>
+<section class="m-sec mw" id="faq"><div class="m-sec-head"><h2>Najczęstsze pytania</h2></div><div class="m-faq"><details><summary>Czy krzesła Paged są sztaplowane?</summary><p>Część modeli Paged można sztaplować — sztaplowalność zależy od rodziny i wersji; potwierdzamy ją przy wycenie na podstawie karty modelu.</p></details><details><summary>Ile trwa realizacja zamówienia Paged?</summary><p>Standardowy czas realizacji to 4–5 tygodni. Modele z wyplotem oraz stoły Sund i Drum mają dłuższy czas — około 8 tygodni.</p></details><details><summary>Jakie wykończenia drewna oferuje Paged?</summary><p>Drewno bukowe wykańczane jest bejcami i lakierami wodnymi w palecie wybarwień; dostępne są też wersje tapicerowane w tkaninach z wzornika.</p></details><details><summary>Czy Paged robi hokery do wysokich blatów?</summary><p>Tak. Paged oferuje hokery z giętego drewna, m.in. w wysokościach siedziska 680 i 780 mm — do wysokich blatów, wysp kuchennych i lad.</p></details><details><summary>Z jakiego drewna są meble Paged?</summary><p>Z giętego drewna bukowego z lasów z certyfikatem FSC®; produkcja na energii odnawialnej, lakierach wodnych i ekologicznych klejach.</p></details><details><summary>Gdzie zobaczyć meble Paged?</summary><p>Wybrane modele i próbki wykończeń prezentujemy w showroomie DB Concept Space w Warszawie — umów się pod 506 147 435.</p></details><details><summary>Czy DB dostarcza i montuje meble Paged w całej Polsce?</summary><p>Tak. DB Concept Space realizuje dostawę i montaż mebli Paged na terenie całej Polski.</p></details><details><summary>Do jakich wnętrz pasują meble Paged?</summary><p>Do kawiarni i kuchni firmowych, restauracji, hoteli, sal spotkań oraz stref socjalnych biura.</p></details></div></section>
+<section class="m-sec mw"><div class="m-cta">
+  <h3>Zapytaj o meble Paged</h3>
+  <p>Napisz, które rodziny Paged Cię interesują — przygotujemy wycenę z dostawą i montażem. Karty produktów dodajemy sukcesywnie; cały katalog wyceniamy od ręki.</p>
+  <div class="m-btns"><a class="m-b1" href="https://dbmeble.pl/kontakt/">Zapytaj o wycenę</a><a class="m-b2" href="tel:+48506147435">506 147 435</a></div>
+</div></section>
+<div class="mw m-back"><a href="https://dbmeble.pl/producenci/">← Wszyscy producenci</a></div>
+<div class="pgmodal" id="pgmodal"><button class="close" id="pgclose" aria-label="Zamknij">×</button><div class="box"><div class="mimg"><img id="pgimg" src="" alt=""></div><div class="mbody"><h3 id="pgname"></h3><p class="mtype" id="pgtype"></p><p class="mdesc" id="pgdesc"></p><span class="msoon">Wkrótce pełna karta na dbmeble.pl</span><div class="mcta"><a class="p" href="https://dbmeble.pl/kontakt/">Zapytaj o ofertę</a><a class="s" href="tel:+48506147435">506 147 435</a></div></div></div></div>
+<script>
+(function(){var m=document.getElementById('pgmodal');function o(b){document.getElementById('pgimg').src=b.getAttribute('data-img');document.getElementById('pgimg').alt=b.getAttribute('data-name');document.getElementById('pgname').textContent=b.getAttribute('data-name');document.getElementById('pgtype').textContent=b.getAttribute('data-type');document.getElementById('pgdesc').textContent=b.getAttribute('data-desc');m.classList.add('open');document.body.style.overflow='hidden';}function c(){m.classList.remove('open');document.body.style.overflow='';}document.querySelectorAll('button.kl-card[data-name]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();o(b);});});document.getElementById('pgclose').addEventListener('click',c);m.addEventListener('click',function(e){if(e.target===m)c();});document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});})();
+</script>
+<script data-mode="slim" data-root="https://dbmeble.pl/">
+/* footer.js — WSPÓLNA stopka DB (JEDNO źródło, rodzeństwo header.js). 2026-08-04.
+   Dwa tryby przez data-mode:
+     data-mode="full"  → home: pełna zawartość (logo, opis, Kontakt, Nawigacja, social)
+     data-mode="slim"  → reszta stron: © DB Meble + podpis wykonawcy
+   WSPÓLNY PASEK PRAWNY (dane podmiotu + Polityka·Regulamin·Cookies) na dole OBU trybów —
+   definiowany RAZ, w jednym miejscu (buildLegalBar). Legal NIE zależy od JS → każda strona
+   ma też <noscript> z tymi samymi linkami.
+   data-root = prefiks ścieżki do korzenia /new/ (jak header.js). Idempotentny.
+   Full-mode korzysta z CSS stopki home (.wrap/.grid/.col/.contact/.social-row/.bottom/.footer-logo/.signature),
+   które ZOSTAJĄ w <style> home; tu dowozimy tylko markup + CSS paska prawnego i trybu slim. */
+(function () {
+  'use strict';
+  if (document.querySelector('footer[data-dbfoot]')) return;
+
+  var sc = document.currentScript;
+  var root = sc && sc.getAttribute('data-root');
+  if (root == null) root = (document.body && document.body.getAttribute('data-root')) || '';
+  var mode = (sc && sc.getAttribute('data-mode')) || 'slim';
+  var GOLD = '#C8A96A';
+
+  // === WSPÓLNY PASEK PRAWNY — JEDNO źródło (dane podmiotu + linki prawne) ===
+  function buildLegalBar() {
+    return '<div class="dbf-legalbar">'
+      + '<span class="dbf-entity">DB MEBLE Beata Barut · ul. Słowackiego 90A, 32-400 Myślenice · NIP 9451353320 · REGON 120427300</span>'
+      + '<span class="dbf-legal">'
+      +   '<a href="' + root + 'polityka-prywatnosci.html">Polityka prywatności</a> · '
+      +   '<a href="' + root + 'regulamin.html">Regulamin</a> · '
+      +   '<a href="' + root + 'cookies.html">Cookies</a>'
+      + '</span></div>';
+  }
+
+  // === CSS: pasek prawny + tryb slim (samodzielne; tryb full używa CSS stopki home) ===
+  var css = [
+    'footer[data-dbfoot] .dbf-legalbar{max-width:1240px;margin:0 auto;padding:16px clamp(20px,4vw,48px);border-top:1px solid rgba(200,169,106,.16);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 22px;align-items:baseline;font:400 12.5px "DM Sans",system-ui,sans-serif;line-height:1.6}',
+    'footer[data-dbfoot] .dbf-legalbar .dbf-entity{opacity:.62}',
+    'footer[data-dbfoot] .dbf-legalbar .dbf-legal{display:flex;flex-wrap:wrap;gap:6px 14px}',
+    'footer[data-dbfoot] .dbf-legalbar a{color:' + GOLD + ';text-decoration:none}',
+    'footer[data-dbfoot] .dbf-legalbar a:hover{text-decoration:underline}',
+    // slim
+    'footer[data-dbfoot][data-mode="slim"]{background:#131316;border-top:1px solid rgba(200,169,106,.16);color:rgba(240,230,211,.7);font-family:"DM Sans",system-ui,sans-serif}',
+    'footer[data-dbfoot][data-mode="slim"] .dbf-slim{max-width:1240px;margin:0 auto;padding:26px clamp(20px,4vw,48px) 6px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 22px;font-size:13px}',
+    'footer[data-dbfoot][data-mode="slim"] .dbf-slim .dbf-sig{opacity:.6}',
+    'footer[data-dbfoot][data-mode="slim"] .dbf-legalbar{border-top-color:rgba(200,169,106,.12)}',
+    'html[data-theme="light"] footer[data-dbfoot][data-mode="slim"]{background:#F4F0E8;color:rgba(26,23,20,.7)}',
+    'html[data-theme="light"] footer[data-dbfoot] .dbf-legalbar a{color:#7A6238}'
+  ].join('');
+  var st = document.createElement('style'); st.setAttribute('data-dbfoot-css', '1'); st.textContent = css;
+  (document.head || document.documentElement).appendChild(st);
+
+  var f = document.createElement('footer');
+  f.setAttribute('data-dbfoot', '1');
+  f.setAttribute('data-mode', mode);
+
+  if (mode === 'full') {
+    // Zawartość stopki home (bez bloku danych podmiotu i bez linków prawnych — te są w pasku prawnym).
+    f.innerHTML = '<div class="wrap"><div class="grid">'
+      + '<div class="col">'
+      +   '<img src="' + root + 'images/logo-db-nav.png?v=0a124bbb" alt="DB Meble" class="footer-logo">'
+      +   '<p>Meble biurowe dla firm. Od jednego fotela po całe biuro — doradzamy, dostarczamy, montujemy. ponad 20 lat doświadczenia w branży, ponad 10 tysięcy realizacji dla 1500+ firm, kilkadziesiąt tysięcy m² wyposażonych przestrzeni w Polsce i Europie — Rzym, Londyn, Belfast, Berlin, Wiedeń, Barcelona.</p>'
+      +   '<div class="social-row" aria-label="Social media">'
+      +     '<a href="https://www.linkedin.com/in/dariusz-barut-67b761364" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4 4h4v4H4z"/><path d="M4 10h4v10H4zM10 10h4v2c.8-1.3 2.2-2.3 4-2.3 3 0 4 2 4 5V20h-4v-5c0-1.4-.6-2.2-2-2.2s-2 .8-2 2.2v5h-4z"/></svg></a>'
+      +     '<a href="https://www.facebook.com/dbconceptspace" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V5h-3c-2.2 0-4 1.8-4 4v2H7v3h3v8h3v-8h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>'
+      +     '<a href="https://www.instagram.com/db_concept_space" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>'
+      +   '</div>'
+      + '</div>'
+      + '<div class="col contact"><h4>Kontakt</h4><ul>'
+      +   '<li><a href="tel:+48506147435">+48 506 147 435</a></li>'
+      +   '<li><a href="mailto:dbmeble@dbmeble.pl">dbmeble@dbmeble.pl</a></li>'
+      +   '<li>Pon–Pt 7:00–20:00</li>'
+      + '</ul></div>'
+      + '<div class="col"><h4>Nawigacja</h4><ul>'
+      +   '<li><a href="' + root + '#kategorie">Kategorie</a></li>'
+      +   '<li><a href="' + root + 'producenci/">Producenci</a></li>'
+      +   '<li><a href="' + root + 'realizacje/">Realizacje</a></li>'
+      +   '<li><a href="' + root + '#wiedza">Wiedza</a></li>'
+      +   '<li><a href="' + root + 'faq/">FAQ</a></li>'
+      +   '<li><a href="' + root + 'kontakt/">Kontakt</a></li>'
+      + '</ul></div>'
+      + '</div>'
+      + '<div class="bottom"><span>© 2026 DB MEBLE Beata Barut</span></div>'
+      + '</div>'
+      + buildLegalBar();
+  } else {
+    f.innerHTML = '<div class="dbf-slim"><span>© 2026 DB Meble</span></div>'
+      + buildLegalBar();
+  }
+
+  document.body.appendChild(f);
+
+  // === WIDGET ASYSTENTA AI v1.5.0 — wpiecie site-wide przez footer (T2 25.10, prep; endpoint domyslny gdfhg/dbmeble-agent) ===
+  // Idempotentne (data-db-agent). Sciezka root-relatywna jak stopka -> dziala na kazdej glebokosci (root + podstrony).
+  if (!document.querySelector('script[data-db-agent]')) {
+    var wsc = document.createElement('script');
+    wsc.src = root + 'db-agent-widget.js?v=3adf66bc';
+    wsc.defer = true;
+    wsc.setAttribute('data-db-agent', '1');
+    (document.body || document.documentElement).appendChild(wsc);
+  }
+})();
+
+</script>
+<noscript><footer style="background:#131316;color:rgba(240,230,211,.72);padding:26px clamp(20px,4vw,48px);border-top:1px solid rgba(200,169,106,.16);font:400 13px 'DM Sans',system-ui,sans-serif"><div style="max-width:1240px;margin:0 auto">© 2026 DB Meble · DB MEBLE Beata Rokicka · ul. Słowackiego 90A, 32-400 Myślenice · NIP 9451353320 · REGON 120427300 · <a href="https://dbmeble.pl/polityka-prywatnosci.html" style="color:#C8A96A">Polityka prywatności</a> · <a href="https://dbmeble.pl/regulamin.html" style="color:#C8A96A">Regulamin</a> · <a href="https://dbmeble.pl/polityka-cookies.html" style="color:#C8A96A">Cookies</a></div></footer></noscript>
+<script>
+/**
+ * DB Meble — Theme toggle (jasny/ciemny)
+ * localStorage 'dbm_theme' = 'light' | 'dark' (default: dark)
+ * Auto-inject toggle button do .nav · idempotent.
+ *
+ * Pre-paint apply MUSI być w <head> jako inline script:
+ *   <script>(function(){try{var t=localStorage.getItem('dbm_theme');
+ *     if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+ */
+(function(){
+  'use strict';
+
+  var THEME_KEY = 'dbm_theme';
+
+  function getTheme(){
+    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  }
+
+  function applyTheme(theme){
+    if (theme === 'light'){
+      document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }
+
+  function setTheme(theme){
+    applyTheme(theme);
+    try { localStorage.setItem(THEME_KEY, theme); } catch(e){}
+    updateControls();
+    swapLogos(theme);
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({event:'theme_toggle', theme_label: theme});
+      if (typeof gtag === 'function'){
+        gtag('event','theme_toggle',{event_category:'ui', event_label: theme, send_to:'G-T68TM6H9F5'});
+      }
+    } catch(e){}
+  }
+
+  function svgSun(){
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+      + '<circle cx="12" cy="12" r="4"/>'
+      + '<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>'
+      + '</svg>';
+  }
+  function svgMoon(){
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+      + '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
+      + '</svg>';
+  }
+
+  // Przełącznik napisowy „Tryb jasny | Tryb ciemny" — aktywny bold + złote podkreślenie, aria-pressed (BLOK L, T8)
+  function buildSwitch(inMenu){
+    var w = document.createElement('div');
+    w.className = 'theme-switch' + (inMenu ? ' ts-in-menu' : '');
+    w.setAttribute('role', 'group');
+    w.setAttribute('aria-label', 'Motyw kolorystyczny');
+    w.innerHTML =
+      '<button type="button" class="ts-opt" data-set="light">Tryb jasny</button>'
+      + '<span class="ts-sep" aria-hidden="true">|</span>'
+      + '<button type="button" class="ts-opt" data-set="dark">Tryb ciemny</button>';
+    w.querySelectorAll('.ts-opt').forEach(function(o){
+      o.addEventListener('click', function(){ setTheme(o.getAttribute('data-set')); });
+    });
+    return w;
+  }
+
+  function updateControls(){
+    var theme = getTheme();
+    // Napisy: aktywny = aria-pressed=true (CSS daje bold + złote podkreślenie)
+    document.querySelectorAll('.theme-switch .ts-opt').forEach(function(o){
+      o.setAttribute('aria-pressed', o.getAttribute('data-set') === theme ? 'true' : 'false');
+    });
+    // Ikona mobilna: pokazuje docelowy tryb
+    document.querySelectorAll('.theme-toggle').forEach(function(b){
+      b.innerHTML = theme === 'light' ? svgMoon() : svgSun();
+      b.setAttribute('aria-label', theme === 'light' ? 'Przełącz na tryb ciemny' : 'Przełącz na tryb jasny');
+      b.setAttribute('title', theme === 'light' ? 'Tryb ciemny' : 'Tryb jasny');
+      b.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+    });
+  }
+
+  // Logo per motyw — PODMIANA PLIKU (grafit na jasnym tle), BEZ filter:invert (BLOK L, T8)
+  var LOGO_PAIRS = [
+    // NAV: pasek zawsze ciemny (ETAP 1) -> nav-logo ZAWSZE logo-db-nav.png (bialy, przezroczysty).
+    // Podmiana na logo-db-nav-jasna.png (wypalone beżowe tło) dawala bezowy prostokat na ciemnym pasku -> usunieta.
+    ['logo-db-white.png', 'logo-db-black.png'],      // kategorie (.m-logo, noscript): biały -> czarny
+    ['logo-db-hero.png', 'logo-db-black.png']        // hero (jeśli używane): biały -> czarny
+  ];
+  function swapLogos(theme){
+    var toLight = theme === 'light';
+    document.querySelectorAll('img.brand-logo,img.footer-logo,img.hero-logo,img.m-logo').forEach(function(img){
+      var src = img.getAttribute('src'); if (!src) return;
+      var qi = src.indexOf('?'), qs = qi >= 0 ? src.slice(qi) : '', base = qi >= 0 ? src.slice(0, qi) : src;
+      var file = base.split('/').pop();
+      for (var i = 0; i < LOGO_PAIRS.length; i++){
+        var d = LOGO_PAIRS[i][0], l = LOGO_PAIRS[i][1];
+        if (toLight && file === d){ img.setAttribute('src', base.slice(0, base.length - d.length) + l + qs); return; }
+        if (!toLight && file === l){ img.setAttribute('src', base.slice(0, base.length - l.length) + d + qs); return; }
+      }
+    });
+  }
+
+  function injectButton(){
+    var nav = document.querySelector('nav.nav');
+    if (!nav) return;
+
+    if (!nav.querySelector('.theme-switch')){
+      var navCta = nav.querySelector('.nav-cta');
+      var parent = (navCta && navCta.parentNode) ? navCta.parentNode : nav;
+      var before = (navCta && navCta.parentNode) ? navCta : null;
+
+      // Napisy (desktop) — CSS chowa je <980px na rzecz ikony
+      var sw = buildSwitch(false);
+      parent.insertBefore(sw, before);
+
+      // Ikona (pasek mobilny) — CSS pokazuje ją tylko <980px
+      var ic = document.createElement('button');
+      ic.type = 'button';
+      ic.className = 'theme-toggle';
+      ic.innerHTML = svgSun();
+      ic.addEventListener('click', function(){
+        setTheme(getTheme() === 'light' ? 'dark' : 'light');
+      });
+      parent.insertBefore(ic, before);
+    }
+    updateControls();
+    swapLogos(getTheme());
+  }
+
+  // CSS injection (idempotent) — przycisk + light theme tokens
+  if (!document.getElementById('dbm-theme-styles')){
+    var css = document.createElement('style');
+    css.id = 'dbm-theme-styles';
+    css.textContent = [
+      // === PRZEŁĄCZNIK NAPISOWY „Tryb jasny | Tryb ciemny" (BLOK L, T8) — aktywny bold + złote podkreślenie ===
+      '.theme-switch{display:inline-flex;align-items:center;gap:8px;flex-shrink:0}',
+      '.ts-opt{appearance:none;background:none;border:0;border-bottom:2px solid transparent;padding:2px 1px;margin:0;cursor:pointer;font-family:inherit;font-size:13px;letter-spacing:.04em;line-height:1.25;white-space:nowrap;color:var(--cream-2,#8A8A92);transition:color .15s ease,border-color .15s ease}',
+      '.ts-opt:hover{color:var(--gold,#C8A96A)}',
+      '.ts-opt[aria-pressed="true"]{font-weight:700;color:var(--gold,#C8A96A);border-bottom-color:var(--gold,#C8A96A)}',
+      '.ts-sep{opacity:.4;user-select:none;font-size:12px;color:var(--cream-2,#8A8A92)}',
+      // Ikona motywu — TYLKO pasek mobilny (<980px); desktop używa napisów
+      '.theme-toggle{display:none;appearance:none;cursor:pointer;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold,#C8A96A);background:var(--gold-soft,rgba(200,169,106,.14));color:var(--gold,#C8A96A);align-items:center;justify-content:center;transition:background .15s ease,color .15s ease,border-color .15s ease;flex-shrink:0}',
+      '.theme-toggle:hover{background:var(--gold,#C8A96A);color:var(--ink,#1A1714);border-color:var(--gold,#C8A96A)}',
+      '.theme-toggle svg{width:18px;height:18px}',
+      // Pasek: <980px napisy schodzą, wchodzi ikona
+      '@media (max-width:979px){.nav .theme-switch:not(.ts-in-menu){display:none}.nav .theme-toggle{display:inline-flex}}',
+      // Przełącznik napisowy w menu hamburgera — widoczny tylko w otwartym menu mobilnym
+      '.nav-center .theme-switch.ts-in-menu{display:none;width:100%;justify-content:center;padding-top:14px;margin-top:8px;border-top:1px solid var(--line,rgba(200,169,106,.18))}',
+      '@media (max-width:979px){.nav.dbm-menu-open .nav-center .theme-switch.ts-in-menu{display:inline-flex}}',
+      '.nav-center .theme-switch.ts-in-menu .ts-opt{font-size:15px;padding:6px 2px}',
+      // === PRZYCISK WHATSAPP (numer edytuj w funkcji injectWhatsApp ponizej) ===
+      '.dbm-wa{position:fixed;right:22px;bottom:22px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px -6px rgba(37,211,102,.55),0 2px 8px rgba(0,0,0,.25);transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease;text-decoration:none}',
+      '.dbm-wa:hover{transform:scale(1.08);box-shadow:0 12px 30px -6px rgba(37,211,102,.75)}',
+      '.dbm-wa svg{width:32px;height:32px;fill:#fff}',
+      '.back-to-top{bottom:90px!important}',
+      // === SEKCJA PLIKI DO POBRANIA (PDF) ===
+      '.pliki-section .pliki-list{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}',
+      '.pdf-link{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border:1px solid var(--gold,#C8A96A);border-radius:6px;color:var(--gold,#C8A96A);text-decoration:none;font-size:14px;transition:background .25s ease,color .25s ease}',
+      '.pdf-link:hover{background:var(--gold,#C8A96A);color:var(--ink,#1A1714)}',
+      '.pdf-link svg{width:20px;height:20px;flex-shrink:0;fill:currentColor}',
+      // === GALERIA ZDJĘĆ PRODUKTU ===
+      '.dbm-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin-top:8px}',
+      '.dbm-gallery img{width:100%;border-radius:6px;background:#fff;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line,rgba(200,169,106,.18))}',
+      '@media (max-width:600px){.dbm-wa{width:50px;height:50px;right:16px;bottom:16px}.dbm-wa svg{width:28px;height:28px}.back-to-top{bottom:76px!important}}',
+      // === MENU MOBILNE (hamburger) — .nav-center jest display:none <980px, brak natywnego toggle ===
+      '.dbm-burger{display:none;appearance:none;cursor:pointer;width:42px;height:42px;border-radius:8px;border:1px solid var(--gold,#C8A96A);background:rgba(200,169,106,.12);color:var(--gold,#C8A96A);align-items:center;justify-content:center;flex-shrink:0}',
+      '.dbm-burger svg{width:22px;height:22px;pointer-events:none}',
+      '@media (max-width:979px){.dbm-burger{display:inline-flex}}',
+      '@media (max-width:979px){.nav.dbm-menu-open .nav-center{display:flex!important;flex-direction:column;align-items:flex-start;gap:2px;position:absolute;top:100%;left:0;right:0;background:var(--ink,#15110D);border-top:1px solid var(--line,rgba(200,169,106,.18));border-bottom:1px solid var(--line,rgba(200,169,106,.18));padding:14px var(--pad-x,24px);box-shadow:0 18px 40px -12px rgba(0,0,0,.6);max-height:82vh;overflow-y:auto}}',
+      '@media (max-width:979px){.nav.dbm-menu-open .nav-center>a,.nav.dbm-menu-open .nav-center>.nav-trigger{padding:13px 2px;width:100%;font-size:15px;letter-spacing:.1em;border-bottom:1px solid var(--line,rgba(200,169,106,.10))}}',
+      '@media (max-width:979px){.nav.dbm-menu-open .mega-menu{display:none!important}}',
+      // ===== HOTFIX MENU MOBILNE (2026-08-17, T2) — nie kasuje reguł powyżej, tylko dodaje wyższą specyficzność =====
+      // (b) KONTRAST NIEZALEŻNY OD :not(.scrolled). Tło i tekst otwartego panelu z TEJ SAMEJ pary tokenów motywu:
+      //     tło = var(--ink), tekst = var(--cream). W trybie ciemnym: ciemne tło + jasny tekst; w jasnym: jasne tło + ciemny tekst.
+      //     Selektory z [data-dbnav] (0,4-6,x) biją regułę html[data-theme=light] .nav:not(.scrolled) .nav-center>a (0,4,2) — ta zostaje nietknięta dla przezroczystego paska nad hero na desktopie.
+      '@media (max-width:979px){.nav[data-dbnav].dbm-menu-open .nav-center{background:var(--ink,#15110D)}}',
+      '@media (max-width:979px){.nav[data-dbnav].dbm-menu-open .nav-center>a,.nav[data-dbnav].dbm-menu-open .nav-center .nav-trigger{color:var(--cream,#FAFAF8)}}',
+      '@media (max-width:979px){html[data-theme="light"] .nav[data-dbnav].dbm-menu-open .nav-center{background:var(--ink,#FAFAF8)}}',
+      '@media (max-width:979px){html[data-theme="light"] .nav[data-dbnav].dbm-menu-open .nav-center>a,html[data-theme="light"] .nav[data-dbnav].dbm-menu-open .nav-center .nav-trigger{color:var(--cream,#1A1714)}}',
+      // (c) PEŁNA WYSOKOŚĆ — 100dvh (dynamic viewport height — realna wysokość widocznego ekranu na mobile, bez paska adresu), fallback 100vh dla starszych silników. Panel zakrywa hero i CTA pod spodem.
+      '@media (max-width:979px){.nav[data-dbnav].dbm-menu-open .nav-center{min-height:100vh;min-height:100dvh;max-height:none}}',
+      // (d) REGUŁA (nie lista): przy otwartym menu chowamy KAŻDY element pływający (position:fixed/sticky) spoza nagłówka — bąble Messenger/WhatsApp, baner cookies, sticky-CTA, kropki boczne, back-to-top i cokolwiek dojdzie później. Klasę nakłada/zdejmuje JS (scan bezpośrednich dzieci <body><!-- PODGLAD DEPLOY3 etap3/paged-hub-v6 (standalone) -->). Baner cookies wraca po zamknięciu menu — akceptacja nietknięta.
+      '.dbm-float-hidden{display:none!important}',
+      // (e) SCROLL-LOCK body przy otwartym menu.
+      'html.dbm-nav-open,html.dbm-nav-open body{overflow:hidden!important}',
+      // (f) PODLISTA PRODUKTY — mega-menu jako statyczna, czytelna, jednokolumnowa lista (rozwijana klasą .dbm-sub-open z JS). Kategorie generowane z danych przez header.js (CATS), nie na sztywno.
+      '@media (max-width:979px){.nav[data-dbnav].dbm-menu-open .has-mega{width:100%}}',
+      '@media (max-width:979px){.nav[data-dbnav].dbm-menu-open .nav-trigger{padding:13px 2px;width:100%;justify-content:space-between;font-size:15px;letter-spacing:.1em;border-bottom:1px solid var(--line,rgba(200,169,106,.10))}}',
+      '@media (max-width:979px){.nav[data-dbnav].dbm-menu-open .has-mega.dbm-sub-open .mega-menu{display:block!important;position:static;transform:none;width:100%;opacity:1;visibility:visible;pointer-events:auto;background:transparent;border:0;box-shadow:none;padding:2px 0 8px;grid-template-columns:1fr;backdrop-filter:none;-webkit-backdrop-filter:none}}',
+      '@media (max-width:979px){.nav[data-dbnav].dbm-menu-open .has-mega.dbm-sub-open .mega-preview{display:none}}',
+      '@media (max-width:979px){.nav[data-dbnav].dbm-menu-open .has-mega.dbm-sub-open .mega-cats{grid-template-columns:1fr;gap:0}}',
+      '@media (max-width:979px){.nav[data-dbnav].dbm-menu-open .has-mega.dbm-sub-open .mega-cat{padding:11px 4px 11px 20px}}',
+      // === LIGHTBOX galerii (nakładka zamiast target=_blank) ===
+      '.dbm-lb{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(8,6,5,.93);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;transition:opacity .25s ease}',
+      '.dbm-lb.open{display:flex;opacity:1}',
+      '.dbm-lb img{max-width:92vw;max-height:86vh;border-radius:6px;box-shadow:0 20px 60px -10px rgba(0,0,0,.7);background:#fff;object-fit:contain}',
+      '.dbm-lb-close{position:absolute;top:18px;right:22px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.4);color:#fff;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}',
+      '.dbm-lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.4);color:#fff;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;user-select:none;line-height:1}',
+      '.dbm-lb-prev{left:18px}',
+      '.dbm-lb-next{right:18px}',
+      '.dbm-lb-count{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.8);font-size:13px;letter-spacing:.1em}',
+      '.dbm-lb-close:hover,.dbm-lb-nav:hover{background:rgba(200,169,106,.9);color:#1A1714;border-color:transparent}',
+      '@media (max-width:600px){.dbm-lb-nav{width:42px;height:42px;font-size:22px}.dbm-lb-close{top:12px;right:14px;width:40px;height:40px}}',
+      // Light theme tokens (html[data-theme="light"]) — paleta BLOK L (T8 2026-09-06), mapowana na istniejące --ink/--cream/--gold/--line
+      //   --ink=tło #FFFFFF · --ink-2=surface/kafle #F7F7F8 · --cream=tekst #1A1A1E · --cream-2=tekst-2 #5A5A62
+      //   --line #E3E3E6 · --gold #8C6B2E = jedyna wartość zdająca WCAG AA i na białym (4.6:1), i na ciemnym — kasuje konflikt „złoto tekst vs złoto tło" jednym tokenem
+      'html[data-theme="light"]{color-scheme:light;--ink:#FFFFFF;--ink-2:#F7F7F8;--ink-3:#FFFFFF;--cream:#1A1A1E;--cream-2:#5A5A62;--cream-rgb:26,26,30;--gold:#8C6B2E;--gold-2:#8C6B2E;--gold-soft:rgba(140,107,46,.10);--line:#E3E3E6}',
+      'html[data-theme="light"] body{background:var(--ink);color:var(--cream)}',
+      'html[data-theme="light"] .top-bar{background:rgba(250,250,248,.94);color:rgba(var(--cream-rgb),.65);border-bottom-color:rgba(var(--cream-rgb),.10)}',
+      'html[data-theme="light"] .nav:not([data-dbnav]){background:rgba(250,250,248,.86);border-bottom-color:rgba(var(--cream-rgb),.10)}',
+      'html[data-theme="light"] .nav.scrolled{background:rgba(250,250,248,.92)}',
+      'html[data-theme="light"] .nav-back,html[data-theme="light"] .nav-trigger{color:rgba(var(--cream-rgb),.75)}',
+      'html[data-theme="light"] .nav-back:hover{color:var(--gold)}',
+      'html[data-theme="light"] .top-bar .active{color:var(--gold)}',
+      'html[data-theme="light"] .top-bar a{color:rgba(var(--cream-rgb),.72)}',
+      'html[data-theme="light"] .top-bar a:hover{color:var(--gold)}',
+      'html[data-theme="light"] .breadcrumbs{color:rgba(var(--cream-rgb),.55)}',
+      'html[data-theme="light"] .breadcrumbs a{color:rgba(var(--cream-rgb),.75)}',
+      'html[data-theme="light"] .breadcrumbs span.cur{color:var(--gold)}',
+      'html[data-theme="light"] .lead,html[data-theme="light"] p.lead{color:rgba(var(--cream-rgb),.78)}',
+      'html[data-theme="light"] .page-head,html[data-theme="light"] .collection-hero{background:linear-gradient(180deg,#FFFFFF 0%,#FAFAF8 100%)}',
+      'html[data-theme="light"] .faq{background:#F4F0E8}',
+      'html[data-theme="light"] .faq-item{background:rgba(255,255,255,.7);border-color:rgba(var(--cream-rgb),.10)}',
+      'html[data-theme="light"] .faq-q{color:#1A1714}',
+      'html[data-theme="light"] .faq-a-inner{color:rgba(var(--cream-rgb),.78)}',
+      'html[data-theme="light"] .tile{background:#FFFFFF;border-color:rgba(var(--cream-rgb),.08);box-shadow:0 1px 3px rgba(0,0,0,.04)}',
+      'html[data-theme="light"] .tile-title,html[data-theme="light"] .tile-body{color:#1A1714}',
+      'html[data-theme="light"] .tile-desc{color:rgba(var(--cream-rgb),.7)}',
+      'html[data-theme="light"] .tile-tag,html[data-theme="light"] .eyebrow{color:var(--gold)}',
+      'html[data-theme="light"] .back-to-top{background:rgba(255,255,255,.9);color:var(--gold);border:1px solid rgba(var(--cream-rgb),.2)}',
+      'html[data-theme="light"] .a-cta{background:var(--gold);color:#FFFFFF;border-color:var(--gold)}',
+      'html[data-theme="light"] .spec-row{border-bottom-color:rgba(var(--cream-rgb),.08)}',
+      'html[data-theme="light"] .spec-key{color:rgba(var(--cream-rgb),.55)}',
+      'html[data-theme="light"] .spec-val{color:#1A1714}',
+      'html[data-theme="light"] .variant{background:#FFFFFF;border-color:rgba(var(--cream-rgb),.08);color:#1A1714}',
+      'html[data-theme="light"] .feat{background:rgba(200,169,106,.06);color:rgba(var(--cream-rgb),.85)}',
+      'html[data-theme="light"] .designer-block{background:#FFFFFF;border-color:rgba(var(--cream-rgb),.10);color:rgba(var(--cream-rgb),.85)}',
+      'html[data-theme="light"] .designer-block .text{color:rgba(var(--cream-rgb),.85)}',
+      'html[data-theme="light"] .designer-block .text strong{color:#1A1714}',
+      'html[data-theme="light"] .head-chips .chip{border-color:rgba(var(--cream-rgb),.15);color:rgba(var(--cream-rgb),.75)}',
+      'html[data-theme="light"] footer{background:#F4F0E8;color:rgba(var(--cream-rgb),.65);border-top-color:rgba(var(--cream-rgb),.08)}',
+      'html[data-theme="light"] footer span,html[data-theme="light"] footer p,html[data-theme="light"] footer div,html[data-theme="light"] footer li,html[data-theme="light"] footer strong,html[data-theme="light"] footer .signature,html[data-theme="light"] footer .col,html[data-theme="light"] footer .link,html[data-theme="light"] footer .bottom{color:rgba(var(--cream-rgb),.75)}',
+      'html[data-theme="light"] footer a{color:var(--gold)}',
+      'html[data-theme="light"] footer a:hover{border-bottom-color:var(--gold)}',
+      'html[data-theme="light"] .nav-cta{color:var(--cream);border-color:var(--gold)}',
+      'html[data-theme="light"] .nav-cta:hover{background:var(--gold);color:var(--ink)}',
+      'html[data-theme="light"] .cta-ghost{color:var(--cream);border-color:rgba(var(--cream-rgb),.35)}',
+      'html[data-theme="light"] .cta-ghost:hover{color:var(--gold);border-color:var(--gold)}',
+      'html[data-theme="light"] .gradient-text{background:linear-gradient(120deg,var(--gold) 0%,#A9832F 55%,var(--gold) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}',
+      'html[data-theme="light"] .italic{color:var(--gold)}',
+      'html[data-theme="light"] h1,html[data-theme="light"] h2,html[data-theme="light"] h3,html[data-theme="light"] h4{color:#1A1714}',
+      'html[data-theme="light"] .brand-logo-block .logo-img{background:#FFFFFF;border:1px solid rgba(var(--cream-rgb),.10)}',
+      'html[data-theme="light"] .lb-name{color:#1A1714}',
+      'html[data-theme="light"] .theme-toggle{color:var(--gold);border-color:rgba(var(--cream-rgb),.20)}',
+      'html[data-theme="light"] .theme-toggle:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}',
+      // === KARTY/PANELE z HARDCODED ciemnym tłem — w light NIE swapowały (nie używały var(--ink*)) ===
+      'html[data-theme="light"] .depth-card{background:rgba(255,255,255,.62);border-color:rgba(var(--cream-rgb),.10)}',
+      'html[data-theme="light"] .agent-form{background:rgba(255,255,255,.80);border-color:rgba(var(--cream-rgb),.10)}',
+      'html[data-theme="light"] .agent-textarea{background:#FFFFFF;color:#1A1714;border-color:rgba(var(--cream-rgb),.15)}',
+      'html[data-theme="light"] .agent-textarea::placeholder,html[data-theme="light"] .cs-form input::placeholder,html[data-theme="light"] .cs-form textarea::placeholder{color:rgba(var(--cream-rgb),.64)}',
+      'html[data-theme="light"] .cs-form{background:rgba(255,255,255,.80);border-color:rgba(var(--cream-rgb),.10)}',
+      'html[data-theme="light"] .cs-form input,html[data-theme="light"] .cs-form textarea,html[data-theme="light"] .cs-form select{background:#FFFFFF;color:#1A1714;border-color:rgba(var(--cream-rgb),.15)}',
+      'html[data-theme="light"] .mega-menu{background:rgba(250,250,248,.98);border-color:rgba(var(--cream-rgb),.10)}',
+      'html[data-theme="light"] .mega-menu a{color:rgba(var(--cream-rgb),.80)}',
+      'html[data-theme="light"] .mega-menu a:hover{color:var(--gold)}',
+      'html[data-theme="light"] .sticky-cta{background:rgba(250,250,248,.96);border-color:rgba(var(--cream-rgb),.10)}',
+      'html[data-theme="light"] .side-dots{background:rgba(255,255,255,.60)}',
+      'html[data-theme="light"] .dbm-burger{color:var(--gold);border-color:rgba(var(--cream-rgb),.22);background:rgba(122,98,56,.08)}',
+      'html[data-theme="light"] .nav.dbm-menu-open .nav-center{background:#FAFAF8;box-shadow:0 18px 40px -12px rgba(0,0,0,.18)}',
+      // ===== CZĘŚĆ 2 (nocna): light polish + hover afordancja + RWD mobile =====
+      // Light — ciemniejsze drugorzędne czcionki (lepszy kontrast wg identyfikacji DB)
+      'html[data-theme="light"] .lead,html[data-theme="light"] p.lead{color:rgba(var(--cream-rgb),.84)}',
+      'html[data-theme="light"] .breadcrumbs{color:rgba(var(--cream-rgb),.60)}',
+      'html[data-theme="light"] .breadcrumbs a{color:rgba(var(--cream-rgb),.82)}',
+      'html[data-theme="light"] .tile-desc{color:rgba(var(--cream-rgb),.80)}',
+      'html[data-theme="light"] .faq-a-inner{color:rgba(var(--cream-rgb),.84)}',
+      'html[data-theme="light"] .spec-val{color:#1A1714}',
+      'html[data-theme="light"] .top-bar,html[data-theme="light"] .top-bar a{color:rgba(var(--cream-rgb),.72)}',
+      // Light — ramki wokół kafli kategorii/kolekcji (widoczność na jasnym tle)
+      'html[data-theme="light"] .cat-card,html[data-theme="light"] .blog-card,html[data-theme="light"] .depth-card,html[data-theme="light"] .brand-cell,html[data-theme="light"] .variant{border:1px solid rgba(var(--cream-rgb),.14)}',
+      // Light — hover kafli wyraźny (istniejące cienie są złote/ciemne, na jasnym mało widać)
+      'html[data-theme="light"] .cat-card:hover,html[data-theme="light"] .blog-card:hover,html[data-theme="light"] .depth-card:hover{border-color:rgba(200,169,106,.70);box-shadow:0 18px 40px -16px rgba(var(--cream-rgb),.28)}',
+      'html[data-theme="light"] .variant:hover,html[data-theme="light"] .tile:hover{border-color:rgba(200,169,106,.70)}',
+      // Galeria — afordancja kliknięcia (otwiera lightbox)
+      '.gallery-item{cursor:zoom-in}',
+      '.gallery-item img{transition:transform .4s cubic-bezier(.2,.7,.2,1),filter .3s ease}',
+      '.gallery-item:hover img{transform:scale(1.04);filter:brightness(1.05)}',
+      // Linki/CTA tekstowe — hover w obu trybach
+      'a.cta:hover,.mp-cta:hover,.nav-back:hover{color:var(--gold,#C8A96A)}',
+      // RWD mobile — top-bar nie rozłazi się (skróć, ukryj separatory; <430px tylko aktywny link)
+      '@media (max-width:600px){.top-bar{font-size:10px;letter-spacing:.10em;padding:7px 14px}.top-bar .links{gap:10px}.top-bar .sep{display:none}}',
+      '@media (max-width:430px){.top-bar .links a:not(.active){display:none}}',
+      // Logo: podmiana pliku per motyw przez JS (swapLogos) — BEZ filter:invert (BLOK L, T8 2026-09-06)
+      //   grafit na jasnym: logo-db-nav.png -> logo-db-nav-jasna.png · logo-db-white.png -> logo-db-black.png
+      // Przejście koloru 150 ms (BLOK L) — jedyna animacja motywu; reszta bez ruchu
+      'html{transition:background-color .15s ease,color .15s ease}',
+      'body,nav,header,footer,section,.tile,.faq-item,.variant,.feat,.designer-block,.brand-logo-block .logo-img{transition:background-color .15s ease,color .15s ease,border-color .15s ease}',
+      // prefers-reduced-motion — zero przejść/animacji motywu
+      '@media (prefers-reduced-motion:reduce){html,body,nav,header,footer,section,.tile,.faq-item,.variant,.feat,.designer-block,.brand-logo-block .logo-img,.ts-opt,.theme-toggle{transition:none!important}}'
+    ].join('');
+    document.head.appendChild(css);
+  }
+
+  // === WHATSAPP — pływający przycisk na każdej stronie ===
+  // Aby zmienić numer: podmień 48506147435 (48 = Polska, bez spacji i +).
+  function injectWhatsApp(){
+    if (document.querySelector('.dbm-wa')) return;
+    if (!document.body) return;
+    var a = document.createElement('a');
+    a.className = 'dbm-wa';
+    a.href = 'https://wa.me/48506147435?text=' + encodeURIComponent('Dzień dobry, piszę ze strony dbmeble.pl — chciałbym zapytać o ofertę.');
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.setAttribute('aria-label', 'Napisz na WhatsApp 506 147 435');
+    a.setAttribute('title', 'Napisz na WhatsApp');
+    a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.004c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zM12.04 20.15h-.003a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>';
+    a.addEventListener('click', function(){
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event:'whatsapp_click'});
+        if (typeof gtag === 'function'){ gtag('event','whatsapp_click',{event_category:'lead', send_to:'G-T68TM6H9F5'}); }
+      } catch(e){}
+    });
+    document.body.appendChild(a);
+  }
+
+  // Failsafe: gdyby IntersectionObserver nie zadziałał (błąd JS / stary cache / wolne ładowanie),
+  // odsłoń treść .reveal po 1.5s — sekcje NIGDY nie zostają niewidoczne ("czarne/puste sekcje").
+  function revealFailsafe(){
+    setTimeout(function(){
+      try { document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ el.classList.add('in'); }); } catch(e){}
+    }, 1500);
+  }
+
+  // === MENU MOBILNE — hamburger otwierający .nav-center (<980px) ===
+  function svgBurger(){
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
+  }
+  function svgClose(){
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  }
+  function initMobileNav(){
+    var nav = document.querySelector('nav.nav');
+    if (!nav) return;
+    var center = nav.querySelector('.nav-center');
+    if (!center) return;                          // podstrony bez .nav-center — pomiń
+    if (nav.querySelector('.dbm-burger')) return; // idempotent
+    var docEl = document.documentElement;
+    var burger = document.createElement('button');
+    burger.type = 'button';
+    burger.className = 'dbm-burger';
+    burger.setAttribute('aria-label', 'Menu');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.innerHTML = svgBurger();
+    var right = nav.querySelector('.nav-right');
+    if (right) { right.insertBefore(burger, right.firstChild); } else { nav.appendChild(burger); }
+    // Przełącznik napisowy „Tryb jasny | Tryb ciemny" w menu hamburgera (BLOK L, T8) — CSS pokazuje go tylko w otwartym menu <980px
+    if (!center.querySelector('.theme-switch')){ center.appendChild(buildSwitch(true)); updateControls(); }
+    // Podlista PRODUKTY (mega-menu) — rozwijana dotykiem w menu mobilnym; kategorie generuje header.js z danych.
+    var mega = center.querySelector('.has-mega');
+    var trigger = mega && mega.querySelector('.nav-trigger');
+    function collapseSub(){ if (mega){ mega.classList.remove('dbm-sub-open'); if (trigger) trigger.setAttribute('aria-expanded','false'); } }
+    // (d) Reguła: chowaj wszystkie elementy pływające (fixed/sticky) będące bezpośrednim dzieckiem <body><!-- PODGLAD DEPLOY3 etap3/paged-hub-v6 (standalone) -->, poza nagłówkiem i jego nakładkami. Zdejmowane po zamknięciu → baner cookies wraca, akceptacja działa.
+    var floatHidden = [];
+    function hideFloating(hide){
+      if (hide){
+        floatHidden = [];
+        var kids = document.body ? document.body.children : [];
+        for (var i = 0; i < kids.length; i++){
+          var el = kids[i];
+          if (el === nav) continue;                                                                     // nagłówek zostaje
+          if (el.classList && (el.classList.contains('dbnav-search-ov') || el.classList.contains('dbm-lb'))) continue;  // nakładki nagłówka/lightbox mają własną logikę
+          var pos = getComputedStyle(el).position;
+          if (pos === 'fixed' || pos === 'sticky'){ el.classList.add('dbm-float-hidden'); floatHidden.push(el); }
+        }
+      } else {
+        floatHidden.forEach(function(el){ el.classList.remove('dbm-float-hidden'); });
+        floatHidden = [];
+      }
+    }
+    function setOpen(open){
+      nav.classList.toggle('dbm-menu-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.innerHTML = open ? svgClose() : svgBurger();
+      docEl.classList.toggle('dbm-nav-open', open);   // (e) scroll-lock body — przez CSS
+      hideFloating(open);                              // (d) chowanie/pokazywanie elementów pływających — reguła, nie lista
+      if (!open) collapseSub();
+    }
+    function close(){ setOpen(false); }
+    function toggle(){ setOpen(!nav.classList.contains('dbm-menu-open')); }
+    burger.addEventListener('click', function(e){ e.stopPropagation(); toggle(); });
+    if (trigger){
+      trigger.setAttribute('role','button');
+      trigger.setAttribute('aria-expanded','false');
+      trigger.addEventListener('click', function(e){
+        if (!nav.classList.contains('dbm-menu-open')) return;   // desktop: rządzi hover, nie ruszamy
+        e.preventDefault(); e.stopPropagation();
+        var subOpen = mega.classList.toggle('dbm-sub-open');
+        trigger.setAttribute('aria-expanded', subOpen ? 'true' : 'false');
+      });
+    }
+    center.addEventListener('click', function(e){ if (e.target.closest('a')) close(); });   // klik w link → zamknij
+    document.addEventListener('click', function(e){ if (nav.classList.contains('dbm-menu-open') && !nav.contains(e.target)) close(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+  }
+
+  // === LIGHTBOX — galeria otwiera się w nakładce (nie nowej karcie) ===
+  function initLightbox(){
+    var items = Array.prototype.slice.call(document.querySelectorAll('a.gallery-item[href]'));
+    if (!items.length) return;
+    var urls = items.map(function(a){ return a.getAttribute('href'); });
+    var lb = document.getElementById('dbm-lb');
+    if (!lb){
+      lb = document.createElement('div');
+      lb.id = 'dbm-lb';
+      lb.className = 'dbm-lb';
+      lb.setAttribute('role','dialog');
+      lb.setAttribute('aria-modal','true');
+      lb.innerHTML =
+        '<button class="dbm-lb-close" type="button" aria-label="Zamknij">×</button>' +
+        '<button class="dbm-lb-nav dbm-lb-prev" type="button" aria-label="Poprzednie zdjęcie">‹</button>' +
+        '<img alt="Zdjęcie produktu">' +
+        '<button class="dbm-lb-nav dbm-lb-next" type="button" aria-label="Następne zdjęcie">›</button>' +
+        '<div class="dbm-lb-count"></div>';
+      document.body.appendChild(lb);
+    }
+    var img = lb.querySelector('img');
+    var count = lb.querySelector('.dbm-lb-count');
+    var prevBtn = lb.querySelector('.dbm-lb-prev');
+    var nextBtn = lb.querySelector('.dbm-lb-next');
+    var single = urls.length < 2;
+    prevBtn.style.display = single ? 'none' : '';
+    nextBtn.style.display = single ? 'none' : '';
+    count.style.display = single ? 'none' : '';
+    var idx = 0;
+    function show(i){ idx = (i + urls.length) % urls.length; img.src = urls[idx]; count.textContent = (idx+1) + ' / ' + urls.length; }
+    function open(i){ show(i); lb.classList.add('open'); document.documentElement.style.overflow = 'hidden'; }
+    function close(){ lb.classList.remove('open'); document.documentElement.style.overflow = ''; }
+    items.forEach(function(a, i){
+      a.removeAttribute('target');
+      a.addEventListener('click', function(e){ e.preventDefault(); open(i); });
+    });
+    lb.querySelector('.dbm-lb-close').addEventListener('click', close);
+    prevBtn.addEventListener('click', function(e){ e.stopPropagation(); show(idx-1); });
+    nextBtn.addEventListener('click', function(e){ e.stopPropagation(); show(idx+1); });
+    lb.addEventListener('click', function(e){ if (e.target === lb) close(); });
+    document.addEventListener('keydown', function(e){
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft' && !single) show(idx-1);
+      else if (e.key === 'ArrowRight' && !single) show(idx+1);
+    });
+  }
+
+  function safe(fn){ try { fn(); } catch(e){} }
+  function initAll(){
+    safe(injectButton); safe(initMobileNav); safe(injectWhatsApp); safe(initLightbox); safe(revealFailsafe);
+  }
+
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
+})();
+
+</script>
+</body>
+</html>
