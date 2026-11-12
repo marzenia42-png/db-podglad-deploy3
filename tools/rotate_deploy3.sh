@@ -91,6 +91,7 @@ update_archiwum_md(){
 }
 
 main(){
+  export ROTATE_ACTIVE=1   # guard: gate w pre-push nie wywoła rotacji rekurencyjnie
   local start; start=$(cur_mb)
   say "deploy3 git-tracked: ${start} MB (target <${TARGET_MB}, HARD ${HARD_MB})"
   if [ "$start" -lt "$TARGET_MB" ]; then say "OK <${TARGET_MB} MB — rotacja niepotrzebna"; return 0; fi
@@ -138,7 +139,15 @@ main(){
     update_archiwum_md "$d" "$now"
   done
   say "deploy3: usunieto ${#ok[@]} katalogow (test PASS). Po: $(cur_mb) MB"
-  say "Commit+push deploy3 robi wywolujacy (slim 12.11) albo osobny krok."
+  # commit+push deploy3 (tryb dzienny) — staguje TYLKO usuniecia (juz w indeksie) + ARCHIWUM.md; NIE -A
+  if [ "${#ok[@]}" -gt 0 ] && [ "${COMMIT_DEPLOY3:-1}" = "1" ]; then
+    git -C "$DEPLOY3" add ARCHIWUM.md 2>/dev/null || true
+    git -C "$DEPLOY3" commit -q -m "slim (rotacja auto 4:40): ${ok[*]}" && \
+      git -C "$DEPLOY3" push -q origin main && say "deploy3 commit+push OK ($(cur_mb) MB)" \
+      || say "UWAGA: deploy3 commit/push nieudany — zglos (staged zmiany zostaja)"
+  else
+    say "Commit+push deploy3: pominięty (COMMIT_DEPLOY3=0) — robi wywolujacy."
+  fi
   return 0
 }
 main "$@" 2>&1 | tee -a "$LOG"

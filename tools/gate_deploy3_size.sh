@@ -13,8 +13,11 @@ if [ "$MB" -gt 820 ]; then
   exit 1
 fi
 if [ "$MB" -ge 760 ]; then
-  echo "WARN: ${MB} MB >= 760 MB -> rotacja do archiwum zalecana (dry-run):"
-  bash "$(dirname "$0")/rotate_deploy3.sh" || true
+  echo "WARN: ${MB} MB >= 760 MB -> rotacja do archiwum zalecana (uruchom: APPLY=1 tools/rotate_deploy3.sh)."
+  if [ "${ROTATE_ACTIVE:-0}" != "1" ]; then
+    echo "  podglad (dry-run) co by przeszlo do archiwum:"
+    bash "$(dirname "$0")/rotate_deploy3.sh" || true
+  fi
 fi
 echo "OK: ${MB} MB < 820 MB"
 exit 0
