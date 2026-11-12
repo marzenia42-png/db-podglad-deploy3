@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# deploy3 pre-push: bramka rozmiaru (820 HARD / 760 WARN->rotacja).
+# Instalacja: cp tools/pre-push.deploy3 .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+root="$(git rev-parse --show-toplevel)"
+exec bash "$root/tools/gate_deploy3_size.sh"
