@@ -1,0 +1,40 @@
+{
+ "slug": "paged-shell",
+ "producent": "paged",
+ "karta": "E:\\Dario\\projekty\\_wt\\t10-paged\\web\\_engine\\paged-shell.json",
+ "plik": "E:\\Dario\\projekty\\_podglad\\paged\\paged-shell\\index.html",
+ "tpl_hash": "7d378844",
+ "silnik": "main",
+ "live_w_tyle": {
+  "linie": 2127,
+  "prob": [
+   "product-engine.js:l.37,72,73,75,76…",
+   "product-engine.css:l.127,128,129,130,131…"
+  ],
+  "js": "main babe941e9a911457 vs live 4469565eb21ee726 (Δ1536)",
+  "css": "main f3d51c2946ed28e9 vs live d5c4ce728fbe3855 (Δ591)"
+ },
+ "obrazy_inline": 5,
+ "obrazy_sidecar": 68,
+ "sidecar_kb": 1074,
+ "budzet_inline_przekroczony": false,
+ "pobrane_z_drive": [],
+ "brak_u_producenta": [],
+ "rozmiar_kb": 297,
+ "data": "2026-11-15T11:04:32",
+ "samotest": {
+  "pass": true,
+  "hero": true,
+  "galeria": 8,
+  "imgs": 101,
+  "broken": 0,
+  "brokenSrc": [],
+  "zakladki": 6,
+  "zakladki_klik_ok": true,
+  "konsola_bledy": [],
+  "konsola_artefakty_file": 3
+ },
+ "gate": {
+  "skip": "PODGLAD_NOGATE"
+ }
+}
