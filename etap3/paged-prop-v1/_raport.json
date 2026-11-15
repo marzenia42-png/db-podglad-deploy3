@@ -16,12 +16,12 @@
  },
  "obrazy_inline": 5,
  "obrazy_sidecar": 63,
- "sidecar_kb": 1333,
+ "sidecar_kb": 1308,
  "budzet_inline_przekroczony": false,
  "pobrane_z_drive": [],
  "brak_u_producenta": [],
  "rozmiar_kb": 287,
- "data": "2026-11-15T13:37:42",
+ "data": "2026-11-15T13:51:35",
  "samotest": {
   "pass": true,
   "hero": true,
@@ -32,7 +32,7 @@
   "zakladki": 6,
   "zakladki_klik_ok": true,
   "konsola_bledy": [],
-  "konsola_artefakty_file": 7
+  "konsola_artefakty_file": 3
  },
  "gate": {
   "skip": "PODGLAD_NOGATE"
