@@ -15,24 +15,24 @@
   "css": "main f3d51c2946ed28e9 vs live d5c4ce728fbe3855 (Δ591)"
  },
  "obrazy_inline": 5,
- "obrazy_sidecar": 63,
- "sidecar_kb": 1084,
+ "obrazy_sidecar": 73,
+ "sidecar_kb": 1155,
  "budzet_inline_przekroczony": false,
  "pobrane_z_drive": [],
  "brak_u_producenta": [],
- "rozmiar_kb": 282,
- "data": "2026-11-15T13:37:55",
+ "rozmiar_kb": 286,
+ "data": "2026-11-15T17:58:00",
  "samotest": {
   "pass": true,
   "hero": true,
   "galeria": 3,
-  "imgs": 96,
+  "imgs": 107,
   "broken": 0,
   "brokenSrc": [],
   "zakladki": 6,
   "zakladki_klik_ok": true,
   "konsola_bledy": [],
-  "konsola_artefakty_file": 6
+  "konsola_artefakty_file": 9
  },
  "gate": {
   "skip": "PODGLAD_NOGATE"
